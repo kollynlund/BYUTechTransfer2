@@ -1,0 +1,30 @@
+<div id="technologies" class="section shirts page">
+	<div class="wrapper">
+		<div class="breadcrumb"><a href="" ng-click="tc.goTo('home')">Home</a> &gt; <a href="" ng-click="tc.goTo('technologies')">Technologies</a> </div>
+		<h1 style="margin-bottom: 0em;">BYU Technologies Available for License</h1>
+		<p style="text-align: center; margin-top: 0px;"><a class="featured-tech-pdf" href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank" style="padding-top: 0px; font-size: 1em; text-align: center;">Download the List of Promising Technologies (pdf)</a></p>
+		<p>The following is a list of technologies currently available for license from BYU. Filter the list using the search box or category selector. Click on any invention for more information.</p>
+		<div class="search-container">
+			<form>
+				<div class="group filter">
+					<input class="search-box" placeholder="Search technologies..." type="text" name="s" ng-model="tc.searchText">
+					<div class="select-style">
+						<select name="c" ng-model="categorySearch.Categories" ng-options="category as (category === '' ? 'Show All' : category) for category in categories"></select>
+					</div>
+			</form>
+		</div>
+		<ul class="products">
+			<div class="technology-box" ng-repeat="technology in technologies | filter:tc.searchText | filter:(categorySearch.Categories === 'Show All' ? undefined : categorySearch) | orderBy:'Name'">
+				<a class="patent-info" href="" ng-click="tc.goToTech(technology.ID)">
+					<div class='patent-list'>
+						<div class='patent-container'>
+							<h2 id='patent-name'>{{technology.Name}}</h2>
+							<span> ID: {{technology.ID}}</span>
+							<p class='patent-description'>{{technology["Short Description"]}}</p>
+						</div>
+					</div>
+				</a>
+			</div>
+		</ul>
+	</div>
+</div>

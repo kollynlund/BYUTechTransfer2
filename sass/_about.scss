@@ -1,0 +1,41 @@
+.wrapper-about {
+    width: 85%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+ #about-img {   
+ 	width: 30%;
+    vertical-align: top;
+ 	display: inline-block;
+    list-style: none;
+    border: 1px solid #e3e1e0;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-align: center;
+    padding: 14px;
+    background: #f0eeed;
+    margin: 0 1.53em 17px 0px;
+        @media (max-width:815px) {
+        display: none;
+
+    }
+
+}
+
+#about-text {
+//	margin: 2em 0 7em 0; 
+	line-height: 1.2em;
+    white-space: pre-wrap;
+    font-size: .95em;
+    vertical-align: top;
+	width: 60%;
+	display: inline-block;
+    margin-top: 0em;
+    @media (max-width:815px) {
+        width: 100%;
+        font-size: .9em;
+
+    }
+}

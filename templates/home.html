@@ -1,0 +1,36 @@
+<div id="content">
+	<div style="height: auto;" class="section banner" ng-app="videotext" ng-controller="HomeController">
+		<video width="100%" autoplay loop>
+		  <source src="patentvideo.mp4" type="video/mp4">
+		</video>
+		<!--<div class="wrapper" ng-style="{'height':jumboHeight, 'margin-top':-jumboHeight}">
+			<div class="button">
+				<div class="btn-txt">
+					<h2 style="font-size: 1.3em">Welcome to BYU Technology Transfer</h2>
+					<p>We protect and commercialize BYU inventions</p>
+				</div>
+					<p><a class="featured-tech-pdf" href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank" style="padding-top: 10px;"><i class="fa fa-angle-double-right"></i> Promising Technologies (pdf)</a></p>
+			</div>
+		</div>-->
+	</div>
+
+	<div class="section shirts latest">
+		<div class="wrapper">
+			<h2 class="home-title"></h2>
+			
+		</div>
+			<center>
+				<a href="" ng-click="hmc.goTo('technologies')"><button id="ip-contact" style="margin-top: 0em; margin-top: 2em;">&middot;&middot; CLICK HERE TO SEARCH ALL TECHNOLOGIES &middot;&middot;</button></a>
+			</center>
+
+		<!--<div class="feature-wrapper">
+			<?php include("inc/featured-technologies-home.php"); ?>
+			<ul class="products featured-container">
+				<?php foreach($technologies as $technology_id => $technology) { 
+						echo get_list_view_html($technology_id,$technology);
+					}
+				?>
+			</ul>
+		</div>-->
+	</div>
+</div>

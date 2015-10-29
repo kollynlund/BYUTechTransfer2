@@ -1,0 +1,249 @@
+.header:after {
+    content:"";
+    height:0;
+    display:block;
+    visibility:hidden;
+    clear:both;
+}
+
+.header {
+    background-image: url('../img/byu-header-bg.svg'); 
+    border-bottom: 2px solid #ddd;
+
+}
+
+.header .branding-title {
+    float: left; 
+    margin: 5px 0 0 0px;
+    position: absolute;
+    left: 30px;
+    width: 255px;
+    height: 77px;
+    background:url(../img/logo.png) 0 14px no-repeat;
+    padding: 14px 0;
+    @media (max-width: 850px) {
+        background-size: 80%;
+    }
+    @media (max-width: 780px) {
+        background-size: 70%;
+    }
+    @media (max-width: 700px) {
+        background-size: 65%;
+    }
+}
+
+.header .branding-title a {
+    display: block; 
+    height: 77px; 
+    width: 255px;
+    background-color: red;
+    opacity: .5;
+}
+
+.header .nav {
+    float: right; 
+    top: 0; 
+    right: 0; 
+    margin: 0;
+    margin-right: 5%; 
+    position: relative; 
+    left: 15px; 
+    z-index: 99999999;
+    @media (max-width: 670px) {
+        float: none;
+        position: static; 
+        padding-left: 0px;
+        padding-top: 100px;
+
+    }
+}
+
+.header .nav li {
+    display: inline-block; 
+    margin: 0; 
+    list-style: none;
+
+}
+
+
+.header .nav li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    line-height: 95px;
+    padding: 10px 0 0;
+    margin: 0 0 0 50px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap; 
+    &:hover {
+        color: yellow;
+    }
+    @media (max-width: 800px) {
+        margin: 0 0 0 2.5em;
+
+    }
+    @media (max-width: 747px) {
+        font-size: .9em;
+    } 
+    @media (max-width: 670px) {
+        width: 100vw;
+        background-color: #555;
+        border-top: 2px solid #ddd;
+        margin-left: 0px;
+        line-height: 45px;
+        padding-top: 0px;
+        font-size: .9em;
+
+    }
+
+}
+
+
+
+.header .nav li a:hover, .header .nav li a:active, .header .nav li a:focus {
+    color: #bbb;
+    background-color: transparent;
+}
+
+.header .nav li.shirts a {
+    background-position: 0px 0px;
+}
+
+.header .nav li.contact a {
+    background-position: 0px -105px;
+}
+
+.header .nav li.cart a {
+    width: 122px;
+    font-size: 0/95px serif;
+    text-shadow: none;
+    color: transparent;
+    background-position: 16px -216px;
+    margin: 0;
+}
+
+.header .nav li.cart a:hover {
+    background-position: 16px -321px;
+}
+
+
+.nav-item {
+    @media (max-width: 670px) {
+        display: block !important;
+        margin: 0 auto;
+    }
+}
+
+#content {
+    min-height: 400px; 
+    background: white;
+}
+
+.section.banner {
+    height: 290px; 
+    background: #3d3d3d url('../img/byu-campus.jpg') no-repeat;
+    background-size: 100%;
+    @media (max-width: 800px) {
+        background-size: 120%;
+    } 
+    @media (max-width: 566px) {
+        background-size: 170%;
+    } 
+    @media (max-width: 400px) {
+        height: 200px;
+    }       
+}
+
+
+.section.banner .wrapper {position: relative;}
+
+.section.banner .hero {top: -89px; left: 177px; z-index: 999;}
+
+.section.banner .button {
+    display: block;
+    position: absolute;
+    top: 57px;
+    left: 50px;
+    margin: 0;
+    width: 400px;
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    border: 3px solid #ddd;
+    background-color: white;
+    z-index: 0;
+    // padding: .5em 0 0 .5em;
+    @media (max-width: 577px) {
+        left: -20px;
+    }
+    @media (max-width: 560px) {
+        top: 3em;
+
+    }
+
+
+    @media (max-width: 440px) {
+        left: 0px;
+        width: 100%;
+        top: 1.5em;
+    }
+
+}
+.section.banner .btn-txt {
+    padding: 15px 15px 5px 15px;
+    display: block;
+    text-decoration: none;
+    color: #FFF;
+    @media (max-width: 577px) {
+        padding: .4em;
+    }
+}
+
+.section.banner a {
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    @media (max-width: 577px) {
+        padding: .4em;
+    }
+}
+.section.banner a:hover {
+    text-decoration: none;
+}
+
+a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
+    text-decoration: underline;
+}
+
+.featured-tech-pdf {
+    text-align: right;
+    font-size: 1.2em;
+    // &:after {
+    //     content: url(../img/pdf.png);
+    //     margin-left: .4em;
+    // }
+}
+
+.section.banner h2 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+    line-height: 1.5;
+    color: #111;
+    @media (max-width: 440px) {
+        font-size: 1.125em !important;
+    }
+}
+.section.banner p {
+    color: #666;
+    font-style: italic;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+
+
+
+
+
