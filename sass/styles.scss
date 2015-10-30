@@ -4,6 +4,8 @@
 @import 'form';
 @import 'about';
 @import 'resources';
+@import 'technologies';
+@import 'contact';
 
 
 @import url(http://fonts.googleapis.com/css?family=PT+Serif);
@@ -46,13 +48,14 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
 .section.page:after {content:"";display:block;visibility:hidden;height:0;clear:both;}
 .section.page {padding: 34px 0; background: white;}
 .section.page h1 {
-    font-size: 24px; 
+    font-size: 2em; 
     font-family: 'PT Serif', Serif;
     text-align: center;
     text-transform: uppercase;
     line-height: 1.6;
     color: #222;
     font-weight: normal; 
+    margin-bottom: 2em;
     @media (max-width: 539px) {
         line-height: 1.2;
         margin-top: 0px;
@@ -209,13 +212,6 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     padding: 0px;
 }
 
-.shirt-picture img {
-    width: 100%;
-}
-
-.shirt-details {
-    width: 100%;
-}
 
 .breadcrumb {
     font-size: 14px;
@@ -247,10 +243,6 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
 
 
 
-.search-container {
-    margin-bottom: 10px;
-}
-
 .patent-filter {
     background-color: #ddd;
     position: relative;
@@ -271,59 +263,9 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     display: block !important;
 }
 
-.patent-container {
-    background-color: #fff !important;
-    span {
-        margin-left: .5em;
-        font-size: .9em;
-    }
 
-}
 
-#patent-name {
-    color: #333 !important;
-    text-align: left !important;
-    padding-top: .2em;
-    margin-left: .3em !important;
-    margin-top: 0em !important;
-    margin-bottom: 0px !important;
-    margin-right: .5em !important;
-    font-size: 1.4em !important;
-    display: block !important;
-    line-height: 1.2em;
-    text-transform: uppercase !important;
-    &:hover {
-        text-decoration: none !important;
-    }    
-    @media (max-width: 500px) {
-        font-size: 1.3em !important; 
-    }
-}
 
-.patent-description {
-    text-align: left !important;
-    font-size: .9em !important;
-    margin-top: .1em !important;
-    padding: 0px 0em .5em .5em !important;
-    margin-bottom: 0px !important;
-    margin-right: 1em !important;
-    width: inherit !important;
-    &:hover {
-        text-decoration: none !important;
-    }    
-    @media (max-width: 500px) {
-        font-size: .8em !important; 
-        margin-top: 0px !important;
-    }
-}
-
-.patent-info {
-    text-decoration: none;
-    color: inherit;
-    &:hover {
-        text-decoration: none !important;
-    }
-}
 
 
 .search-patents-icon {
@@ -343,38 +285,7 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     display: inline-block;
 }
 
-#technologies {
-    .search-box {
-        width: 60%;
-        margin-bottom: 15px;
-        display: inline-block;
-        height: 39px;
-        margin-top: 0px !important;
-        border-radius: 3px;
-        border: 2px solid #ddd;
-        display: inline-block;
-        padding-left: .5em;
-        @media (max-width: 760px) {
-            width: 100%;
-            display: block;
-        }
-    }
-    .select-style {
-      width: 39.5%;    
-      padding: 2.7px;
-      display: inline-block;
-      margin-top: 0px !important;
-      border: 2px solid #ddd;
-      border-radius: 3px;
-      background-color: #fff;
-      float: right;
-      background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
-          @media (max-width: 760px) {
-            width: 100%;
-            display: block;
-        }
-    }    
-}
+
 #clear-search {
     float: right;
     font-size: .9em;
@@ -417,8 +328,6 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     text-align: center;
 
 }
-
-
 
 
 .select-style select {
@@ -481,8 +390,6 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     a {
         text-decoration: none;
     }
-    
-
 }
 
 

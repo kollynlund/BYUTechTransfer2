@@ -263,14 +263,14 @@ table {
   border-bottom: 2px solid #ddd; }
 
 .header .branding-title {
-  float: left;
-  margin: 5px 0 0 0px;
+  margin: 0px;
   position: absolute;
-  left: 30px;
+  left: 25px;
+  top: 11px;
   width: 255px;
   height: 77px;
-  background: url(../img/logo.png) 0 14px no-repeat;
-  padding: 14px 0; }
+  background: url(../img/logo.png) no-repeat;
+  background-size: 180px; }
   @media (max-width: 850px) {
     .header .branding-title {
       background-size: 80%; } }
@@ -285,7 +285,6 @@ table {
   display: block;
   height: 77px;
   width: 255px;
-  background-color: red;
   opacity: .5; }
 
 .header .nav {
@@ -313,14 +312,12 @@ table {
   color: white;
   text-decoration: none;
   display: block;
-  line-height: 95px;
-  padding: 10px 0 0;
+  line-height: 80px;
+  padding: 0;
   margin: 0 0 0 50px;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap; }
-  .header .nav li a:hover {
-    color: yellow; }
   @media (max-width: 800px) {
     .header .nav li a {
       margin: 0 0 0 2.5em; } }
@@ -339,7 +336,11 @@ table {
 
 .header .nav li a:hover, .header .nav li a:active, .header .nav li a:focus {
   color: #bbb;
-  background-color: transparent; }
+  background-color: transparent;
+  -webkit-transition: color 150ms ease-in;
+  -moz-transition: color 150ms ease-in;
+  -o-transition: color 150ms ease-in;
+  transition: color 150ms ease-in; }
 
 .header .nav li.shirts a {
   background-position: 0px 0px; }
@@ -460,6 +461,7 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
   background: #0A497F;
   background: #e8e8e8;
   padding-top: .4em;
+  padding-bottom: .6em;
   color: #a5a5a5;
   box-shadow: 0 -1px 0px #dddddd;
   border-top: 1px solid #fff;
@@ -713,7 +715,7 @@ input[type="submit"], .ip-contact {
   margin: 0 auto; }
 
 #about-img {
-  width: 30%;
+  width: auto;
   vertical-align: top;
   display: inline-block;
   list-style: none;
@@ -729,24 +731,100 @@ input[type="submit"], .ip-contact {
       display: none; } }
 
 #about-text {
-  line-height: 1.2em;
+  line-height: 1.4em;
   white-space: pre-wrap;
-  font-size: .95em;
+  font-size: 1em;
   vertical-align: top;
-  width: 60%;
-  display: inline-block;
-  margin-top: 0em; }
+  display: inline-block; }
   @media (max-width: 815px) {
     #about-text {
       width: 100%;
       font-size: .9em; } }
 
 .wrapper #resources-title ~ li {
-  margin-bottom: .3em; }
+  margin-bottom: .1em; }
   @media (max-width: 400px) {
     .wrapper #resources-title ~ li {
       margin-bottom: 1em;
       font-size: .9em; } }
+
+#technologies .featured-tech-pdf {
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  margin-bottom: 4em; }
+#technologies .search-box {
+  width: 60%;
+  margin-bottom: 15px;
+  display: inline-block;
+  height: 39px;
+  margin-top: 0px;
+  border-radius: 3px;
+  border: 2px solid #ddd;
+  display: inline-block;
+  padding-left: .5em; }
+  @media (max-width: 760px) {
+    #technologies .search-box {
+      width: 100%;
+      display: block; } }
+#technologies .select-style {
+  width: 39.5%;
+  padding: 2.7px;
+  display: inline-block;
+  margin-top: 0px;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  background-color: #fff;
+  float: right;
+  background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%; }
+  @media (max-width: 760px) {
+    #technologies .select-style {
+      width: 100%;
+      display: block; } }
+#technologies .patent-container {
+  background-color: #fff; }
+  #technologies .patent-container span {
+    margin-left: .5em;
+    font-size: .9em; }
+#technologies .patent-description {
+  text-align: left;
+  font-size: .9em;
+  margin-top: .1em;
+  padding: 0px 0em .5em .5em;
+  margin-bottom: 0px;
+  margin-right: 1em;
+  width: inherit; }
+  #technologies .patent-description:hover {
+    text-decoration: none; }
+  @media (max-width: 500px) {
+    #technologies .patent-description {
+      font-size: .8em;
+      margin-top: 0px; } }
+#technologies .patent-info {
+  text-decoration: none;
+  color: inherit; }
+  #technologies .patent-info:hover {
+    text-decoration: none; }
+#technologies .patent-name {
+  color: #333;
+  text-align: left;
+  padding-top: .2em;
+  margin-left: .3em;
+  margin-top: 0em;
+  margin-bottom: 0px;
+  margin-right: .5em;
+  font-size: 1.4em;
+  display: block;
+  line-height: 1.2em;
+  text-transform: uppercase; }
+  #technologies .patent-name:hover {
+    text-decoration: none; }
+  @media (max-width: 500px) {
+    #technologies .patent-name {
+      font-size: 1.3em; } }
+
+.search-container {
+  margin-bottom: 10px; }
 
 html {
   overflow-y: scroll;
@@ -795,13 +873,14 @@ body {
   background: white; }
 
 .section.page h1 {
-  font-size: 24px;
+  font-size: 2em;
   font-family: 'PT Serif', Serif;
   text-align: center;
   text-transform: uppercase;
   line-height: 1.6;
   color: #222;
-  font-weight: normal; }
+  font-weight: normal;
+  margin-bottom: 2em; }
   @media (max-width: 539px) {
     .section.page h1 {
       line-height: 1.2;
@@ -940,12 +1019,6 @@ body {
   width: 100%;
   padding: 0px; }
 
-.shirt-picture img {
-  width: 100%; }
-
-.shirt-details {
-  width: 100%; }
-
 .breadcrumb {
   font-size: 14px;
   font-weight: normal;
@@ -966,9 +1039,6 @@ body {
   background-size: contain;
   display: inline; }
 
-.search-container {
-  margin-bottom: 10px; }
-
 .patent-filter {
   background-color: #ddd;
   position: relative;
@@ -986,51 +1056,6 @@ body {
   width: 88% !important;
   display: block !important; }
 
-.patent-container {
-  background-color: #fff !important; }
-  .patent-container span {
-    margin-left: .5em;
-    font-size: .9em; }
-
-#patent-name {
-  color: #333 !important;
-  text-align: left !important;
-  padding-top: .2em;
-  margin-left: .3em !important;
-  margin-top: 0em !important;
-  margin-bottom: 0px !important;
-  margin-right: .5em !important;
-  font-size: 1.4em !important;
-  display: block !important;
-  line-height: 1.2em;
-  text-transform: uppercase !important; }
-  #patent-name:hover {
-    text-decoration: none !important; }
-  @media (max-width: 500px) {
-    #patent-name {
-      font-size: 1.3em !important; } }
-
-.patent-description {
-  text-align: left !important;
-  font-size: .9em !important;
-  margin-top: .1em !important;
-  padding: 0px 0em .5em .5em !important;
-  margin-bottom: 0px !important;
-  margin-right: 1em !important;
-  width: inherit !important; }
-  .patent-description:hover {
-    text-decoration: none !important; }
-  @media (max-width: 500px) {
-    .patent-description {
-      font-size: .8em !important;
-      margin-top: 0px !important; } }
-
-.patent-info {
-  text-decoration: none;
-  color: inherit; }
-  .patent-info:hover {
-    text-decoration: none !important; }
-
 .search-patents-icon {
   background-color: #ddd;
   padding: 9px 10px 11px 10px;
@@ -1045,35 +1070,6 @@ body {
   border-bottom-left-radius: 3px;
   border: 2px solid #ddd;
   display: inline-block; }
-
-#technologies .search-box {
-  width: 60%;
-  margin-bottom: 15px;
-  display: inline-block;
-  height: 39px;
-  margin-top: 0px !important;
-  border-radius: 3px;
-  border: 2px solid #ddd;
-  display: inline-block;
-  padding-left: .5em; }
-  @media (max-width: 760px) {
-    #technologies .search-box {
-      width: 100%;
-      display: block; } }
-#technologies .select-style {
-  width: 39.5%;
-  padding: 2.7px;
-  display: inline-block;
-  margin-top: 0px !important;
-  border: 2px solid #ddd;
-  border-radius: 3px;
-  background-color: #fff;
-  float: right;
-  background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%; }
-  @media (max-width: 760px) {
-    #technologies .select-style {
-      width: 100%;
-      display: block; } }
 
 #clear-search {
   float: right;
