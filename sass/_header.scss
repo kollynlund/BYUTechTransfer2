@@ -1,4 +1,4 @@
-.header:after {
+#header:after {
     content:"";
     height:0;
     display:block;
@@ -6,13 +6,13 @@
     clear:both;
 }
 
-.header {
+#header {
     background-image: url('../img/byu-header-bg.svg'); 
     border-bottom: 2px solid #ddd;
 
 }
 
-.header .branding-title {
+#header .branding-title {
     margin: 0px;
     position: absolute;
     left: 25px;
@@ -32,14 +32,14 @@
     }
 }
 
-.header .branding-title a {
+#header .branding-title a {
     display: block; 
     height: 77px; 
     width: 255px;
     opacity: .5;
 }
 
-.header .nav {
+#header .nav {
     float: right; 
     top: 0; 
     right: 0; 
@@ -57,7 +57,7 @@
     // }
 }
 
-.header .nav li {
+#header .nav li {
     display: inline-block; 
     margin: 0; 
     list-style: none;
@@ -65,7 +65,7 @@
 }
 
 
-.header .nav li a {
+#header .nav li a {
     color: white;
     text-decoration: none;
     display: block;
@@ -97,7 +97,7 @@
 
 
 
-.header .nav li a:hover, .header .nav li a:active, .header .nav li a:focus {
+#header .nav li a:hover, #header .nav li a:active, #header .nav li a:focus {
     color: #bbb;
     background-color: transparent;
     -webkit-transition: color 150ms ease-in;
@@ -107,13 +107,13 @@
 }
 
 
-.header .nav li.contact a {
+#header .nav li.contact a {
     background-position: 0px -105px;
 }
 
 
 
-.header .nav li.cart a:hover {
+#header .nav li.cart a:hover {
     background-position: 16px -321px;
 }
 
@@ -241,6 +241,22 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
     }
 }
 
+}
+
+#header {
+    #menu-btn {
+    color: white;
+    font-size: 2.125em;
+    position: fixed;
+    right: 30px;
+    top: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+    @media(min-width: 671px) {
+        display: none;
+    }
+    }
 }
 
 

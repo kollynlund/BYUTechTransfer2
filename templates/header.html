@@ -1,4 +1,4 @@
-<div class="header" ng-controller="HeaderController as hc">
+<div id="header" ng-controller="HeaderController as hc">
 	<a href="" ng-click="hc.goTo('home')"><h1 class="branding-title"></h1></a>
 	<ul class="nav">
 		<li><a href="" ng-click="hc.goTo('technologies')">Technologies</a></li>
@@ -6,10 +6,21 @@
 		<li><a href="" ng-click="hc.goTo('contact')">Contact</a></li>
 		<li><a href="" ng-click="hc.goTo('about')">About</a></li>
 	</ul>
+	<i id="menu-btn" class="fa fa-bars"></i>
 	<ul class="nav-mobile">
-		<li><a href="" ng-click="hc.goTo('technologies')">Technologies</a></li>
-		<li><a href="" ng-click="hc.goTo('resources')">Resources</a></li>
-		<li><a href="" ng-click="hc.goTo('contact')">Contact</a></li>
-		<li><a href="" ng-click="hc.goTo('about')">About</a></li>
+		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('technologies')">Technologies</a></li>
+		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('resources')">Resources</a></li>
+		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('contact')">Contact</a></li>
+		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('about')">About</a></li>
 	</ul>	
 </div>
+<script>
+
+$("#menu-btn").click(function(){
+   $(".mobile-nav-item").toggleClass("hidden");
+});
+
+
+
+
+</script>

@@ -251,18 +251,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.header:after {
+#header:after {
   content: "";
   height: 0;
   display: block;
   visibility: hidden;
   clear: both; }
 
-.header {
+#header {
   background-image: url("../img/byu-header-bg.svg");
   border-bottom: 2px solid #ddd; }
 
-.header .branding-title {
+#header .branding-title {
   margin: 0px;
   position: absolute;
   left: 25px;
@@ -272,22 +272,22 @@ table {
   background: url(../img/logo.png) no-repeat;
   background-size: 180px; }
   @media (max-width: 850px) {
-    .header .branding-title {
+    #header .branding-title {
       background-size: 80%; } }
   @media (max-width: 780px) {
-    .header .branding-title {
+    #header .branding-title {
       background-size: 70%; } }
   @media (max-width: 700px) {
-    .header .branding-title {
+    #header .branding-title {
       background-size: 65%; } }
 
-.header .branding-title a {
+#header .branding-title a {
   display: block;
   height: 77px;
   width: 255px;
   opacity: .5; }
 
-.header .nav {
+#header .nav {
   float: right;
   top: 0;
   right: 0;
@@ -297,12 +297,12 @@ table {
   left: 15px;
   z-index: 99999999; }
 
-.header .nav li {
+#header .nav li {
   display: inline-block;
   margin: 0;
   list-style: none; }
 
-.header .nav li a {
+#header .nav li a {
   color: white;
   text-decoration: none;
   display: block;
@@ -313,13 +313,13 @@ table {
   text-transform: uppercase;
   white-space: nowrap; }
   @media (max-width: 800px) {
-    .header .nav li a {
+    #header .nav li a {
       margin: 0 0 0 2.5em; } }
   @media (max-width: 747px) {
-    .header .nav li a {
+    #header .nav li a {
       font-size: .9em; } }
 
-.header .nav li a:hover, .header .nav li a:active, .header .nav li a:focus {
+#header .nav li a:hover, #header .nav li a:active, #header .nav li a:focus {
   color: #bbb;
   background-color: transparent;
   -webkit-transition: color 150ms ease-in;
@@ -327,10 +327,10 @@ table {
   -o-transition: color 150ms ease-in;
   transition: color 150ms ease-in; }
 
-.header .nav li.contact a {
+#header .nav li.contact a {
   background-position: 0px -105px; }
 
-.header .nav li.cart a:hover {
+#header .nav li.cart a:hover {
   background-position: 16px -321px; }
 
 #content {
@@ -432,6 +432,18 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
   .nav li {
     display: block !important;
     margin: 0 auto; } }
+
+#header #menu-btn {
+  color: white;
+  font-size: 2.125em;
+  position: fixed;
+  right: 30px;
+  top: 20px; }
+  #header #menu-btn:hover {
+    cursor: pointer; }
+  @media (min-width: 671px) {
+    #header #menu-btn {
+      display: none; } }
 
 .nav-mobile {
   padding-top: 70px;
