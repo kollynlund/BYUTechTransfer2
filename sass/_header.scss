@@ -48,13 +48,13 @@
     position: relative; 
     left: 15px; 
     z-index: 99999999;
-    @media (max-width: 670px) {
-        float: none;
-        position: static; 
-        padding-left: 0px;
-        padding-top: 100px;
+    // @media (max-width: 670px) {
+    //     float: none;
+    //     position: static; 
+    //     padding-left: 0px;
+    //     padding-top: 100px;
 
-    }
+    // }
 }
 
 .header .nav li {
@@ -82,16 +82,16 @@
     @media (max-width: 747px) {
         font-size: .9em;
     } 
-    @media (max-width: 670px) {
-        width: 100vw;
-        background-color: #555;
-        border-top: 2px solid #ddd;
-        margin-left: 0px;
-        line-height: 45px;
-        padding-top: 0px;
-        font-size: .9em;
+    // @media (max-width: 670px) {
+    //     width: 100vw;
+    //     background-color: #555;
+    //     border-top: 2px solid #ddd;
+    //     margin-left: 0px;
+    //     line-height: 45px;
+    //     padding-top: 0px;
+    //     font-size: .9em;
 
-    }
+    // }
 
 }
 
@@ -106,37 +106,21 @@
     transition: color 150ms ease-in;
 }
 
-.header .nav li.shirts a {
-    background-position: 0px 0px;
-}
 
 .header .nav li.contact a {
     background-position: 0px -105px;
 }
 
-.header .nav li.cart a {
-    width: 122px;
-    font-size: 0/95px serif;
-    text-shadow: none;
-    color: transparent;
-    background-position: 16px -216px;
-    margin: 0;
-}
+
 
 .header .nav li.cart a:hover {
     background-position: 16px -321px;
 }
 
 
-.nav-item {
-    @media (max-width: 670px) {
-        display: block !important;
-        margin: 0 auto;
-    }
-}
+
 
 #content {
-    min-height: 400px; 
     background: white;
 }
 
@@ -243,6 +227,79 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
 
 
 
+
+
+
+.nav {
+    @media(max-width: 670px) {
+        display: none;
+    }
+    li {
+    @media (max-width: 670px) {
+        display: block !important;
+        margin: 0 auto;
+    }
+}
+
+}
+
+
+
+.nav-mobile {
+    padding-top: 70px;
+    text-align: center;
+    list-style-type: none;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    li:first-child {
+        border-top: 1px solid #eee;
+    }
+    li {
+        background-color: #333;
+        color: white;
+        padding: 15px;
+        font-size: 1.125em;
+        border-bottom: 1px solid #eee;
+        letter-spacing: 1.5px;
+    }
+    a {
+        background-color: none;
+        color: white;
+        &:hover {
+            color: #ddd;
+            text-decoration: none;
+        }
+        &:active, &:focus {
+            color: #ddd;
+            text-decoration: none;
+        }
+    }
+    @media(min-width: 671px) {
+        display: none;
+    }
+}
+
+
+// .header .nav li a {
+//     @media (max-width: 800px) {
+//         margin: 0 0 0 2.5em;
+
+//     }
+//     @media (max-width: 747px) {
+//         font-size: .9em;
+//     } 
+//     @media (max-width: 670px) {
+//         width: 100vw;
+//         background-color: #555;
+//         border-top: 2px solid #ddd;
+//         margin-left: 0px;
+//         line-height: 45px;
+//         padding-top: 0px;
+//         font-size: .9em;
+
+//     }
+
+// }
 
 
 

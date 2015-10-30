@@ -296,12 +296,6 @@ table {
   position: relative;
   left: 15px;
   z-index: 99999999; }
-  @media (max-width: 670px) {
-    .header .nav {
-      float: none;
-      position: static;
-      padding-left: 0px;
-      padding-top: 100px; } }
 
 .header .nav li {
   display: inline-block;
@@ -324,15 +318,6 @@ table {
   @media (max-width: 747px) {
     .header .nav li a {
       font-size: .9em; } }
-  @media (max-width: 670px) {
-    .header .nav li a {
-      width: 100vw;
-      background-color: #555;
-      border-top: 2px solid #ddd;
-      margin-left: 0px;
-      line-height: 45px;
-      padding-top: 0px;
-      font-size: .9em; } }
 
 .header .nav li a:hover, .header .nav li a:active, .header .nav li a:focus {
   color: #bbb;
@@ -342,30 +327,13 @@ table {
   -o-transition: color 150ms ease-in;
   transition: color 150ms ease-in; }
 
-.header .nav li.shirts a {
-  background-position: 0px 0px; }
-
 .header .nav li.contact a {
   background-position: 0px -105px; }
-
-.header .nav li.cart a {
-  width: 122px;
-  font-size: 0/95px serif;
-  text-shadow: none;
-  color: transparent;
-  background-position: 16px -216px;
-  margin: 0; }
 
 .header .nav li.cart a:hover {
   background-position: 16px -321px; }
 
-@media (max-width: 670px) {
-  .nav-item {
-    display: block !important;
-    margin: 0 auto; } }
-
 #content {
-  min-height: 400px;
   background: white; }
 
 .section.banner {
@@ -456,6 +424,42 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
   font-style: italic;
   font-size: 14px;
   margin: 0; }
+
+@media (max-width: 670px) {
+  .nav {
+    display: none; } }
+@media (max-width: 670px) {
+  .nav li {
+    display: block !important;
+    margin: 0 auto; } }
+
+.nav-mobile {
+  padding-top: 70px;
+  text-align: center;
+  list-style-type: none;
+  margin-bottom: 0px;
+  padding-left: 0px; }
+  .nav-mobile li:first-child {
+    border-top: 1px solid #eee; }
+  .nav-mobile li {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    font-size: 1.125em;
+    border-bottom: 1px solid #eee;
+    letter-spacing: 1.5px; }
+  .nav-mobile a {
+    background-color: none;
+    color: white; }
+    .nav-mobile a:hover {
+      color: #ddd;
+      text-decoration: none; }
+    .nav-mobile a:active, .nav-mobile a:focus {
+      color: #ddd;
+      text-decoration: none; }
+  @media (min-width: 671px) {
+    .nav-mobile {
+      display: none; } }
 
 .footer-wrapper {
   background: #0A497F;
@@ -709,35 +713,33 @@ input[type="submit"], .ip-contact {
   font-size: .9em;
   text-align: center; }
 
-.wrapper-about {
+#about .wrapper-about {
   width: 85%;
   max-width: 1000px;
   margin: 0 auto; }
-
-#about-img {
+#about #about-img {
   width: auto;
   vertical-align: top;
-  display: inline-block;
+  display: block;
+  margin: auto;
   list-style: none;
   border: 1px solid #e3e1e0;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   text-align: center;
   padding: 14px;
-  background: #f0eeed;
-  margin: 0 1.53em 17px 0px; }
-  @media (max-width: 815px) {
-    #about-img {
-      display: none; } }
-
-#about-text {
+  background: #f0eeed; }
+  @media (max-width: 991px) {
+    #about #about-img {
+      margin-top: 2em; } }
+#about #about-text {
   line-height: 1.4em;
   white-space: pre-wrap;
   font-size: 1em;
   vertical-align: top;
   display: inline-block; }
   @media (max-width: 815px) {
-    #about-text {
+    #about #about-text {
       width: 100%;
       font-size: .9em; } }
 
@@ -752,7 +754,7 @@ input[type="submit"], .ip-contact {
   text-align: center;
   font-size: 1em;
   font-style: italic;
-  margin-bottom: 4em; }
+  margin-bottom: 3em; }
 #technologies .search-box {
   width: 60%;
   margin-bottom: 15px;
@@ -780,7 +782,8 @@ input[type="submit"], .ip-contact {
   @media (max-width: 760px) {
     #technologies .select-style {
       width: 100%;
-      display: block; } }
+      display: block;
+      margin-bottom: 1em; } }
 #technologies .patent-container {
   background-color: #fff; }
   #technologies .patent-container span {
@@ -825,6 +828,20 @@ input[type="submit"], .ip-contact {
 
 .search-container {
   margin-bottom: 10px; }
+
+.contact-text {
+  margin-bottom: 3em; }
+
+.contact-form {
+  max-width: 550px;
+  display: block;
+  margin: auto; }
+  .contact-form input[type="submit"] {
+    margin-bottom: 2em; }
+
+label {
+  margin-left: 2px;
+  margin-top: 5px; }
 
 html {
   overflow-y: scroll;
