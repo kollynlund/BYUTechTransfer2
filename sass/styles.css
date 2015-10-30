@@ -991,6 +991,14 @@ body {
   border-top: 1px solid #eee; }
 #home img {
   width: 100%; }
+  @media (min-width: 671px) {
+    #home img {
+      display: none; } }
+#home video {
+  margin-bottom: -5px; }
+  @media (max-width: 671px) {
+    #home video {
+      display: none; } }
 
 .home-title {
   color: #333 !important;

@@ -143,6 +143,16 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     }
     img {
         width: 100%;
+        @media(min-width: 671px) {
+            display: none;
+        }
+    }
+    video {
+        margin-bottom: -5px;
+        @media(max-width: 671px) {
+            display: none;
+        }
+
     }
 }
 
