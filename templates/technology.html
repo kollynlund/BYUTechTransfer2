@@ -3,8 +3,8 @@
 		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{stc.the_tech.ID}}</div>
 		<div class="shirt-details">
 			<div class="group">
-				<h1 id="ip-title">{{stc.the_tech.Name}}</h1>
-				<span id="ip-id">ID: {{stc.the_tech.ID}}</span>
+				<h1 class="ip-title">{{stc.the_tech.Name}}</h1>
+				<span class="ip-id">ID: {{stc.the_tech.ID}}</span>
 				
 			</div>
 			<p class="ip-description">Principal Investigator: {{stc.the_tech["PI"]}}</p>
@@ -17,7 +17,7 @@
 					<a class="ip-link" href="{{link}}">{{link}}</a>
 				</li>
 			</div>
-			<a href="" ng-click="stc.contactAboutTech(stc.the_tech['id#'])"><center><button id="ip-contact">Inquire about this technology</button></center></a>
+			<a href="" ng-click="stc.contactAboutTech(stc.the_tech['id#'])"><center><button class="ip-contact">Inquire about this technology</button></center></a>
 			<p class="note-designer"></p>
 		</div>
 	</div>

@@ -346,52 +346,6 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
   outline: none;
 }
 
-#ip-title {
-    display: block;
-    line-height: 1.2em !important;
-    margin-bottom: 0em;
-}
-
-.ip-title ~ span {
-    margin-left: .5em;
-    word-break: keep-all !important; 
-    wrap: nowrap !important; 
-   
-}
-
-.ip-description {
-    margin-left: .5em;
-    line-height: 1.2em !important;
-}
-
-#ip-id {
-    wrap: nowrap !important; 
-}
-
-.ip-link {
-    display: block;
-}
-
-
-#ip-contact {
-    width: 100%;
-    margin-top: 2em;
-    text-align: center;
-    border: 1px solid #eee;
-    background: #555;
-    color: #FFF !important;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;    
-    text-transform: uppercase;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;    
-    font-size: 14px;
-    padding: 14px;
-    a {
-        text-decoration: none;
-    }
-}
-
 
 .links-container {
     width: 49%;
