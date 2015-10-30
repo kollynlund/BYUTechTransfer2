@@ -1,8 +1,58 @@
-<div id="content">
+<div id="home">
 	<div style="height: auto;" class="section banner" ng-app="videotext" ng-controller="HomeController">
+		<img src="img/earth.png">
 		<video width="100%" autoplay loop>
 		  <source src="patentvideo.mp4" type="video/mp4">
+		  <source src="patentvideo.ogg" type="video/ogg">
 		</video>
+	</div>
+	<a ng-click="hmc.goTo('technologies')"><button>&middot;&middot; EXPLORE ALL TECHNOLOGIES &middot;&middot;</button></a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<!--<div class="wrapper" ng-style="{'height':jumboHeight, 'margin-top':-jumboHeight}">
 			<div class="button">
 				<div class="btn-txt">
@@ -12,18 +62,10 @@
 					<p><a class="featured-tech-pdf" href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank" style="padding-top: 10px;"><i class="fa fa-angle-double-right"></i> Promising Technologies (pdf)</a></p>
 			</div>
 		</div>-->
-	</div>
 
-	<div class="section shirts latest">
-		<div class="wrapper">
-			<h2 class="home-title"></h2>
-			
-		</div>
-			<center>
-				<a href="" ng-click="hmc.goTo('technologies')"><button id="ip-contact" style="margin-top: 0em; margin-top: 2em;">&middot;&middot; CLICK HERE TO SEARCH ALL TECHNOLOGIES &middot;&middot;</button></a>
-			</center>
 
-		<!--<div class="feature-wrapper">
+
+				<!--<div class="feature-wrapper">
 			<?php include("inc/featured-technologies-home.php"); ?>
 			<ul class="products featured-container">
 				<?php foreach($technologies as $technology_id => $technology) { 
@@ -32,5 +74,3 @@
 				?>
 			</ul>
 		</div>-->
-	</div>
-</div>

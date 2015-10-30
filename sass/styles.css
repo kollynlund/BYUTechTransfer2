@@ -442,7 +442,7 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
   .nav-mobile li:first-child {
     border-top: 1px solid #eee; }
   .nav-mobile li {
-    background-color: #333;
+    background-color: #222;
     color: white;
     padding: 15px;
     font-size: 1.125em;
@@ -897,7 +897,7 @@ body {
   line-height: 1.6;
   color: #222;
   font-weight: normal;
-  margin-bottom: 2em; }
+  margin-bottom: 1.5em; }
   @media (max-width: 539px) {
     .section.page h1 {
       line-height: 1.2;
@@ -967,6 +967,18 @@ body {
       margin: 0 auto;
       margin-bottom: 1em;
       width: 80%; } }
+
+#home button {
+  width: 100vw;
+  padding: 30px;
+  background-color: #222;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 1.125em;
+  border: none;
+  border-top: 1px solid #eee; }
+#home img {
+  width: 100%; }
 
 .home-title {
   color: #333 !important;
