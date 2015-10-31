@@ -5,9 +5,20 @@
 			<div class="group">
 				<h1 class="ip-title">{{stc.the_tech.Name}}</h1>
 				<span class="ip-id">ID: {{stc.the_tech.ID}}</span>
-				
+				<p class="ip-description">Principal Investigator: {{stc.the_tech["PI"]}}</p>
 			</div>
-			<p class="ip-description">Principal Investigator: {{stc.the_tech["PI"]}}</p>
+			<div class="row media">
+				<div class="col-sm-6">
+					<figure>
+					<iframe width="100%" height="235px" src="https://www.youtube.com/embed/PFJE90SISPw?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+					</figure>
+				</div>
+				<div class="col-sm-6">
+					<img src="../img/ip/ip-101.jpg">
+				</div>
+			</div>
+
+			
 			<p class="ip-description">{{stc.the_tech["Short Description"]}}</p>
 			<p class="ip-description">{{stc.the_tech["Long Description"]}}</p>
 			<p class="ip-description">For more information, contact <a href='mailto:{{stc.the_tech["Contact Email"]}}?Subject=BYU Disclosure #{{stc.the_tech.ID}}' target='_top'>{{stc.the_tech["Contact Name"]}}</a> {{stc.the_tech["Contact Phone"] ? '('+stc.the_tech["Contact Phone"]+')' : ''}}</p>
@@ -22,3 +33,4 @@
 		</div>
 	</div>
 </div>
+

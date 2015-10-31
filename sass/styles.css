@@ -842,6 +842,44 @@ input[type="submit"], .ip-contact {
     #technologies .patent-name {
       font-size: 1.3em; } }
 
+#technology .ip-title {
+  display: block;
+  line-height: 1.2em;
+  margin-bottom: 0em; }
+#technology .ip-title ~ span {
+  margin-left: .5em;
+  word-break: keep-all;
+  wrap: nowrap; }
+#technology .ip-description {
+  margin-left: .5em;
+  line-height: 1.2em; }
+#technology .ip-id {
+  wrap: nowrap; }
+#technology .media {
+  margin: 1em 0; }
+  #technology .media img {
+    height: 235px;
+    display: block;
+    margin: auto; }
+#technology .ip-link {
+  display: block; }
+#technology .ip-contact {
+  width: 100% !important;
+  margin-top: 2em;
+  text-align: center;
+  border: 1px solid #eee;
+  background: #555;
+  color: #FFF;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+  padding: 14px; }
+  #technology .ip-contact a {
+    text-decoration: none; }
+
 .search-container {
   margin-bottom: 10px; }
 
@@ -858,6 +896,12 @@ input[type="submit"], .ip-contact {
 label {
   margin-left: 2px;
   margin-top: 5px; }
+
+.contact-text {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
 
 html {
   overflow-y: scroll;
@@ -927,12 +971,6 @@ body {
   margin-left: auto;
   margin-right: auto; }
 
-.contact-text {
-  width: 50%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto; }
-
 .section.page .shirt-details h1 .price {
   color: #9d9f4e;
   padding-right: 10px;
@@ -984,15 +1022,82 @@ body {
       margin-bottom: 1em;
       width: 80%; } }
 
-#home button {
+#home .jumbotron-sm {
+  background-image: url(../img/earth.png);
+  background-size: cover;
+  padding: 1em 0px;
+  min-height: 300px; }
+  #home .jumbotron-sm h2, #home .jumbotron-sm h1 {
+    margin: 0px; }
+  #home .jumbotron-sm h1 {
+    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #eee !important;
+    text-shadow: 2px 2px 2px #000;
+    padding-top: 30px; }
+  #home .jumbotron-sm h2 {
+    color: #eee;
+    text-shadow: 2px 2px 2px #000;
+    width: 60%;
+    font-weight: 300;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 2em; }
+    @media (max-width: 1000px) {
+      #home .jumbotron-sm h2 {
+        font-size: 1.125em; } }
+  @media (min-width: 600px) {
+    #home .jumbotron-sm {
+      display: none; } }
+#home .jumbotron {
+  background-size: 100%;
+  background-color: transparent !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  text-align: center;
+  position: relative;
   width: 100vw;
-  padding: 30px;
-  background-color: #222;
-  color: white;
+  margin-top: -40%;
+  margin-bottom: -20% !important; }
+  @media (max-width: 1000px) {
+    #home .jumbotron {
+      font-size: 1.125em; } }
+  @media (max-width: 600px) {
+    #home .jumbotron {
+      display: none !important; } }
+  #home .jumbotron img {
+    width: 170px; }
+  #home .jumbotron h1 {
+    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #eee !important;
+    text-shadow: 2px 2px 2px #000; }
+    @media (max-width: 1000px) {
+      #home .jumbotron h1 {
+        font-size: 2.5em !important; } }
+  #home .jumbotron h2 {
+    color: #eee;
+    text-shadow: 2px 2px 2px #000;
+    width: 60%;
+    font-weight: 300;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 2em; }
+    @media (max-width: 1000px) {
+      #home .jumbotron h2 {
+        font-size: 1.125em; } }
+#home button {
+  width: 50%;
+  padding: 20px;
+  background-color: #333;
+  color: #f5f5f5;
   letter-spacing: 2px;
   font-size: 1.125em;
   border: none;
-  border-top: 1px solid #eee; }
+  border-radius: 0px;
+  border: 1px solid #eee; }
 #home img {
   width: 100%; }
   @media (min-width: 671px) {

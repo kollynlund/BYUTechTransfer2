@@ -19,6 +19,14 @@
 	.ip-id {
 	    wrap: nowrap; 
 	}
+	.media {
+		margin: 1em 0;
+		img {
+			height: 235px;
+	    display: block;
+	    margin: auto
+		}
+	}
 
 	.ip-link {
 	    display: block;
@@ -26,7 +34,7 @@
 
 
 	.ip-contact {
-	    width: 100%;
+	    width: 100% !important;
 	    margin-top: 2em;
 	    text-align: center;
 	    border: 1px solid #eee;

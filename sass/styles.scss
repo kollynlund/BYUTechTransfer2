@@ -5,6 +5,7 @@
 @import 'about';
 @import 'resources';
 @import 'technologies';
+@import 'technology';
 @import 'contact';
 
 
@@ -66,7 +67,7 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     text-align: left;
 }
 .section.page p {width: 100%; margin-left: auto; margin-right: auto; }
-.contact-text {width: 50%; text-align: center; margin-left: auto; margin-right: auto;  }
+
 
 .section.page .shirt-details h1 .price {
     color: #9d9f4e; 
@@ -131,15 +132,98 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
 
 
 #home {
-    button {
+
+    .jumbotron-sm {
+        background-image: url(../img/earth.png);
+        background-size: cover;
+        padding: 1em 0px;
+        min-height: 300px;
+        h2, h1 {
+            margin: 0px;
+        }
+        h1 {
+            font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #eee !important;
+            text-shadow: 2px 2px 2px #000;
+            padding-top: 30px;
+        }
+            h2 {
+            color: #eee;
+            text-shadow: 2px 2px 2px #000;
+            width: 60%;
+            font-weight: 300;
+            margin: auto;
+            margin-bottom: 20px;
+            font-size: 2em;
+        @media (max-width: 1000px) {
+            font-size: 1.125em;
+        }
+        }   
+
+
+        @media(min-width: 600px) {
+            display: none;
+        }
+    }
+
+    .jumbotron {
+        background-size: 100%;
+        background-color: transparent !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        text-align: center;
+        position: relative;
         width: 100vw;
-        padding: 30px;
-        background-color: #222;
-        color: white;
+        margin-top: -40%;
+        margin-bottom: -20% !important;
+        @media (max-width: 1000px) {
+            font-size: 1.125em;
+        }
+        @media (max-width: 600px) {
+            display: none !important;
+        }
+
+
+        img {
+            width: 170px;
+        }
+        h1 {    
+            font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #eee !important;
+            text-shadow: 2px 2px 2px #000;
+            @media (max-width: 1000px) {
+            font-size: 2.5em !important;
+        }
+        }
+        h2 {
+            color: #eee;
+            text-shadow: 2px 2px 2px #000;
+            width: 60%;
+            font-weight: 300;
+            margin: auto;
+            margin-bottom: 20px;
+            font-size: 2em;
+        @media (max-width: 1000px) {
+            font-size: 1.125em;
+        }
+        }
+    }
+
+
+    button {
+        width: 50%;
+        padding: 20px;
+        background-color: #333;
+        color: #f5f5f5;
         letter-spacing: 2px;
         font-size: 1.125em;
         border: none;
-        border-top: 1px solid #eee;
+        border-radius: 0px;
+        border: 1px solid #eee;
     }
     img {
         width: 100%;
