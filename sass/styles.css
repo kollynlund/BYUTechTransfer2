@@ -437,9 +437,10 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
   color: white;
   font-size: 1.65em;
   position: relative;
-  right: 21px;
-  top: 23px;
-  float: right; }
+  right: 10px;
+  top: 10px;
+  float: right;
+  padding: 15px; }
   #header #menu-btn:hover {
     cursor: pointer; }
   @media (min-width: 671px) {
@@ -461,6 +462,8 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
     font-size: 1.125em;
     border-bottom: 1px solid #eee;
     letter-spacing: 1.5px; }
+    .nav-mobile li:hover {
+      cursor: pointer; }
   .nav-mobile a {
     background-color: none;
     color: white; }
