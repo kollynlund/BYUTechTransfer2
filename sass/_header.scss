@@ -246,10 +246,11 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
 #header {
     #menu-btn {
     color: white;
-    font-size: 2.125em;
-    position: fixed;
-    right: 30px;
-    top: 20px;
+    font-size: 1.65em;
+    position: relative;
+    right: 21px;
+    top: 23px;
+    float: right;
     &:hover {
         cursor: pointer;
     }
