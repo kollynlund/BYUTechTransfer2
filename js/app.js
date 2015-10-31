@@ -3,12 +3,6 @@ var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,
 String.prototype.toProperCase = function () {
     return this.replace(/\b\w+/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
-$("#menu-btn").click(function(){
-   $(".mobile-nav-item").toggleClass("hidden");
-});
-$(".mobile-nav-item").click(function(){
-   $(".mobile-nav-item").toggleClass("hidden");
-});
 
 angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate'])
 .config(function($stateProvider, $urlRouterProvider) {
