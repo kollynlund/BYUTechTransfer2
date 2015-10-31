@@ -21,12 +21,12 @@
                             <input type="text" name="name" id="name" ng-model="cc.formData.name">
                         </td>
                     </tr>
-                    <tr>
+                    <tr ng-if="cc.formData.patent_id">
                         <th>
                             <label for="patent_id">Patent ID</label>
                         </th>
                         <td>
-                            <input type="text" name="patent_id" id="patent_id" ng-model="cc.formData.patent_id">
+                            <input type="text" name="patent_id" id="patent_id" ng-model="cc.formData.patent_id" ng-disabled="true">
                         </td>
                     </tr>                    
                     <tr>

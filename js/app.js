@@ -3,6 +3,12 @@ var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,
 String.prototype.toProperCase = function () {
     return this.replace(/\b\w+/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
+$("#menu-btn").click(function(){
+   $(".mobile-nav-item").toggleClass("hidden");
+});
+$(".mobile-nav-item").click(function(){
+   $(".mobile-nav-item").toggleClass("hidden");
+});
 
 angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate'])
 .config(function($stateProvider, $urlRouterProvider) {
@@ -55,19 +61,6 @@ angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate'])
 
 .controller('HomeController', function($state) {
 	var hmc = this;
-	// $scope.windowWidth = $window.innerWidth;
-	// $scope.jumboHeight = $("video:first").height() > $("img:first").height() ? $("video:first").height() : $("img:first").height();
-	// // Watch for changes in the window width
-	// $(window).on("resize.doResize", function (){
-	// 	$scope.$apply(function(){
-	// 	$scope.windowWidth = $window.innerWidth;
-	// 	$scope.jumboHeight = $("video:first").height() > $("img:first").height() ? $("video:first").height() : $("img:first").height();
-	// 	});
-	// });
-	// $scope.$on("$destroy",function (){
-	// 	// Kill resize listener
-	// 	 $(window).off("resize.doResize");
-	// });
 
 	hmc.goTo = function(pagename) {
 		$state.go(pagename);
@@ -118,6 +111,7 @@ angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate'])
 	cc.emailSent = false;
 	cc.formData = {
 		name:'',
+		patent_id: $stateParams.tech_id,
 		email:'',
 		message:''
 	};
