@@ -246,6 +246,9 @@ String.prototype.toProperCase = function () {
 		};
 	};
 
+	// RANDOM GLOBAL UTILITIES FOR APP
+	var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+
 	// APP BOOTSTRAPPING
 	app
 	.config(Routes)
