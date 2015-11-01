@@ -485,7 +485,9 @@ a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
   color: #a5a5a5;
   box-shadow: 0 -1px 0px #dddddd;
   border-top: 1px solid #fff;
-  border-bottom: 2px solid #ddd; }
+  border-bottom: 2px solid #ddd;
+  position: relative;
+  z-index: 10; }
 
 .footer {
   /* NEW, Spec - Firefox, Chrome, Opera */
@@ -1035,12 +1037,14 @@ body {
     text-transform: uppercase;
     color: #eee !important;
     text-shadow: 2px 2px 2px #000;
-    padding-top: 30px; }
+    padding-top: 30px;
+    text-align: center; }
   #home .jumbotron-sm h2 {
     color: #eee;
     text-shadow: 2px 2px 2px #000;
     width: 60%;
     font-weight: 300;
+    text-align: center;
     margin: auto;
     margin-bottom: 20px;
     font-size: 2em; }
@@ -1059,7 +1063,7 @@ body {
   position: relative;
   width: 100vw;
   margin-top: -40%;
-  margin-bottom: -20% !important; }
+  margin-bottom: -18% !important; }
   @media (max-width: 1000px) {
     #home .jumbotron {
       font-size: 1.125em; } }
