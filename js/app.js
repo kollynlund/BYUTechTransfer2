@@ -1,7 +1,7 @@
 window.googleDocCallback = function () { return true; };
 var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 String.prototype.toProperCase = function () {
-    return this.replace(/\b\w+/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+	return this.replace(/\b\w+/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 };
 
 angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate'])
@@ -55,6 +55,23 @@ angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate'])
 
 .controller('HomeController', function($state) {
 	var hmc = this;
+
+	// ---------- Video Overlay ------------
+	// -------------------------------------
+	$scope.windowWidth = $window.innerWidth;
+	$scope.jumboHeight = $("video:first").height() > $("img:first").height() ? $("video:first").height() : $("img:first").height();
+	// Watch for changes in the window width
+	$(window).on("resize.doResize", function (){
+		$scope.$apply(function(){
+			$scope.windowWidth = $window.innerWidth;
+			$scope.jumboHeight = $("video:first").height() > $("img:first").height() ? $("video:first").height() : $("img:first").height();
+		});
+	});
+	$scope.$on("$destroy",function (){
+		// Kill resize listener
+		 $(window).off("resize.doResize");
+	});
+	// -------------------------------------
 
 	hmc.goTo = function(pagename) {
 		$state.go(pagename);
