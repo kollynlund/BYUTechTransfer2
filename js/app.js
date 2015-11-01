@@ -75,26 +75,7 @@ String.prototype.toProperCase = function () {
 	}
 	function HomeController($scope, $state, $window, $interval, VideoSize) {
 		var hmc = this;
-
-		// ---------- Video Overlay ------------
-		// -------------------------------------
-		// $scope.windowWidth = $window.innerWidth;
-		// $scope.jumboHeight = $("video:first").height() > $("img:first").height() ? $("video:first").height() : $("img:first").height();
-		hmc.dimensions = VideoSize.dimensions || {'height':222};
-		// $scope.$watch(function(){return hmc.dimensions},function(newval,oldval){console.log('vals',newval,oldval)});
-		// Watch for changes in the window width
-		// $(window).on("resize.doResize", function (){
-		// 	$scope.$apply(function(){
-		// 		$scope.windowWidth = $window.innerWidth;
-		// 		$scope.jumboHeight = $("video:first").height() > $("img:first").height() ? $("video:first").height() : $("img:first").height();
-		// 	});
-		// });
-		// $scope.$on("$destroy",function (){
-		// 	// Kill resize listener
-		// 	 $(window).off("resize.doResize");
-		// });
-		// -------------------------------------
-
+		hmc.dimensions = VideoSize.dimensions;
 		hmc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
