@@ -1,11 +1,11 @@
 <div id="technology" class="section page">
 	<div class="wrapper">
-		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{stc.selectedTech.ID}}</div>
+		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{::stc.selectedTech.ID}}</div>
 		<div class="shirt-details">
 			<div class="group">
-				<h1 class="ip-title">{{stc.selectedTech.Name}}</h1>
-				<span class="ip-id">ID: {{stc.selectedTech.ID}}</span>
-				<p class="ip-description">Principal Investigator: {{stc.selectedTech["PI"]}}</p>
+				<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
+				<span class="ip-id">ID: {{::stc.selectedTech.ID}}</span>
+				<p class="ip-description">Principal Investigator: {{::stc.selectedTech["PI"]}}</p>
 			</div>
 			<div class="row media">
 				<div class="col-sm-6">
@@ -14,14 +14,14 @@
 					</figure>
 				</div>
 				<div class="col-sm-6">
-					<img class="img" ng-src="{{stc.selectedTech.Image}}">
+					<img class="img" ng-src="{{::stc.selectedTech.Image}}">
 				</div>
 			</div>
 
 			
-			<p class="ip-description">{{stc.selectedTech["Short Description"]}}</p>
-			<p class="ip-description">{{stc.selectedTech["Long Description"]}}</p>
-			<p class="ip-description">For more information, contact <a href='mailto:{{stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{stc.selectedTech.ID}}' target='_top'>{{stc.selectedTech["Contact Name"]}}</a> {{stc.selectedTech["Contact Phone"] ? '('+stc.selectedTech["Contact Phone"]+')' : ''}}</p>
+			<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
+			<p class="ip-description">{{::stc.selectedTech["Long Description"]}}</p>
+			<p class="ip-description">For more information, contact <a href='mailto:{{::stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{::stc.selectedTech.ID}}' target='_top'>{{::stc.selectedTech["Contact Name"]}}</a> {{::stc.selectedTech["Contact Phone"] ? '('+stc.selectedTech["Contact Phone"]+')' : ''}}</p>
 			<div class="links-container" ng-if="stc.selectedTech.links">
 				<p class="links-txt">Links and Resources</p>
 				<li ng-repeat="link in stc.selectedTech.Links">

@@ -30,12 +30,23 @@ String.prototype.toProperCase = function () {
 			.state('technologies', {
 				url: '/technologies',
 				templateUrl: 'templates/technologies.html',
-				controller: 'TechnologiesController as tc'
+				controller: 'TechnologiesController as tc',
+				resolve: {
+					technologies: function(TechnologyDetails) {
+						return TechnologyDetails.checkForTechnologyLoaded();
+					}
+
+				}
 			})
 				.state('technology', {
 					url: '/technology/{tech_id}',
 					templateUrl: 'templates/technology.html',
-					controller: 'TechnologyController as stc'
+					controller: 'TechnologyController as stc',
+					resolve: {
+						technology: function($stateParams, TechnologyDetails) {
+							return TechnologyDetails.getSingleTechnology($stateParams.tech_id);
+						}
+					}
 				})
 
 			.state('resources', {
@@ -55,7 +66,6 @@ String.prototype.toProperCase = function () {
 					scope.$apply(function() {
 						VideoSize.dimensions.width = element[0].clientWidth;
 						VideoSize.dimensions.height = element[0].clientHeight;
-						console.log(VideoSize.dimensions);
 					});
 				};
 				$window.onresize = bindSize;
@@ -73,42 +83,28 @@ String.prototype.toProperCase = function () {
 			$state.go(pagename);
 		};
 	}
-	function HomeController($scope, $state, $window, $interval, VideoSize) {
+	function HomeController($state, VideoSize) {
 		var hmc = this;
 		hmc.dimensions = VideoSize.dimensions;
 		hmc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
 	};
-	function TechnologiesController($state, TechnologyDetails) {
+	function TechnologiesController($state, technologies) {
 		var tc = this;
-
-		tc.techData = TechnologyDetails.techData;
+		tc.techData = technologies;
 		tc.searchText = '';
 		tc.categorySearch = {'Categories':'Show All'};
-
 		tc.goToTech = function(tech_id) {
 			$state.go('technology',{'tech_id':tech_id});
 		};
-
 		tc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
 	};
-	function TechnologyController($scope, $state, $stateParams, TechnologyDetails) {
+	function TechnologyController($scope, $state, $stateParams, technology) {
 		var stc = this;
-
-		stc.techData = TechnologyDetails.techData;
-		stc.selectedTech = {};
-		$scope.$watch(
-			function(scope){return stc.techData.technologies}, 
-			function(new_value, old_value) {
-				if (new_value) {
-					stc.selectedTech = new_value.filter(function(item){return item.ID === $stateParams.tech_id})[0];
-				}
-			}
-		);
-
+		stc.selectedTech = technology;
 		stc.contactAboutTech = function(tech_id) {
 			$state.go('contact',{'tech_id':tech_id});
 		};
@@ -194,7 +190,7 @@ String.prototype.toProperCase = function () {
 				'Tags': tech_object.gsx$tags.$t.split(',')
 			};
 		};
-		var getTechnologyData = function() {
+		var getAllTechnologyData = function() {
 			return $http.get('https://spreadsheets.google.com/feeds/list/17Tf9_PvDC-fx3-vTHkmopjAndc94ZTXWFp-q0jxJjrM/1/public/values?alt=json-in-script&callback=jsonpCallback').then(function(data){
 				var pre = data.data.replace('// API callback\njsonpCallback(','');
 				var object = JSON.parse(pre.slice(0,pre.length - 2));
@@ -210,13 +206,26 @@ String.prototype.toProperCase = function () {
 				categories = ['Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
 				techData.technologies = result;
 				techData.categories = categories;
+				return techData;
 			});
 		};
+		var getSingleTechnology = function(tech_id) {
+			return (
+				techData.technologies ? 
+				techData.technologies.filter(function(item){return item.ID === tech_id})[0] : 
+				getAllTechnologyData().then(function(the_techData) {
+					return the_techData.technologies.filter(function(item){return item.ID === tech_id})[0]
+				})
+			);
+		};
+		var checkForTechnologyLoaded = function() {
+			return (techData.technologies ? techData : getAllTechnologyData() );
+		};
 
-		getTechnologyData();
 		return {
 			'techData': techData,
-			'getTechnologyData': getTechnologyData
+			'getSingleTechnology': getSingleTechnology,
+			'checkForTechnologyLoaded': checkForTechnologyLoaded
 		};
 	};
 	function VideoSize($interval) {
