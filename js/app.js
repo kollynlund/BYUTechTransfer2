@@ -53,7 +53,7 @@ angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate'])
 	});
 })
 
-.controller('HomeController', function($state) {
+.controller('HomeController', function($scope, $state, $window) {
 	var hmc = this;
 
 	// ---------- Video Overlay ------------
