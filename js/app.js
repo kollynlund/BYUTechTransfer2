@@ -102,7 +102,7 @@ String.prototype.toProperCase = function () {
 			$state.go(pagename);
 		};
 	};
-	function TechnologyController($scope, $state, $stateParams, technology) {
+	function TechnologyController($state, technology) {
 		var stc = this;
 		stc.selectedTech = technology;
 		stc.contactAboutTech = function(tech_id) {
