@@ -1,11 +1,11 @@
 <div id="home">
 	<div ng-app="videotext" ng-controller="HomeController">
-		<video width="100%" autoplay loop  bind-video-size>
+		<video width="100%" autoplay loop>
 		  <source src="patentvideo.mp4" type="video/mp4">
 		  <source src="patentvideo.ogg" type="video/ogg">
 		  <source src="patentvideo.webm" type="video/webm">
 		</video>
-		<div class="jumbotron" ng-style="{'height':hmc.dimensions.height}">
+		<div class="jumbotron" ng-style="{'height':jumboHeight}">
 		  <h1>BYU Technology Transfer</h1>
 		  <h2><i>We create and license game changing technologies with hopes of bettering mankind.</i></h2>
 		  <button ng-click="hmc.goTo('technologies')" type="button" class="btn btn-main btn-lg"> EXPLORE ALL TECHNOLOGIES</button>
@@ -13,7 +13,74 @@
 		<div class="jumbotron-sm">
 		  <h1>BYU</h1>
 		  <h2>Technology Transfer</h2>
-		  <button ng-click="hmc.goTo('technologies')" type="button" class="btn btn-main btn-lg"> EXPLORE ALL TECHNOLOGIES</button>
+		  <button ng-click="hmc.goTo('technologies')" type="button" class="btn btn-main btn-lg">EXPLORE ALL TECHNOLOGIES</button>
 		</div>
 	</div>
+<!-- 	<a ng-click="hmc.goTo('technologies')"><button>&middot;&middot; EXPLORE ALL TECHNOLOGIES &middot;&middot;</button></a> -->
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--<div class="wrapper" ng-style="{'height':jumboHeight, 'margin-top':-jumboHeight}">
+			<div class="button">
+				<div class="btn-txt">
+					<h2 style="font-size: 1.3em">Welcome to BYU Technology Transfer</h2>
+					<p>We protect and commercialize BYU inventions</p>
+				</div>
+					<p><a class="featured-tech-pdf" href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank" style="padding-top: 10px;"><i class="fa fa-angle-double-right"></i> Promising Technologies (pdf)</a></p>
+			</div>
+		</div>-->
+
+
+
+				<!--<div class="feature-wrapper">
+			<?php include("inc/featured-technologies-home.php"); ?>
+			<ul class="products featured-container">
+				<?php foreach($technologies as $technology_id => $technology) { 
+						echo get_list_view_html($technology_id,$technology);
+					}
+				?>
+			</ul>
+		</div>-->

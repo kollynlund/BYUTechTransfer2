@@ -1,33 +1,40 @@
 <div id="technology" class="section page">
 	<div class="wrapper">
-		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{::stc.selectedTech.ID}}</div>
+		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{stc.the_tech.ID}}</div>
 		<div class="shirt-details">
 			<div class="group">
-				<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
-				<span class="ip-id">ID: {{::stc.selectedTech.ID}}</span>
-				<p class="ip-description">Principal Investigator: {{::stc.selectedTech["PI"]}}</p>
+				<h1 class="ip-title">{{stc.the_tech.Name}}</h1>
+				<span class="ip-id">ID: {{stc.the_tech.ID}}</span>
+				<p class="ip-description">Principal Investigator: {{stc.the_tech["PI"]}}</p>
 			</div>
 			<div class="row media">
 				<div class="col-sm-6">
 					<iframe class="vid" src="https://www.youtube.com/embed/PFJE90SISPw?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 				</div>
 				<div class="col-sm-6">
-					<img class="img" ng-src="{{::stc.selectedTech.Image}}">
+					<img class="img" ng-src="{{stc.the_tech.Image}}">
 				</div>
 			</div>
 
 			
-			<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
-			<p class="ip-description">{{::stc.selectedTech["Long Description"]}}</p>
-			<p class="ip-description">For more information, contact <a href='mailto:{{::stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{::stc.selectedTech.ID}}' target='_top'>{{::stc.selectedTech["Contact Name"]}}</a> {{::stc.selectedTech["Contact Phone"] ? '('+::stc.selectedTech["Contact Phone"]+')' : ''}}</p>
-			<div class="links-container" ng-if="::stc.selectedTech.Links">
+			<p class="ip-description">{{stc.the_tech["Short Description"]}}</p>
+			<p class="ip-description">{{stc.the_tech["Long Description"]}}</p>
+			<p class="ip-description">For more information, contact <a href='mailto:{{stc.the_tech["Contact Email"]}}?Subject=BYU Disclosure #{{stc.the_tech.ID}}' target='_top'>{{stc.the_tech["Contact Name"]}}</a> {{stc.the_tech["Contact Phone"] ? '('+stc.the_tech["Contact Phone"]+')' : ''}}</p>
+			<div class="links-container" ng-if="stc.the_tech.links">
 				<p class="links-txt">Links and Resources</p>
-				<li ng-repeat="link in ::stc.selectedTech.Links">
+				<li ng-repeat="link in stc.the_tech.Links">
 					<a class="ip-link" href="{{link}}">{{link}}</a>
 				</li>
 			</div>
-			<a href="" ng-click="stc.contactAboutTech(::stc.selectedTech.ID)"><center><button class="ip-contact">Inquire about this technology</button></center></a>
+			<a href="" ng-click="stc.contactAboutTech(stc.the_tech.ID)"><center><button class="ip-contact">Inquire about this technology</button></center></a>
 			<p class="note-designer"></p>
 		</div>
 	</div>
+
 </div>
+
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="js/jquery.fitvids.js"></script>
+	<script>
+	$('#technology').fitVids();
+	</script>
