@@ -147,7 +147,7 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
             text-transform: uppercase;
             color: #eee !important;
             text-shadow: 2px 2px 2px #000;
-            padding-top: 30px;
+            padding-top: 80px;
             text-align: center;
         }
 
@@ -164,6 +164,12 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
             font-size: 1.125em;
         }
         }   
+        button {
+            width: 90%;
+            margin: auto;
+            display: block;
+            padding: 15px;
+        }
 
 
         @media(min-width: 600px) {
@@ -235,7 +241,7 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
         }
     }
     video {
-        margin-bottom: -5px;
+        margin-bottom: -12px;
         @media(max-width: 671px) {
             display: none;
         }

@@ -882,6 +882,9 @@ input[type="submit"], .ip-contact {
   #technology .ip-contact a {
     text-decoration: none; }
 
+.fluid-width-video-wrapper {
+  padding-top: 58.4615% !important; }
+
 .search-container {
   margin-bottom: 10px; }
 
@@ -1037,7 +1040,7 @@ body {
     text-transform: uppercase;
     color: #eee !important;
     text-shadow: 2px 2px 2px #000;
-    padding-top: 30px;
+    padding-top: 80px;
     text-align: center; }
   #home .jumbotron-sm h2 {
     color: #eee;
@@ -1051,6 +1054,11 @@ body {
     @media (max-width: 1000px) {
       #home .jumbotron-sm h2 {
         font-size: 1.125em; } }
+  #home .jumbotron-sm button {
+    width: 90%;
+    margin: auto;
+    display: block;
+    padding: 15px; }
   @media (min-width: 600px) {
     #home .jumbotron-sm {
       display: none; } }
@@ -1108,7 +1116,7 @@ body {
     #home img {
       display: none; } }
 #home video {
-  margin-bottom: -5px; }
+  margin-bottom: -12px; }
   @media (max-width: 671px) {
     #home video {
       display: none; } }
