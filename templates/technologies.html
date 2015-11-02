@@ -9,12 +9,12 @@
 				<div class="group filter">
 					<input class="search-box" placeholder="Search technologies..." type="text" name="s" ng-model="tc.searchText">
 					<div class="select-style">
-						<select name="c" ng-model="categorySearch.Categories" ng-options="category as (category === '' ? 'Show All' : category) for category in categories"></select>
+						<select name="c" ng-model="tc.categorySearch.Categories" ng-options="category as (category === '' ? 'Show All' : category) for category in tc.techData.categories"></select>
 					</div>
 			</form>
 		</div>
 		<ul class="products">
-			<div class="technology-box" ng-repeat="technology in technologies | filter:tc.searchText | filter:(categorySearch.Categories === 'Show All' ? undefined : categorySearch) | orderBy:'Name'">
+			<div class="technology-box" ng-repeat="technology in tc.techData.technologies | filter:tc.searchText | filter:(tc.categorySearch.Categories === 'Show All' ? undefined : tc.categorySearch) | orderBy:'Name'">
 				<a class="patent-info" href="" ng-click="tc.goToTech(technology.ID)">
 					<div class='patent-list'>
 						<div class='patent-container'>
