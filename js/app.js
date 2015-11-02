@@ -18,7 +18,7 @@ String.prototype.toProperCase = function () {
 			.state('about', {
 				url: '/about',
 				templateUrl: 'templates/about.html',
-				controller: 'AboutController as ac'
+				controller: 'GenericController as ac'
 			})
 
 			.state('contact', {
@@ -52,7 +52,7 @@ String.prototype.toProperCase = function () {
 			.state('resources', {
 				url: '/resources',
 				templateUrl: 'templates/resources.html',
-				controller: 'ResourcesController as rc'
+				controller: 'GenericController as rc'
 			});
 	};
 
@@ -258,12 +258,9 @@ String.prototype.toProperCase = function () {
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
 	.controller('TechnologyController', TechnologyController)
-	.controller('ResourcesController', GenericController)
 	.controller('ContactController', ContactController)
-	.controller('AboutController', GenericController)
-	.controller('HeaderController', GenericController)
-	.controller('FooterController', GenericController)
 	.controller('TitleController', TitleController)
+	.controller('GenericController', GenericController)
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
 	.factory('VideoSize',VideoSize)
