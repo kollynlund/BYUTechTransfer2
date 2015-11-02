@@ -19,14 +19,14 @@
 			
 			<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
 			<p class="ip-description">{{::stc.selectedTech["Long Description"]}}</p>
-			<p class="ip-description">For more information, contact <a href='mailto:{{::stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{::stc.selectedTech.ID}}' target='_top'>{{::stc.selectedTech["Contact Name"]}}</a> {{::stc.selectedTech["Contact Phone"] ? '('+::stc.selectedTech["Contact Phone"]+')' : ''}}</p>
+			<p class="ip-description">For more information, contact <a href='mailto:{{::stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{::stc.selectedTech.ID}}' target='_top'>{{::stc.selectedTech["Contact Name"]}}</a> {{::stc.selectedTech["Contact Phone"] ? '('+stc.selectedTech["Contact Phone"]+')' : ''}}</p>
 			<div class="links-container" ng-if="::stc.selectedTech.Links">
 				<p class="links-txt">Links and Resources</p>
 				<li ng-repeat="link in ::stc.selectedTech.Links">
 					<a class="ip-link" href="{{link}}">{{link}}</a>
 				</li>
 			</div>
-			<a href="" ng-click="stc.contactAboutTech(::stc.selectedTech.ID)"><center><button class="ip-contact">Inquire about this technology</button></center></a>
+			<a href="" ng-click="stc.contactAboutTech(stc.selectedTech.ID)"><center><button class="ip-contact">Inquire about this technology</button></center></a>
 			<p class="note-designer"></p>
 		</div>
 	</div>
