@@ -860,7 +860,7 @@ input[type="submit"], .ip-contact {
 #technology .media {
   margin: 1em 0; }
   #technology .media img {
-    height: 235px;
+    height: auto;
     display: block;
     width: 100%;
     margin: auto; }
