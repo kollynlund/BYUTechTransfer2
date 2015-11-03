@@ -14,7 +14,7 @@
 			</form>
 		</div>
 		<ul class="products">
-			<div class="technology-box" ng-repeat="technology in tc.techData.technologies | filter:tc.searchText | filter:(tc.categorySearch.Categories === 'Show All' ? undefined : tc.categorySearch) | orderBy:'Name'">
+			<div class="technology-box" ng-repeat="technology in tc.techData.technologies | filter:tc.searchText | filter:(tc.categorySearch.Categories === 'Show All' ? undefined : tc.categorySearch)">
 				<a class="patent-info" href="" ng-click="tc.goToTech(technology.ID)">
 					<div class='patent-list'>
 						<div class='patent-container'>

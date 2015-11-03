@@ -167,7 +167,7 @@ String.prototype.toProperCase = function () {
 			}
 		}
 	};
-	function TechnologyDetails($http, _) {
+	function TechnologyDetails($http, $sce, _) {
 		var techData = {
 			'technologies': null,
 			'categories': null
@@ -182,6 +182,7 @@ String.prototype.toProperCase = function () {
 				'Contact Phone': tech_object.gsx$contactphone.$t,
 				'ID': tech_object.gsx$id.$t,
 				'Image': tech_object.gsx$image.$t,
+				'Video Link': $sce.trustAsResourceUrl(tech_object.gsx$videolink.$t),
 				'Links': tech_object.gsx$links.$t.split(','),
 				'Long Description': tech_object.gsx$longdescription.$t,
 				'Name': tech_object.gsx$name.$t,
