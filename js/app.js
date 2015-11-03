@@ -184,7 +184,7 @@ String.prototype.toProperCase = function () {
 				'Image': tech_object.gsx$image.$t,
 				'Video Link': $sce.trustAsResourceUrl(tech_object.gsx$videolink.$t),
 				'Links': tech_object.gsx$links.$t.split(','),
-				'Long Description': tech_object.gsx$longdescription.$t,
+				'Long Description': tech_object.gsx$longdescription.$t.split('\n\n'),
 				'Name': tech_object.gsx$name.$t,
 				'PI': tech_object.gsx$pi.$t,
 				'Short Description': tech_object.gsx$shortdescription.$t,
