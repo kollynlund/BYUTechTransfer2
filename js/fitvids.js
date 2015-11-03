@@ -17,10 +17,7 @@ angular.module('fitVids', []).directive('fitVids', [function() {
         link: function (scope, element, attr) {
 
             var selectors = [
-                "iframe[src*='player.vimeo.com']",
-                "iframe[src*='youtube.com']",
-                "iframe[src*='youtube-nocookie.com']",
-                "iframe[src*='kickstarter.com'][src*='video.html']",
+                "iframe",
                 "object",
                 "embed"
             ];
