@@ -269,4 +269,4 @@ String.prototype.toProperCase = function () {
 	.factory('_',function() {
 		return _;
 	});
-})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate']));
+})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate','fitVids']));
