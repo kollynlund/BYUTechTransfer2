@@ -860,9 +860,10 @@ input[type="submit"], .ip-contact {
 #technology .media {
   margin: 1em 0; }
   #technology .media img {
-    height: 235px;
+    height: auto;
     display: block;
-    margin: auto; }
+    margin: auto;
+    width: 100%; }
 #technology .ip-link {
   display: block; }
 #technology .ip-contact {
@@ -1325,6 +1326,7 @@ body {
   width: auto;
   vertical-align: top;
   display: block;
+  background-image: no-repeat;
   margin: auto;
   list-style: none;
   border: 1px solid #e3e1e0;
