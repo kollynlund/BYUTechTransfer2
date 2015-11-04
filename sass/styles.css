@@ -863,7 +863,9 @@ input[type="submit"], .ip-contact {
     height: auto;
     display: block;
     width: 100%;
-    margin: auto; }
+    margin: auto;
+    margin-bottom: 1em;
+    margin-top: 1em; }
 #technology .ip-link {
   display: block; }
 #technology .ip-contact {
