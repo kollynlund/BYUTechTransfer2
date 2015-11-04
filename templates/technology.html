@@ -8,8 +8,8 @@
 				</div>
 
 				<div class="col-sm-8">
-					<span class="ip-id">ID: {{::stc.selectedTech.ID}}</span>
-					<p class="ip-description">Principal Investigator: {{::stc.selectedTech["PI"]}}</p>
+					<span class="ip-id"><b>ID:</b> {{::stc.selectedTech.ID}}</span>
+					<p class="ip-description"><b>Principal Investigator:</b> {{::stc.selectedTech["PI"]}}</p>
 					<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
 					<p class="ip-description" ng-repeat="paragraph in ::stc.selectedTech['Long Description']">{{paragraph}}</p>
 					<p class="ip-description">For more information, contact <a href='mailto:{{::stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{::stc.selectedTech.ID}}' target='_top'>{{::stc.selectedTech["Contact Name"]}}</a> {{::stc.selectedTech["Contact Phone"] ? '('+stc.selectedTech["Contact Phone"]+')' : ''}}</p>
