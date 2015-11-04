@@ -181,8 +181,12 @@ String.prototype.toProperCase = function () {
 				'Contact Name': tech_object.gsx$contactname.$t,
 				'Contact Phone': tech_object.gsx$contactphone.$t,
 				'ID': tech_object.gsx$id.$t,
-				'Image': tech_object.gsx$image.$t,
-				'Video Link': $sce.trustAsResourceUrl(tech_object.gsx$videolink.$t),
+				'Media': [
+					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media1'].$t), 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
+					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media2'].$t), 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
+					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media3'].$t), 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
+					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media4'].$t), 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
+				],
 				'Links': tech_object.gsx$links.$t.split(',').filter(function(item){return item != ''}),
 				'Long Description': tech_object.gsx$longdescription.$t.split('\n\n'),
 				'Name': tech_object.gsx$name.$t,
@@ -251,10 +255,19 @@ String.prototype.toProperCase = function () {
 
 	// RANDOM GLOBAL UTILITIES FOR APP
 	var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	function technologyScrollFix($rootScope, $document, $state) {
+		$rootScope.$on('$stateChangeSuccess', function() {
+			if ($state.current.name === 'technology') {
+				$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
+			}
+		});
+	};
+	
 
 	// APP BOOTSTRAPPING
 	app
 	.config(Routes)
+	.run(technologyScrollFix)
 	.directive('bindVideoSize', bindVideoSize)
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
