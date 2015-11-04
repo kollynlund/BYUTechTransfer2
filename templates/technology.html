@@ -21,18 +21,7 @@
 					</div>
 				</div>
 
-<<<<<<< HEAD
-				<div class="col-sm-4">
-					<div ng-if="::stc.selectedTech.Image">
-						<img class="img" ng-src="{{::stc.selectedTech.Image}}">
-					</div>
-					<div ng-if="::stc.selectedTech['Video Link']" fit-vids>
-						<iframe class="vid" ng-src="{{::stc.selectedTech['Video Link']}}" frameborder="0" allowfullscreen></iframe>
-					</div>
-				</div>
 
-			
-=======
 				<div class="col-sm-4 media">
 					<div ng-repeat="media in ::stc.selectedTech.Media">
 						<div ng-if="media.type === 'video'" fit-vids>
@@ -44,11 +33,13 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
->>>>>>> new-technology-layout
+
 
 			<a href="" ng-click="stc.contactAboutTech(stc.selectedTech.ID)"><center><button class="ip-contact">Inquire about this technology</button></center></a>
 			<p class="note-designer"></p>
+			
 		</div>
 	</div>
 </div>
