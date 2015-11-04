@@ -847,13 +847,11 @@ input[type="submit"], .ip-contact {
 #technology .ip-title {
   display: block;
   line-height: 1.2em;
-  margin-bottom: 0em; }
+  margin-bottom: 1em; }
 #technology .ip-title ~ span {
-  margin-left: .5em;
   word-break: keep-all;
   wrap: nowrap; }
 #technology .ip-description {
-  margin-left: .5em;
   line-height: 1.2em; }
 #technology .ip-id {
   wrap: nowrap; }
