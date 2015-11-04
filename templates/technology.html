@@ -1,17 +1,6 @@
 <div id="technology" class="section page">
 	<div class="wrapper">
 		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{::stc.selectedTech.ID}}</div>
-<<<<<<< HEAD
-		<div class="shirt-details">
-			<div class="group">
-				<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
-				<span class="ip-id">ID: {{::stc.selectedTech.ID}}</span>
-				<p class="ip-description">Principal Investigator: {{::stc.selectedTech["PI"]}}</p>
-			</div>
-			<div class="row media">
-				<div ng-class="::stc.selectedTech.Image ? 'col-sm-6' : 'col-sm-6-offset-6 '" ng-if="::stc.selectedTech['Video Link']" fit-vids>
-					<iframe class="vid" ng-src="{{::stc.selectedTech['Video Link']}}" frameborder="0" allowfullscreen></iframe>
-=======
 			<div class="row">
 
 				<div class="col-sm-12">
@@ -30,7 +19,7 @@
 							<a class="ip-link" href="{{link}}">{{link}}</a>
 						</li>
 					</div>
->>>>>>> new-technology-layout
+
 				</div>
 				<div ng-class="::stc.selectedTech['Video Link'] ? 'col-sm-6' : 'col-sm-6-offset-6 '" ng-if="::stc.selectedTech.Image">
 					<img class="img" ng-src="{{::stc.selectedTech.Image}}">
