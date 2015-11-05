@@ -25,7 +25,7 @@
 
 
 				<div class="col-sm-4 media">
-					<div ng-repeat="media in ::stc.selectedTech.Media">
+					<div ng-repeat="media in ::stc.selectedTech.Media" ng-click="stc.openOrIllShootGangsta(media)">
 						<div ng-if="media.type === 'video'" fit-vids>
 							<iframe class="vid" ng-src="{{media.link}}" frameborder="0" allowfullscreen></iframe>
 						</div>

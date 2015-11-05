@@ -24,7 +24,18 @@
 	    display: block;
 	    width: 100%;
 	    margin: auto;
+<<<<<<< HEAD
 	    margin-bottom: 1em;
+=======
+	    &:hover {
+	    	cursor: pointer;
+	    }
+		}
+		iframe {
+			&:hover {
+				cursor: pointer;
+			}
+>>>>>>> modalzzz-z
 		}
 	}
 
@@ -53,6 +64,26 @@
 	}
 }
 
+
+.modal-dialog {
+		width: 80% !important;
+	margin: 3em auto !important;
+.modal-content {
+	border: 30px solid #444;
+	img {
+		margin-top: 0em;
+
+	}
+
+}
+}
+
+
+.modal-lg {
+	@media (min-width: 992px) {
+    width: 800px !important;
+}
+}
 
 
 .fluid-width-video-wrapper {
