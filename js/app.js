@@ -112,11 +112,8 @@ String.prototype.toProperCase = function () {
 		};
 
 		function searchWatch(newVals, oldVals) {
-			console.log(newVals);
 			tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
-			console.log(tc.relevantTech);
 			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === 'Show All' ? undefined : {'Categories':newVals[1]}));
-			console.log(tc.relevantTech);
 			tc.pages = Math.ceil(tc.relevantTech.length / 10);
 			tc.currentPage = 0;
 		};
