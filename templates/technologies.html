@@ -14,7 +14,7 @@
 			</form>
 		</div>
 		<ul class="products">
-			<div class="technology-box" ng-repeat="technology in tc.techData.technologies | filter:tc.searchText | filter:(tc.categorySearch.Categories === 'Show All' ? undefined : tc.categorySearch)">
+			<div class="technology-box" ng-repeat="technology in tc.techData.technologies | filter:tc.searchText | filter:(tc.categorySearch.Categories === 'Show All' ? undefined : tc.categorySearch) | offset: tc.currentPage*10 | limitTo:10">
 				<a class="patent-info" href="" ng-click="tc.goToTech(technology.ID)">
 					<div class='patent-list'>
 						<div class='patent-container'>
@@ -27,13 +27,13 @@
 			</div>
 		</ul>
 		<div class="pagination row">
-			<div class="col-xs-3" style="padding-left: 0px;">
+			<div class="col-xs-3" style="padding-left: 0px;" ng-click="tc.currentPage = tc.currentPage-1" ng-class="{'page-button-disabled':(tc.currentPage===0)}">
 				<i class="fa fa-chevron-left"></i>
 			</div>
 			<div class="col-xs-6">
-				<p>Page: 1 of 9</p>
+				<p>Page: {{tc.currentPage+1}} of {{tc.pages}}</p>
 			</div>
-			<div class="col-xs-3" style="padding-right: 0px;">
+			<div class="col-xs-3" style="padding-right: 0px;" ng-click="tc.currentPage = tc.currentPage+1" ng-class="{'page-button-disabled':(tc.currentPage+1==tc.pages)}">
 				<i class="fa fa-chevron-right pull-right"></i>
 			</div>			
 			

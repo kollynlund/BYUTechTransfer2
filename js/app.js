@@ -56,7 +56,7 @@ String.prototype.toProperCase = function () {
 			});
 	};
 
-	// DIRECTIVES
+	// CUSTOM DIRECTIVES AND FILTERS
 	function bindVideoSize($window, $timeout, VideoSize) {
 		return {
 			restrict: 'A',
@@ -72,6 +72,12 @@ String.prototype.toProperCase = function () {
 				// Allow current digest loop to finish before setting VideoSize
 				$timeout(bindSize, 0);
 			}
+		};
+	};
+	function offset() {
+		return function(input, start) {
+			start = parseInt(start, 10);
+			return input.slice(start);
 		};
 	};
 
@@ -93,6 +99,8 @@ String.prototype.toProperCase = function () {
 	function TechnologiesController($state, technologies) {
 		var tc = this;
 		tc.techData = technologies;
+		tc.pages = Math.ceil(tc.techData.technologies.length / 10);
+		tc.currentPage = 0;
 		tc.searchText = '';
 		tc.categorySearch = {'Categories':'Show All'};
 		tc.goToTech = function(tech_id) {
@@ -282,6 +290,7 @@ String.prototype.toProperCase = function () {
 	.config(Routes)
 	.run(scrollFix)
 	.directive('bindVideoSize', bindVideoSize)
+	.filter('offset', offset)
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
 	.controller('TechnologyController', TechnologyController)
