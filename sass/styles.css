@@ -858,6 +858,9 @@ input[type="submit"], .ip-contact {
     #technologies .pagination .fa:hover {
       cursor: pointer; }
 
+.page-button-disabled {
+  display: none; }
+
 #technology .ip-title {
   display: block;
   line-height: 1.2em;
