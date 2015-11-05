@@ -1,86 +1,1383 @@
-/*
-Error: Invalid CSS after "...gin-bottom: 1em": expected "{", was ";"
-        on line 28 of _technology.scss
-        from line 8 of ./styles.scss
+@import url(http://fonts.googleapis.com/css?family=PT+Serif);
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block; }
 
-23: 			height: auto;
-24: 	    display: block;
-25: 	    width: 100%;
-26: 	    margin: auto;
-27: <<<<<<< HEAD
-28: 	    margin-bottom: 1em;
-29: =======
-30: 	    &:hover {
-31: 	    	cursor: pointer;
-32: 	    }
-33: 		}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
 
-Backtrace:
-_technology.scss:28
-./styles.scss:8
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:1162:in `expected'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:1098:in `expected'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:1093:in `tok!'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:638:in `block'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:708:in `declaration_or_ruleset'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:658:in `block_child'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:650:in `block_contents'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:639:in `block'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:708:in `declaration_or_ruleset'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:658:in `block_child'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:650:in `block_contents'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:639:in `block'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:708:in `declaration_or_ruleset'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:658:in `block_child'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:650:in `block_contents'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:639:in `block'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:632:in `ruleset'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:657:in `block_child'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:647:in `block_contents'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:117:in `stylesheet'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/scss/parser.rb:42:in `parse'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/engine.rb:403:in `_to_tree'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/engine.rb:309:in `to_tree'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/stack.rb:88:in `block in with_import'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/stack.rb:115:in `with_frame'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/stack.rb:88:in `with_import'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/stack.rb:79:in `block in with_base'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/stack.rb:115:in `with_frame'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/stack.rb:79:in `with_base'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:52:in `map'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/engine.rb:378:in `_render_with_sourcemap'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/engine.rb:295:in `render_with_sourcemap'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:209:in `each'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/vendor/listen/lib/listen/listener.rb:252:in `call'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/vendor/listen/lib/listen/adapters/polling.rb:48:in `call'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/vendor/listen/lib/listen/adapters/polling.rb:48:in `poll_changed_directories'
-/Users/macbookpro/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/sass-3.4.16/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
-*/
-body:before {
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-size: 100%;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */ }
+
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif; }
+
+body {
+  margin: 0; }
+
+a:focus {
+  outline: thin dotted; }
+
+a:active,
+a:hover {
+  outline: 0; }
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0; }
+
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0; }
+
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0; }
+
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0; }
+
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b,
+strong {
+  font-weight: bold; }
+
+blockquote {
+  margin: 1em 40px; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+p,
+pre {
+  margin: 1em 0; }
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em; }
+
+pre {
   white-space: pre;
-  font-family: monospace;
-  content: "Error: Invalid CSS after \"...gin-bottom: 1em\": expected \"{\", was \";\"\A         on line 28 of _technology.scss\A         from line 8 of ./styles.scss\A \A 23: 			height: auto;\A 24: 	    display: block;\A 25: 	    width: 100%;\A 26: 	    margin: auto;\A 27: <<<<<<< HEAD\A 28: 	    margin-bottom: 1em;\A 29: =======\A 30: 	    &:hover {\A 31: 	    	cursor: pointer;\A 32: 	    }\A 33: 		}"; }
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+q {
+  quotes: none; }
+
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+small {
+  font-size: 75%; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0; }
+
+dd {
+  margin: 0 0 0 40px; }
+
+menu,
+ol,
+ul {
+  padding: 0 0 0 -50px; }
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none; }
+
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */ }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+figure {
+  margin: 0; }
+
+form {
+  margin: 0; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  white-space: normal;
+  /* 2 */
+  *margin-left: -7px;
+  /* 3 */ }
+
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  vertical-align: baseline;
+  /* 3 */
+  *vertical-align: middle;
+  /* 3 */ }
+
+button,
+input {
+  line-height: normal; }
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+  *overflow: visible;
+  /* 4 */ }
+
+button[disabled],
+input[disabled] {
+  cursor: default; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+  *height: 13px;
+  /* 3 */
+  *width: 13px;
+  /* 3 */ }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+#header:after {
+  content: "";
+  height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both; }
+
+#header {
+  background-image: url("../img/byu-header-bg.svg");
+  border-bottom: 2px solid #ddd; }
+
+#header .branding-title {
+  margin: 0px;
+  position: absolute;
+  left: 25px;
+  top: 11px;
+  width: 255px;
+  height: 77px;
+  background: url(../img/logo.png) no-repeat;
+  background-size: 180px; }
+  @media (max-width: 850px) {
+    #header .branding-title {
+      background-size: 80%; } }
+  @media (max-width: 780px) {
+    #header .branding-title {
+      background-size: 70%; } }
+  @media (max-width: 700px) {
+    #header .branding-title {
+      background-size: 65%; } }
+
+#header .branding-title a {
+  display: block;
+  height: 77px;
+  width: 255px;
+  opacity: .5; }
+
+#header .nav {
+  float: right;
+  top: 0;
+  right: 0;
+  margin: 0;
+  margin-right: 5%;
+  position: relative;
+  left: 15px;
+  z-index: 100; }
+
+#header .nav li {
+  display: inline-block;
+  margin: 0;
+  list-style: none; }
+
+#header .nav li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  line-height: 80px;
+  padding: 0;
+  margin: 0 0 0 50px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap; }
+  @media (max-width: 800px) {
+    #header .nav li a {
+      margin: 0 0 0 2.5em; } }
+  @media (max-width: 747px) {
+    #header .nav li a {
+      font-size: .9em; } }
+
+#header .nav li a:hover, #header .nav li a:active, #header .nav li a:focus {
+  color: #bbb;
+  background-color: transparent;
+  -webkit-transition: color 150ms ease-in;
+  -moz-transition: color 150ms ease-in;
+  -o-transition: color 150ms ease-in;
+  transition: color 150ms ease-in; }
+
+#header .nav li.contact a {
+  background-position: 0px -105px; }
+
+#header .nav li.cart a:hover {
+  background-position: 16px -321px; }
+
+#content {
+  background: white; }
+
+.section.banner {
+  height: 290px;
+  background: #3d3d3d url("../img/byu-campus.jpg") no-repeat;
+  background-size: 100%; }
+  @media (max-width: 800px) {
+    .section.banner {
+      background-size: 120%; } }
+  @media (max-width: 566px) {
+    .section.banner {
+      background-size: 170%; } }
+  @media (max-width: 400px) {
+    .section.banner {
+      height: 200px; } }
+
+.section.banner .wrapper {
+  position: relative; }
+
+.section.banner .hero {
+  top: -89px;
+  left: 177px;
+  z-index: 999; }
+
+.section.banner .button {
+  display: block;
+  position: absolute;
+  top: 57px;
+  left: 50px;
+  margin: 0;
+  width: 400px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border: 3px solid #ddd;
+  background-color: white;
+  z-index: 0; }
+  @media (max-width: 577px) {
+    .section.banner .button {
+      left: -20px; } }
+  @media (max-width: 560px) {
+    .section.banner .button {
+      top: 3em; } }
+  @media (max-width: 440px) {
+    .section.banner .button {
+      left: 0px;
+      width: 100%;
+      top: 1.5em; } }
+
+.section.banner .btn-txt {
+  padding: 15px 15px 5px 15px;
+  display: block;
+  text-decoration: none;
+  color: #FFF; }
+  @media (max-width: 577px) {
+    .section.banner .btn-txt {
+      padding: .4em; } }
+
+.section.banner a {
+  padding: 15px;
+  display: block;
+  text-decoration: none; }
+  @media (max-width: 577px) {
+    .section.banner a {
+      padding: .4em; } }
+
+.section.banner a:hover {
+  text-decoration: none; }
+
+a[href="http://techtransfer.byu.edu/Promising-Technologies.pdf"]:hover {
+  text-decoration: underline; }
+
+.featured-tech-pdf {
+  text-align: right;
+  font-size: 1.2em; }
+
+.section.banner h2 {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1.5;
+  color: #111; }
+  @media (max-width: 440px) {
+    .section.banner h2 {
+      font-size: 1.125em !important; } }
+
+.section.banner p {
+  color: #666;
+  font-style: italic;
+  font-size: 14px;
+  margin: 0; }
+
+@media (max-width: 670px) {
+  .nav {
+    display: none; } }
+@media (max-width: 670px) {
+  .nav li {
+    display: block !important;
+    margin: 0 auto; } }
+
+#header #menu-btn {
+  color: white;
+  font-size: 1.65em;
+  position: relative;
+  right: 10px;
+  top: 10px;
+  float: right;
+  padding: 15px; }
+  #header #menu-btn:hover {
+    cursor: pointer; }
+  @media (min-width: 671px) {
+    #header #menu-btn {
+      display: none; } }
+
+.nav-mobile {
+  padding-top: 70px;
+  text-align: center;
+  list-style-type: none;
+  margin-bottom: 0px;
+  padding-left: 0px; }
+  .nav-mobile li:first-child {
+    border-top: 1px solid #eee; }
+  .nav-mobile li {
+    background-color: #222;
+    color: white;
+    padding: 15px;
+    font-size: 1.125em;
+    border-bottom: 1px solid #eee;
+    letter-spacing: 1.5px; }
+    .nav-mobile li:hover {
+      cursor: pointer; }
+  .nav-mobile a {
+    background-color: none;
+    color: white; }
+    .nav-mobile a:hover {
+      color: #ddd;
+      text-decoration: none; }
+    .nav-mobile a:active, .nav-mobile a:focus {
+      color: #ddd;
+      text-decoration: none; }
+  @media (min-width: 671px) {
+    .nav-mobile {
+      display: none; } }
+
+.footer-wrapper {
+  background: #0A497F;
+  background: #e8e8e8;
+  padding-top: .4em;
+  padding-bottom: .6em;
+  color: #a5a5a5;
+  box-shadow: 0 -1px 0px #dddddd;
+  border-top: 1px solid #fff;
+  border-bottom: 2px solid #ddd;
+  position: relative;
+  z-index: 10; }
+
+.footer {
+  /* NEW, Spec - Firefox, Chrome, Opera */
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (max-width: 670px) {
+    .footer {
+      display: block !important; } }
+
+.column-left {
+  width: 37%; }
+
+.column-right {
+  width: 38%; }
+  .column-right p {
+    margin-bottom: .125em !important; }
+
+.column-center {
+  width: 20%; }
+  .column-center p {
+    margin-bottom: .125em !important; }
+
+.footer-column {
+  width: 32%;
+  margin-top: 0px;
+  color: #6b6a69;
+  height: 19.5em;
+  display: inline-block;
+  margin: auto;
+  vertical-align: top;
+  font-size: 1em; }
+  @media (max-width: 670px) {
+    .footer-column {
+      display: block !important;
+      width: 100% !important;
+      padding: 0px 10px 10px 10px;
+      font-size: .9em;
+      height: auto; } }
+
+.footer ul {
+  margin: 0;
+  padding: 0;
+  float: left; }
+
+.footer ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+  text-transform: lowercase; }
+
+.footer ul li:after {
+  content: " | "; }
+
+.footer ul li:last-child:after {
+  content: ""; }
+
+.footer p {
+  margin: 0;
+  text-align: left;
+  padding-right: 3px;
+  font-size: .9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  .footer p:hover {
+    overflow: inherit;
+    white-space: inherit; }
+
+.footer-title {
+  margin: 3px 10px 5px 5px;
+  font-weight: 600;
+  border-bottom: 1px solid #aaa;
+  color: #595857;
+  font-size: 1.2em;
+  font-family: 'PT Serif', Serif; }
+
+.footer-column p {
+  margin-left: 5px; }
+
+.footer-column li {
+  margin-left: 5px;
+  font-size: .9em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  .footer-column li:hover {
+    overflow: inherit;
+    white-space: inherit; }
+
+.footer a {
+  color: #6b6a69;
+  text-decoration: none; }
+  .footer a:hover {
+    text-decoration: underline; }
+
+.footer p {
+  margin: 0 5px; }
+
+.footer li:first-child a {
+  margin-left: 4px; }
+
+.footer a:hover, .footer a:active {
+  text-decoration: underline; }
+
+#copyright {
+  color: #6b6a69;
+  font-size: .9em;
+  display: block;
+  width: 100%;
+  background-color: #ddd;
+  border-top: 1px solid #fff;
+  padding: 5px 0px; }
+  #copyright p {
+    text-align: center;
+    margin: .2em 1em; }
+  #copyright a {
+    color: #6b6a69;
+    text-decoration: none; }
+    #copyright a:hover {
+      text-decoration: underline; }
+
+a[href="https://www.youtube.com/channel/UCez0aJJmX2JNxDuE3IJLakA"] i {
+  font-size: 1.5em;
+  width: 1.1em; }
+
+a[href="https://www.linkedin.com/pub/byu-technology-transfer/82/48b/a97"] i {
+  font-size: 1.5em;
+  width: 1.1em; }
+
+.shirt-details form {
+  margin-left: 0; }
+
+form[method="post"] {
+  width: 72%;
+  max-width: 35em;
+  margin: 34px auto; }
+  @media (max-width: 740px) {
+    form[method="post"] {
+      width: 100%; } }
+
+form tr {
+  border: 1px solid #CCC;
+  background: #f4f3f2; }
+
+form table {
+  width: 100%;
+  margin-bottom: 16px; }
+  @media (max-width: 400px) {
+    form table {
+      width: 100%; } }
+
+form th {
+  width: 85px;
+  border-right: 1px solid #CCC;
+  vertical-align: middle;
+  padding: 8px; }
+
+form td {
+  padding: 15px 15px; }
+
+form td select,
+form td input,
+form td textarea {
+  width: 100%; }
+
+textarea {
+  height: 100px; }
+
+input[type="submit"], .ip-contact {
+  width: 100%;
+  text-align: center;
+  border: 1px solid #8e8e46;
+  background: #555;
+  color: #FFF;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 14px; }
+  @media (max-width: 400px) {
+    input[type="submit"], .ip-contact {
+      width: 100%; } }
+
+.error {
+  text-align: center;
+  color: #FF533D;
+  font-size: 1em;
+  font-weight: 600; }
+
+.contact-thanks {
+  text-align: center;
+  border: 1px solid #eee;
+  background: #555;
+  color: #FFF !important;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  padding: 14px;
+  padding: 10px;
+  width: 100%;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 14px; }
+  .contact-thanks a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 50% !important;
+    text-align: center; }
+
+.thank-you-text {
+  text-align: center; }
+
+.ip-contact {
+  text-align: center;
+  border: 1px solid #8e8e46;
+  background: #555;
+  color: #FFF !important;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 14px;
+  margin-top: 1em;
+  width: 30% !important;
+  padding: 10px;
+  float: right; }
+  @media (max-width: 400px) {
+    .ip-contact {
+      width: 340px; } }
+  .ip-contact a {
+    color: #fff;
+    text-decoration: none; }
+
+.contact-text-sm {
+  font-size: .9em;
+  text-align: center; }
+
+#about .wrapper-about {
+  width: 85%;
+  max-width: 1000px;
+  margin: 0 auto; }
+#about #about-img {
+  width: 100%;
+  vertical-align: top;
+  display: block;
+  margin: auto;
+  list-style: none;
+  border: 1px solid #e3e1e0;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-align: center;
+  padding: 14px;
+  background: #f0eeed; }
+  @media (max-width: 991px) {
+    #about #about-img {
+      margin-top: 2em; } }
+#about #about-text {
+  line-height: 1.4em;
+  white-space: pre-wrap;
+  font-size: 1em;
+  vertical-align: top;
+  display: inline-block; }
+  @media (max-width: 815px) {
+    #about #about-text {
+      width: 100%;
+      font-size: .9em; } }
+
+.wrapper #resources-title ~ li {
+  margin-bottom: .1em; }
+  @media (max-width: 400px) {
+    .wrapper #resources-title ~ li {
+      margin-bottom: 1em;
+      font-size: .9em; } }
+
+#technologies .featured-tech-pdf {
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  margin-bottom: 3em; }
+#technologies .search-box {
+  width: 60%;
+  margin-bottom: 15px;
+  display: inline-block;
+  height: 39px;
+  margin-top: 0px;
+  border-radius: 3px;
+  border: 2px solid #ddd;
+  display: inline-block;
+  padding-left: .5em; }
+  @media (max-width: 760px) {
+    #technologies .search-box {
+      width: 100%;
+      display: block; } }
+#technologies .select-style {
+  width: 39.5%;
+  padding: 2.7px;
+  display: inline-block;
+  margin-top: 0px;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  background-color: #fff;
+  float: right;
+  background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%; }
+  @media (max-width: 760px) {
+    #technologies .select-style {
+      width: 100%;
+      display: block;
+      margin-bottom: 1em; } }
+#technologies .patent-container {
+  background-color: #fff; }
+  #technologies .patent-container span {
+    margin-left: .5em;
+    font-size: .9em; }
+#technologies .patent-description {
+  text-align: left;
+  font-size: .9em;
+  margin-top: .1em;
+  padding: 0px 0em .5em .5em;
+  margin-bottom: 0px;
+  margin-right: 1em;
+  width: inherit; }
+  #technologies .patent-description:hover {
+    text-decoration: none; }
+  @media (max-width: 500px) {
+    #technologies .patent-description {
+      font-size: .8em;
+      margin-top: 0px; } }
+#technologies .patent-info {
+  text-decoration: none;
+  color: inherit; }
+  #technologies .patent-info:hover {
+    text-decoration: none; }
+#technologies .patent-name {
+  color: #333;
+  text-align: left;
+  padding-top: .2em;
+  margin-left: .3em;
+  margin-top: 0em;
+  margin-bottom: 0px;
+  margin-right: .5em;
+  font-size: 1.4em;
+  display: block;
+  line-height: 1.2em;
+  text-transform: uppercase; }
+  #technologies .patent-name:hover {
+    text-decoration: none; }
+  @media (max-width: 500px) {
+    #technologies .patent-name {
+      font-size: 1.3em; } }
+#technologies .pagination {
+  display: block;
+  margin-top: 3em; }
+  #technologies .pagination p {
+    text-align: center;
+    padding-top: 2em; }
+  #technologies .pagination .fa {
+    font-size: 2em;
+    color: #222;
+    background-color: #f0eeed;
+    padding: .75em 1em;
+    border-radius: 3px; }
+    #technologies .pagination .fa:hover {
+      cursor: pointer; }
+
+#technology .ip-title {
+  display: block;
+  line-height: 1.2em;
+  margin-bottom: 1em; }
+#technology .ip-title ~ span {
+  word-break: keep-all;
+  wrap: nowrap; }
+#technology .ip-description {
+  line-height: 1.2em; }
+#technology .ip-id {
+  wrap: nowrap; }
+#technology .media {
+  margin: 1em 0; }
+  #technology .media img {
+    height: auto;
+    display: block;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 1em; }
+    #technology .media img:hover {
+      cursor: pointer; }
+  #technology .media iframe:hover {
+    cursor: pointer; }
+#technology .ip-link {
+  display: block; }
+#technology .ip-contact {
+  width: 100% !important;
+  margin-top: 2em;
+  text-align: center;
+  border: 1px solid #eee;
+  background: #555;
+  color: #FFF;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+  padding: 14px; }
+  #technology .ip-contact a {
+    text-decoration: none; }
+
+.modal-dialog {
+  width: 80% !important;
+  margin: 3em auto !important; }
+  .modal-dialog .modal-content {
+    border: 30px solid #444; }
+    .modal-dialog .modal-content img {
+      margin-top: 0em; }
+
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 800px !important; } }
+
+.fluid-width-video-wrapper {
+  padding-top: 58.4615% !important; }
+
+.search-container {
+  margin-bottom: 10px; }
+
+.contact-text {
+  margin-bottom: 3em; }
+
+.contact-form {
+  max-width: 550px;
+  display: block;
+  margin: auto; }
+  .contact-form input[type="submit"] {
+    margin-bottom: 2em; }
+
+label {
+  margin-left: 2px;
+  margin-top: 5px; }
+
+.contact-text {
+  width: 50%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
+body {
+  font-family: Arial, 'Oswald', sans-serif;
+  background: #f0eeed;
+  color: #676767; }
+
+.group:before,
+.group:after {
+  content: "";
+  display: table; }
+
+.group:after {
+  clear: both; }
+
+.group {
+  zoom: 1;
+  /* For IE 6/7 (trigger hasLayout) */ }
+
+.wrapper {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto; }
+
+.wrapper a:visited, .wrapper a {
+  color: #6678FF;
+  text-decoration: none; }
+  .wrapper a:visited:hover, .wrapper a:hover {
+    text-decoration: underline; }
+
+.patent-info:visited, .patent-info {
+  color: #676767 !important; }
+
+.section.page:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both; }
+
+.section.page {
+  padding: 34px 0;
+  background: white; }
+
+.section.page h1 {
+  font-size: 2em;
+  font-family: 'PT Serif', Serif;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: #222;
+  font-weight: normal;
+  margin-bottom: 1.5em; }
+  @media (max-width: 539px) {
+    .section.page h1 {
+      line-height: 1.2;
+      margin-top: 0px; } }
+
+.section.page .shirt-details h1 {
+  text-align: left; }
+
+.section.page p {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+
+.section.page .shirt-details h1 .price {
+  color: #9d9f4e;
+  padding-right: 10px;
+  font-size: 34px; }
+
+.section.shirts {
+  padding-bottom: 42px;
+  background: #fff; }
+
+.section.shirts h2 {
+  font-size: 24px;
+  color: #c0bfbe;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.6;
+  font-weight: normal; }
+
+.featured-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  @media (max-width: 670px) {
+    .featured-container {
+      justify-content: center; } }
+  @media (max-width: 670px) {
+    .featured-container {
+      display: block;
+      margin: 0 auto; } }
+
+.section.shirts ul.products {
+  margin: 0 0 -17px 0;
+  padding: 0;
+  width: 100%; }
+
+.section.shirts ul.products li {
+  display: inline-block;
+  list-style: none;
+  border: 1px solid #e3e1e0;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-align: center;
+  padding: 14px;
+  background: #f0eeed;
+  margin: 0 10px 17px 0px; }
+  @media (max-width: 670px) {
+    .section.shirts ul.products li {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 1em;
+      width: 80%; } }
+
+#home .jumbotron-sm {
+  background-image: url(../img/earth.png);
+  background-size: cover;
+  padding: 1em 0px;
+  min-height: 300px; }
+  #home .jumbotron-sm h2, #home .jumbotron-sm h1 {
+    margin: 0px; }
+  #home .jumbotron-sm h1 {
+    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #eee !important;
+    text-shadow: 2px 2px 2px #000;
+    padding-top: 80px;
+    text-align: center; }
+  #home .jumbotron-sm h2 {
+    color: #eee;
+    text-shadow: 2px 2px 2px #000;
+    width: 60%;
+    font-weight: 300;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 2em; }
+    @media (max-width: 1000px) {
+      #home .jumbotron-sm h2 {
+        font-size: 1.125em; } }
+  #home .jumbotron-sm button {
+    width: 90%;
+    margin: auto;
+    display: block;
+    padding: 15px; }
+  @media (min-width: 600px) {
+    #home .jumbotron-sm {
+      display: none; } }
+#home .jumbotron {
+  background-size: 100%;
+  background-color: transparent !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  text-align: center;
+  position: relative;
+  width: 100vw;
+  margin-top: -40%;
+  margin-bottom: -18% !important; }
+  @media (max-width: 1000px) {
+    #home .jumbotron {
+      font-size: 1.125em; } }
+  @media (max-width: 600px) {
+    #home .jumbotron {
+      display: none !important; } }
+  #home .jumbotron img {
+    width: 170px; }
+  #home .jumbotron h1 {
+    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #eee !important;
+    text-shadow: 2px 2px 2px #000; }
+    @media (max-width: 1000px) {
+      #home .jumbotron h1 {
+        font-size: 2.5em !important; } }
+  #home .jumbotron h2 {
+    color: #eee;
+    text-shadow: 2px 2px 2px #000;
+    width: 60%;
+    font-weight: 300;
+    margin: auto;
+    margin-bottom: 20px;
+    font-size: 2em; }
+    @media (max-width: 1000px) {
+      #home .jumbotron h2 {
+        font-size: 1.125em; } }
+#home button {
+  width: 50%;
+  padding: 20px;
+  background-color: #333;
+  color: #f5f5f5;
+  letter-spacing: 2px;
+  font-size: 1.125em;
+  border: none;
+  border-radius: 0px;
+  border: 1px solid #eee; }
+#home img {
+  width: 100%; }
+  @media (min-width: 671px) {
+    #home img {
+      display: none; } }
+#home video {
+  margin-bottom: -12px; }
+  @media (max-width: 671px) {
+    #home video {
+      display: none; } }
+
+.home-title {
+  color: #333 !important;
+  margin: .7em 0 .2em 0;
+  font-family: 'PT Serif', Serif;
+  line-height: 1em !important;
+  font-size: 1.75em !important; }
+
+.home-title ~ p {
+  text-align: center;
+  margin-top: 0px;
+  font-size: .9em;
+  margin-bottom: 2em; }
+
+.feature-wrapper {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 1000px; }
+
+.featured-name {
+  margin-top: 7.5px;
+  margin-bottom: 7.5px; }
+
+.featured-view {
+  margin-top: 7.5px;
+  margin-bottom: 0px; }
+
+.section.shirts ul.products li a {
+  background: white;
+  display: block;
+  padding: 1px 0 10px;
+  text-decoration: none;
+  color: #999;
+  opacity: .9; }
+
+.section.shirts ul.products li a:hover {
+  opacity: 1;
+  color: #666; }
+
+.section.shirts ul.products li img {
+  width: 190px;
+  height: 190px; }
+
+.section.shirts ul.products li p {
+  margin-left: 0;
+  margin-right: 0;
+  width: auto; }
+
+.shirt-picture {
+  width: 80%;
+  margin-left: auto;
+  margin-top: 1.7em;
+  text-align: center;
+  border: 1px solid #d9d9d9;
+  padding: 14px;
+  background: #f0eeed; }
+
+.shirt-picture span {
+  background: white;
+  display: block;
+  width: 100%;
+  padding: 36px 0 61px; }
+
+.ip-page span {
+  background: white;
+  display: block;
+  width: 100%;
+  padding: 0px; }
+
+.breadcrumb {
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0px; }
+  @media (max-width: 500px) {
+    .breadcrumb {
+      margin-bottom: 1em !important; } }
+
+.note-designer {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold; }
+
+.bounding-box {
+  background-image: url(...);
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline; }
+
+.patent-filter {
+  background-color: #ddd;
+  position: relative;
+  left: -90px;
+  width: 20%; }
+
+.patent-list {
+  background-color: #f0eeed !important;
+  border: 1px solid #e3e1e0;
+  padding: .6em;
+  border-radius: 2px;
+  margin-bottom: 10px; }
+
+.patent-list-details {
+  width: 88% !important;
+  display: block !important; }
+
+.search-patents-icon {
+  background-color: #ddd;
+  padding: 9px 10px 11px 10px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #333;
+  margin-left: -4px; }
+
+.search-patents-input {
+  height: 30px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border: 2px solid #ddd;
+  display: inline-block; }
+
+#clear-search {
+  float: right;
+  font-size: .9em;
+  color: #333;
+  margin-bottom: .05em; }
+  @media (max-width: 760px) {
+    #clear-search {
+      display: block;
+      margin-bottom: .6em;
+      text-align: center;
+      border-radius: 2px;
+      text-decoration: none;
+      background-color: #ccc;
+      padding: .8em;
+      float: none;
+      color: #444;
+      text-transform: uppercase;
+      font-weight: 600; } }
+
+#search-go {
+  width: 33%;
+  text-align: center;
+  border: 1px solid #eee;
+  background: #666;
+  color: #FFF;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px; }
+  @media (max-width: 760px) {
+    #search-go {
+      width: 100%;
+      float: none;
+      margin: .5em 0 .5em 0; } }
+
+.warning {
+  text-align: center; }
+
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+.select-style select:focus {
+  outline: none; }
+
+.links-container {
+  width: 49%;
+  display: inline-block;
+  width: 100%;
+  display: block; }
+  @media (max-width: 760px) {
+    .links-container {
+      width: 100%;
+      font-size: .95em;
+      display: block; } }
+
+.media-container {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top; }
+  @media (max-width: 760px) {
+    .media-container {
+      width: 100%;
+      display: block; } }
+
+.links-txt {
+  color: #555;
+  font-size: 1.45em;
+  margin-bottom: .1em;
+  vertical-align: top;
+  margin-top: 0em; }
+
+.img {
+  width: 100%;
+  vertical-align: top;
+  display: block;
+  margin: auto;
+  list-style: none;
+  border: 1px solid #e3e1e0;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-align: center;
+  padding: 14px;
+  background: #f0eeed; }
+  @media (max-width: 991px) {
+    .img {
+      margin-top: 2em; } }
+
+.vid {
+  width: 100%;
+  vertical-align: top;
+  display: block;
+  margin: auto;
+  list-style: none;
+  border: 1px solid #e3e1e0;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  text-align: center;
+  padding: 14px;
+  background: #f0eeed; }
+
+/*# sourceMappingURL=styles.css.map */
