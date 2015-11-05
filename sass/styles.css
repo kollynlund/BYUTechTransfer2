@@ -295,7 +295,7 @@ table {
   margin-right: 5%;
   position: relative;
   left: 15px;
-  z-index: 99999999; }
+  z-index: 100; }
 
 #header .nav li {
   display: inline-block;
@@ -884,6 +884,18 @@ input[type="submit"], .ip-contact {
   padding: 14px; }
   #technology .ip-contact a {
     text-decoration: none; }
+
+.modal-dialog {
+  width: 80% !important;
+  margin: 3em auto !important; }
+  .modal-dialog .modal-content {
+    border: 30px solid #444; }
+    .modal-dialog .modal-content img {
+      margin-top: 0em; }
+
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 800px !important; } }
 
 .fluid-width-video-wrapper {
   padding-top: 58.4615% !important; }
