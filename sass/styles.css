@@ -859,7 +859,7 @@ input[type="submit"], .ip-contact {
       cursor: pointer; }
 
 .page-button-disabled {
-  display: none; }
+  display: none !important; }
 
 #technology .ip-title {
   display: block;
