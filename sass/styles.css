@@ -862,6 +862,10 @@ input[type="submit"], .ip-contact {
     display: block;
     width: 100%;
     margin: auto; }
+    #technology .media img:hover {
+      cursor: pointer; }
+  #technology .media iframe:hover {
+    cursor: pointer; }
 #technology .ip-link {
   display: block; }
 #technology .ip-contact {
