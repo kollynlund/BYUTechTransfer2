@@ -843,6 +843,20 @@ input[type="submit"], .ip-contact {
   @media (max-width: 500px) {
     #technologies .patent-name {
       font-size: 1.3em; } }
+#technologies .pagination {
+  display: block;
+  margin-top: 3em; }
+  #technologies .pagination p {
+    text-align: center;
+    padding-top: 2em; }
+  #technologies .pagination .fa {
+    font-size: 2em;
+    color: #222;
+    background-color: #f0eeed;
+    padding: .75em 1em;
+    border-radius: 3px; }
+    #technologies .pagination .fa:hover {
+      cursor: pointer; }
 
 #technology .ip-title {
   display: block;

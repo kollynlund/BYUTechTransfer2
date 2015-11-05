@@ -86,5 +86,23 @@
 	        font-size: 1.3em; 
 	    }
 	}
+	.pagination {
+		display: block;
+		margin-top: 3em;
+		p {
+			text-align: center;
+			padding-top: 2em;
+		}
+		.fa {
+			font-size: 2em;
+			color: #222;
+			background-color: #f0eeed;
+			padding: .75em 1em;
+			border-radius: 3px;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
 
 }
