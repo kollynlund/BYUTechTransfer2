@@ -255,11 +255,9 @@ String.prototype.toProperCase = function () {
 
 	// RANDOM GLOBAL UTILITIES FOR APP
 	var emailRegex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-	function technologyScrollFix($rootScope, $document, $state) {
+	function scrollFix($rootScope, $document, $state) {
 		$rootScope.$on('$stateChangeSuccess', function() {
-			if ($state.current.name === 'technology') {
-				$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
-			}
+			$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
 		});
 	};
 	
@@ -267,7 +265,7 @@ String.prototype.toProperCase = function () {
 	// APP BOOTSTRAPPING
 	app
 	.config(Routes)
-	.run(technologyScrollFix)
+	.run(scrollFix)
 	.directive('bindVideoSize', bindVideoSize)
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
