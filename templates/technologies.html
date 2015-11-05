@@ -3,7 +3,8 @@
 <!-- 		<div class="breadcrumb"><a href="" ng-click="tc.goTo('home')">Home</a> &gt; <a href="" ng-click="tc.goTo('technologies')">Technologies</a> </div> -->
 		<h1 style="margin-bottom: 0em;">BYU Technologies Available for License</h1>
 		<p class="featured-tech-pdf"><a href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank">Download the List of Promising Technologies (pdf)</a></p>
-		<p style="text-align: center;"><i>Page: {{tc.currentPage+1}} of {{tc.pages}}</i></p>
+		<p style="text-align: center;" ng-if="tc.pages > 0"><i>Page: {{tc.currentPage+1}} of {{tc.pages}}</i></p>
+		<p style="text-align: center;" ng-if="tc.pages === 0"><i>No Results</i></p>
 		<p>The following is a list of technologies currently available for license from BYU. Filter the list using the search box or category selector. Click on any invention for more information.</p>
 		<div class="search-container">
 			<form>
@@ -27,7 +28,7 @@
 				</a>
 			</div>
 		</ul>
-		<div class="pagination row">
+		<div class="pagination row" ng-if="tc.pages > 0">
 			<div class="col-xs-3" style="padding-left: 0px;" ng-click="tc.currentPage = tc.currentPage-1" ng-class="{'page-button-disabled':(tc.currentPage===0)}">
 				<i class="fa fa-chevron-left"></i>
 			</div>
