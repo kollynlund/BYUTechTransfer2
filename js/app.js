@@ -102,14 +102,29 @@ String.prototype.toProperCase = function () {
 			$state.go(pagename);
 		};
 	};
-	function TechnologyController($state, technology) {
+	function TechnologyController($state, $modal, technology) {
 		var stc = this;
 		stc.selectedTech = technology;
+		stc.openOrIllShootGangsta = function (media) {
+			var modalInstance = $modal.open({
+					animation: true,
+					template: media.type === 'video' ? 
+								'<div fit-vids><iframe class="vid" src="'+media.link+'" frameborder="0" allowfullscreen></iframe></div>'
+								: '<div><img class="img" src="'+media.link+'"></div>',
+					controller: 'TechnologyPictureModalController as tpmc',
+					size: 'lg'
+			});
+		};
 		stc.contactAboutTech = function(tech_id) {
 			$state.go('contact',{'tech_id':tech_id});
 		};
 		stc.goTo = function(pagename) {
 			$state.go(pagename);
+		};
+	};
+	function TechnologyPictureModalController($modalInstance) {
+		this.close = function () {
+			$modalInstance.close();
 		};
 	};
 	function ContactController($scope, $state, $stateParams, Emailer) {
@@ -270,6 +285,7 @@ String.prototype.toProperCase = function () {
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
 	.controller('TechnologyController', TechnologyController)
+	.controller('TechnologyPictureModalController', TechnologyPictureModalController)
 	.controller('ContactController', ContactController)
 	.controller('TitleController', TitleController)
 	.controller('GenericController', GenericController)
