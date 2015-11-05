@@ -16,7 +16,7 @@
 					<div class="links-container" ng-if="::stc.selectedTech.Links.length > 0">
 						<p class="links-txt">Links and Resources</p>
 						<li ng-repeat="link in ::stc.selectedTech.Links">
-							<a class="ip-link" href="{{link}}">{{link}}</a>
+							<a target="_blank" class="ip-link" href="{{link}}">{{link}}</a>
 						</li>
 					</div>
 				</div>
@@ -29,7 +29,7 @@
 						</div>
 
 						<div  ng-if="media.type === 'photo'">
-							<img class="img" ng-src="{{media.link}}">
+							<img ng-click="open()" class="img" ng-src="{{media.link}}">
 						</div>
 					</div>
 				</div>
@@ -39,7 +39,24 @@
 
 			<a href="" ng-click="stc.contactAboutTech(stc.selectedTech.ID)"><center><button class="ip-contact">Inquire about this technology</button></center></a>
 			<p class="note-designer"></p>
-			
+
 		</div>
 	</div>
 </div>
+
+
+<!-- 
+        <div class="modal-body">
+        	<img ng-click="open()" class="img" ng-src="{{media.link}}">
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        </div>
+
+
+        <div class="modal-body">
+        	<iframe class="vid" ng-src="{{media.link}}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+        </div> -->
