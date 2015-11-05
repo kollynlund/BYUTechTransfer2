@@ -15,7 +15,7 @@
 			</form>
 		</div>
 		<ul class="products">
-			<div class="technology-box" ng-repeat="technology in tc.techData.technologies | filter:tc.searchText | filter:(tc.categorySearch.Categories === 'Show All' ? undefined : tc.categorySearch) | offset: tc.currentPage*10 | limitTo:10">
+			<div class="technology-box" ng-repeat="technology in tc.relevantTech | offset: tc.currentPage*10 | limitTo:10">
 				<a class="patent-info" href="" ng-click="tc.goToTech(technology.ID)">
 					<div class='patent-list'>
 						<div class='patent-container'>
