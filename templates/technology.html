@@ -12,6 +12,8 @@
 					<p class="ip-description"><b>Principal Investigator:</b> {{::stc.selectedTech["PI"]}}</p>
 					<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
 					<p class="ip-description" ng-repeat="paragraph in ::stc.selectedTech['Long Description']">{{paragraph}}</p>
+					<p><b>About the Market:</b></p>
+					<p class="ip-description">{{::stc.selectedTech["About the Market"]}}</p>
 					<p class="ip-description">For more information, contact <a href='mailto:{{::stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{::stc.selectedTech.ID}}' target='_top'>{{::stc.selectedTech["Contact Name"]}}</a> {{::stc.selectedTech["Contact Phone"] ? '('+stc.selectedTech["Contact Phone"]+')' : ''}}</p>
 					<div class="links-container" ng-if="::stc.selectedTech.Links.length > 0">
 						<p class="links-txt">Links and Resources</p>
