@@ -103,7 +103,7 @@ String.prototype.toProperCase = function () {
 		tc.pages = Math.ceil(tc.techData.technologies.length / 10);
 		tc.currentPage = 0;
 		tc.searchText = '';
-		tc.categorySearch = {'Categories':'Show All'};
+		tc.categorySearch = {'Categories':' Show All'};
 		tc.goToTech = function(tech_id) {
 			$state.go('technology',{'tech_id':tech_id});
 		};
@@ -113,7 +113,7 @@ String.prototype.toProperCase = function () {
 
 		function searchWatch(newVals, oldVals) {
 			tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
-			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === 'Show All' ? undefined : {'Categories':newVals[1]}));
+			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === ' Show All' ? undefined : {'Categories':newVals[1]}));
 			tc.pages = Math.ceil(tc.relevantTech.length / 10);
 			tc.currentPage = 0;
 		};
@@ -240,7 +240,7 @@ String.prototype.toProperCase = function () {
 						return category.toProperCase().trim();
 					});
 				});
-				categories = ['Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
+				categories = [' Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
 				techData.technologies = result;
 				techData.categories = categories;
 				return techData;

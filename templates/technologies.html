@@ -11,7 +11,7 @@
 				<div class="group filter">
 					<input class="search-box" placeholder="Search technologies..." type="text" name="s" ng-model="tc.searchText">
 					<div class="select-style">
-						<select name="c" ng-model="tc.categorySearch.Categories" ng-options="category as (category === '' ? 'Show All' : category) for category in tc.techData.categories"></select>
+						<select name="c" ng-model="tc.categorySearch.Categories" ng-options="category as (category === '' ? ' Show All' : category) for category in tc.techData.categories | orderBy:category"></select>
 					</div>
 			</form>
 		</div>
@@ -39,6 +39,6 @@
 				<i class="fa fa-chevron-right pull-right"></i>
 			</div>	
 		</div>
-		<p ng-class="{'page-button-disabled':(tc.currentPage===0)}" class="back">Back to First Page</p>
+		<p ng-class="{'page-button-disabled':(tc.currentPage===0)}" class="back" ng-click="tc.currentPage = 0">Back to First Page</p>
 	</div>
 </div>
