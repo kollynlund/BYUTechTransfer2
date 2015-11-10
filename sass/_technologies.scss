@@ -104,6 +104,19 @@
 			}
 		}
 	}
+	.back {
+		text-align: center;
+		padding-top: 10px;
+		width: 167px;
+		border-radius: 3px;
+		float: left;
+		background-color: #f0eeed;
+		padding: 5px 10px;
+		&:hover {
+		cursor: pointer;
+		}
+	}
+
 
 }
 

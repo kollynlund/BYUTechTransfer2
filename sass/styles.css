@@ -857,6 +857,16 @@ input[type="submit"], .ip-contact {
     border-radius: 3px; }
     #technologies .pagination .fa:hover {
       cursor: pointer; }
+#technologies .back {
+  text-align: center;
+  padding-top: 10px;
+  width: 167px;
+  border-radius: 3px;
+  float: left;
+  background-color: #f0eeed;
+  padding: 5px 10px; }
+  #technologies .back:hover {
+    cursor: pointer; }
 
 .page-button-disabled {
   display: none !important; }
@@ -917,6 +927,9 @@ input[type="submit"], .ip-contact {
 
 .fluid-width-video-wrapper {
   padding-top: 58.4615% !important; }
+
+.cover {
+  padding: 100% !important; }
 
 .search-container {
   margin-bottom: 10px; }
