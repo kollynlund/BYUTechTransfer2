@@ -3,9 +3,22 @@
 		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{::stc.selectedTech.ID}}</div>
 			<div class="row">
 
-				<div class="col-sm-12">
-						<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
+			<div class="pagination">
+				<div class="col-xs-2" style="padding-left: 0px;">
+					<i class="fa fa-chevron-left pull-left"></i>
 				</div>
+				<div class="col-xs-8">
+					<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
+				</div>
+				<div class="col-xs-2" style="padding-right: 0px;">
+					<i class="fa fa-chevron-right pull-right"></i>
+				</div>	
+			</div>	
+
+<!-- 				<div class="col-sm-12">
+
+						<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
+				</div> -->
 
 				<div class="col-sm-8">
 					<span class="ip-id"><b>ID:</b> {{::stc.selectedTech.ID}}</span>

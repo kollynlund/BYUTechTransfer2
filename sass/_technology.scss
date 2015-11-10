@@ -2,7 +2,8 @@
 	.ip-title {
     display: block;
     line-height: 1.2em;
-    margin-bottom: 1em;
+    margin-bottom: 1.25em;
+    margin-top: 10px;
 	}
 	.ip-title ~ span {
 	    word-break: keep-all; 
@@ -59,6 +60,26 @@
 	        text-decoration: none;
 	    }
 	}
+	.pagination {
+		display: block;
+		margin-top: 0px;
+		padding-left: 15px;
+		padding-right: 15px;
+		p {
+			text-align: center;
+			padding-top: 2em;
+		}
+		.fa {
+			font-size: 2em;
+			color: #222;
+			background-color: #f0eeed;
+			padding: .5em .75em;
+			border-radius: 3px;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}	
 }
 
 
