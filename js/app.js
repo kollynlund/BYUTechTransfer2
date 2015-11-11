@@ -59,6 +59,70 @@ String.prototype.toProperCase = function () {
 	};
 
 	// CUSTOM DIRECTIVES AND FILTERS
+	function fitVids() {
+		'use strict';
+
+		if (!document.getElementById('fit-vids-style')) {
+			var div = document.createElement('div');
+			var ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
+			var cssStyles = '&shy;<style>.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style>';
+			div.className = 'fit-vids-style';
+			div.id = 'fit-vids-style';
+			div.style.display = 'none';
+			div.innerHTML = cssStyles;
+			ref.parentNode.insertBefore(div, ref);
+		}
+
+		return {
+			restrict: 'A',
+			link: function (scope, element, attr) {
+				// scope.dimensions = YouTubeSize.dimesions;
+
+				var selectors = [
+					"iframe",
+					"object",
+					"embed"
+				];
+
+				var videos;
+
+				if (attr.customSelector) {
+					selectors.push(attr.customSelector);
+				}
+
+				videos = element[0].querySelectorAll(selectors.join(','));
+
+				angular.forEach(videos, function (item) {
+
+					var $item = angular.element(item);
+					var height, width, aspectRatio;
+
+					if (item.tagName.toLowerCase() === 'embed' &&
+							($item.parent().tagName === 'object' && $item.parent().length) ||
+							$item.parent().hasClass('.fluid-width-video-wrapper')) {
+						return;
+					}
+
+					height = (item.tagName.toLowerCase() === 'object' || $item.attr('height')) ? parseInt($item.attr('height'), 10) : $item.height();
+					width = !isNaN(parseInt($item.attr('width'), 10)) ? parseInt($item.attr('width'), 10) : $item.width();
+					aspectRatio = height / width;
+
+					if (!$item.attr('id')) {
+						var videoID = 'fitvid' + Math.floor(Math.random()*999999);
+						$item.attr('id', videoID);
+					}
+
+					$item.wrap('<div class="fluid-width-video-wrapper" bind-youtube-size />').parent().css('padding-top', (aspectRatio * 100) + "%");
+					if (attr.blockClick === 'true') {
+						$item.parent().append('<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"></div>')
+					}
+					$item.removeAttr('height').removeAttr('width');
+
+				});
+
+			}
+		};
+	};
 	function bindVideoSize($window, $timeout, VideoSize) {
 		return {
 			restrict: 'A',
@@ -72,6 +136,23 @@ String.prototype.toProperCase = function () {
 				};
 				$window.onresize = bindSize;
 				// Allow current digest loop to finish before setting VideoSize
+				$timeout(bindSize, 0);
+			}
+		};
+	};
+	function bindYoutubeSize($window, $timeout, YouTubeSize) {
+		return {
+			restrict: 'A',
+			replace: false,
+			link: function(scope, element) {
+				function bindSize() {
+					scope.$apply(function() {
+						YouTubeSize.dimensions.width = element[0].clientWidth;
+						YouTubeSize.dimensions.height = element[0].clientHeight;
+					});
+				};
+				$window.onresize = bindSize;
+				// Allow current digest loop to finish before setting YouTubeSize
 				$timeout(bindSize, 0);
 			}
 		};
@@ -297,7 +378,17 @@ String.prototype.toProperCase = function () {
 		return {
 			'dimensions': dimensions
 		};
-	}
+	};
+	function YouTubeSize($interval) {
+		var dimensions = {
+			'width': null,
+			'height': null
+		};
+
+		return {
+			'dimensions': dimensions
+		};
+	};
 	function PageTitle() {
 		var title = {
 			'text': 'BYU Tech Transfer'
@@ -321,7 +412,9 @@ String.prototype.toProperCase = function () {
 	app
 	.config(Routes)
 	.run(scrollFix)
+	.directive('fitVids', fitVids)
 	.directive('bindVideoSize', bindVideoSize)
+	.directive('bindYoutubeSize', bindYoutubeSize)
 	.filter('offset', offset)
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
@@ -333,8 +426,9 @@ String.prototype.toProperCase = function () {
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
 	.factory('VideoSize',VideoSize)
+	.factory('YouTubeSize',YouTubeSize)
 	.factory('PageTitle', PageTitle)
 	.factory('_',function() {
 		return _;
 	});
-})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate','fitVids']));
+})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate']));
