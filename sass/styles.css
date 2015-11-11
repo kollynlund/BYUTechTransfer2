@@ -943,7 +943,10 @@ input[type="submit"], .ip-contact {
     width: 800px !important; } }
 
 .fluid-width-video-wrapper {
-  padding-top: 58.4615% !important; }
+  padding-top: 58.4615% !important;
+  margin-bottom: 1em; }
+  .fluid-width-video-wrapper:hover {
+    cursor: pointer; }
 
 .cover {
   padding: 100% !important; }
