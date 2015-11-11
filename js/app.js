@@ -179,14 +179,17 @@ String.prototype.toProperCase = function () {
 			$state.go(pagename);
 		};
 	};
-	function TechnologiesController($scope, $state, $filter, technologies) {
+	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage) {
 		var tc = this;
+		tc.freshPage = true;
 		tc.techData = technologies;
 		tc.relevantTech = tc.techData.technologies.slice(0);
 		tc.pages = Math.ceil(tc.techData.technologies.length / 10);
-		tc.currentPage = 0;
-		tc.searchText = '';
-		tc.categorySearch = {'Categories':' Show All'};
+		tc.$storage = $sessionStorage.$default({
+			searchText:'',
+			categorySearch: {'Categories':' Show All'},
+			currentPage: 0
+		});
 		tc.goToTech = function(tech_id) {
 			$state.go('technology',{'tech_id':tech_id});
 		};
@@ -198,9 +201,14 @@ String.prototype.toProperCase = function () {
 			tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
 			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === ' Show All' ? undefined : {'Categories':newVals[1]}));
 			tc.pages = Math.ceil(tc.relevantTech.length / 10);
-			tc.currentPage = 0;
+			if (!tc.freshPage) {
+				tc.$storage.currentPage = 0;
+			}
+			else {
+				tc.freshPage = false;
+			}
 		};
-		$scope.$watchCollection(function(){return [tc.searchText, tc.categorySearch.Categories]}, searchWatch);
+		$scope.$watchCollection(function(){return [tc.$storage.searchText, tc.$storage.categorySearch.Categories]}, searchWatch);
 	};
 	function TechnologyController($state, $modal, technologies, technology) {
 		var stc = this;
@@ -303,8 +311,9 @@ String.prototype.toProperCase = function () {
 			}
 		}
 	};
-	function TechnologyDetails($http, $sce, _) {
-		var techData = {
+	function TechnologyDetails($http, $sce, $sessionStorage, _) {
+		console.log($sessionStorage);
+		var techData = $sessionStorage.techData || {
 			'technologies': null,
 			'categories': null
 		};
@@ -347,6 +356,7 @@ String.prototype.toProperCase = function () {
 				categories = [' Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
 				techData.technologies = result;
 				techData.categories = categories;
+				$sessionStorage.techData = techData;
 				return techData;
 			});
 		};
@@ -360,9 +370,11 @@ String.prototype.toProperCase = function () {
 			);
 		};
 		var checkForTechnologyLoaded = function() {
-			return (techData.technologies ? techData : getAllTechnologyData() );
+			console.log( (techData.technologies ? techData : getAllTechnologyData() ) );
+			return ( techData.technologies ? techData : getAllTechnologyData() );
 		};
 
+		checkForTechnologyLoaded();
 		return {
 			'techData': techData,
 			'getSingleTechnology': getSingleTechnology,
@@ -431,4 +443,4 @@ String.prototype.toProperCase = function () {
 	.factory('_',function() {
 		return _;
 	});
-})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate']));
+})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate','ngStorage']));
