@@ -35,7 +35,6 @@ String.prototype.toProperCase = function () {
 					technologies: function(TechnologyDetails) {
 						return TechnologyDetails.checkForTechnologyLoaded();
 					}
-
 				}
 			})
 				.state('technology', {
@@ -43,6 +42,9 @@ String.prototype.toProperCase = function () {
 					templateUrl: 'templates/technology.html',
 					controller: 'TechnologyController as stc',
 					resolve: {
+						technologies: function(TechnologyDetails) {
+							return TechnologyDetails.checkForTechnologyLoaded();
+						},
 						technology: function($stateParams, TechnologyDetails) {
 							return TechnologyDetails.getSingleTechnology($stateParams.tech_id);
 						}
@@ -119,7 +121,7 @@ String.prototype.toProperCase = function () {
 		};
 		$scope.$watchCollection(function(){return [tc.searchText, tc.categorySearch.Categories]}, searchWatch);
 	};
-	function TechnologyController($state, $modal, technology) {
+	function TechnologyController($state, $modal, technologies, technology) {
 		var stc = this;
 		stc.selectedTech = technology;
 		stc.openOrIllShootGangsta = function (media) {
@@ -132,11 +134,32 @@ String.prototype.toProperCase = function () {
 					size: 'lg'
 			});
 		};
+		stc.nextTech = nextTech;
+		stc.previousTech = previousTech;
 		stc.contactAboutTech = function(tech_id) {
 			$state.go('contact',{'tech_id':tech_id});
 		};
 		stc.goTo = function(pagename) {
 			$state.go(pagename);
+		};
+
+		function nextTech(current_tech_id) {
+			// Default to current technology if all else fails
+			var new_tech_id = stc.selectedTech.ID;
+			if (technologies) {
+				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+				new_tech_id = technologies.technologies[(current_index+1 === technologies.technologies.length ? 0 : current_index+1)].ID;
+			}
+			$state.go('technology',{'tech_id': new_tech_id});
+		};
+		function previousTech(current_tech_id) {
+			// Default to current technology if all else fails
+			var new_tech_id = stc.selectedTech.ID;
+			if (technologies) {
+				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+				new_tech_id = technologies.technologies[(current_index === 0 ? (technologies.technologies.length-1) : current_index-1)].ID;
+			}
+			$state.go('technology',{'tech_id': new_tech_id});
 		};
 	};
 	function TechnologyPictureModalController($modalInstance) {
