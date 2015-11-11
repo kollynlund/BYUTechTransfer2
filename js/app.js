@@ -35,7 +35,6 @@ String.prototype.toProperCase = function () {
 					technologies: function(TechnologyDetails) {
 						return TechnologyDetails.checkForTechnologyLoaded();
 					}
-
 				}
 			})
 				.state('technology', {
@@ -43,6 +42,9 @@ String.prototype.toProperCase = function () {
 					templateUrl: 'templates/technology.html',
 					controller: 'TechnologyController as stc',
 					resolve: {
+						technologies: function(TechnologyDetails) {
+							return TechnologyDetails.checkForTechnologyLoaded();
+						},
 						technology: function($stateParams, TechnologyDetails) {
 							return TechnologyDetails.getSingleTechnology($stateParams.tech_id);
 						}
@@ -57,6 +59,70 @@ String.prototype.toProperCase = function () {
 	};
 
 	// CUSTOM DIRECTIVES AND FILTERS
+	function fitVids() {
+		'use strict';
+
+		if (!document.getElementById('fit-vids-style')) {
+			var div = document.createElement('div');
+			var ref = document.getElementsByTagName('base')[0] || document.getElementsByTagName('script')[0];
+			var cssStyles = '&shy;<style>.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style>';
+			div.className = 'fit-vids-style';
+			div.id = 'fit-vids-style';
+			div.style.display = 'none';
+			div.innerHTML = cssStyles;
+			ref.parentNode.insertBefore(div, ref);
+		}
+
+		return {
+			restrict: 'A',
+			link: function (scope, element, attr) {
+				// scope.dimensions = YouTubeSize.dimesions;
+
+				var selectors = [
+					"iframe",
+					"object",
+					"embed"
+				];
+
+				var videos;
+
+				if (attr.customSelector) {
+					selectors.push(attr.customSelector);
+				}
+
+				videos = element[0].querySelectorAll(selectors.join(','));
+
+				angular.forEach(videos, function (item) {
+
+					var $item = angular.element(item);
+					var height, width, aspectRatio;
+
+					if (item.tagName.toLowerCase() === 'embed' &&
+							($item.parent().tagName === 'object' && $item.parent().length) ||
+							$item.parent().hasClass('.fluid-width-video-wrapper')) {
+						return;
+					}
+
+					height = (item.tagName.toLowerCase() === 'object' || $item.attr('height')) ? parseInt($item.attr('height'), 10) : $item.height();
+					width = !isNaN(parseInt($item.attr('width'), 10)) ? parseInt($item.attr('width'), 10) : $item.width();
+					aspectRatio = height / width;
+
+					if (!$item.attr('id')) {
+						var videoID = 'fitvid' + Math.floor(Math.random()*999999);
+						$item.attr('id', videoID);
+					}
+
+					$item.wrap('<div class="fluid-width-video-wrapper" bind-youtube-size />').parent().css('padding-top', (aspectRatio * 100) + "%");
+					if (attr.blockClick === 'true') {
+						$item.parent().append('<div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%"></div>')
+					}
+					$item.removeAttr('height').removeAttr('width');
+
+				});
+
+			}
+		};
+	};
 	function bindVideoSize($window, $timeout, VideoSize) {
 		return {
 			restrict: 'A',
@@ -70,6 +136,23 @@ String.prototype.toProperCase = function () {
 				};
 				$window.onresize = bindSize;
 				// Allow current digest loop to finish before setting VideoSize
+				$timeout(bindSize, 0);
+			}
+		};
+	};
+	function bindYoutubeSize($window, $timeout, YouTubeSize) {
+		return {
+			restrict: 'A',
+			replace: false,
+			link: function(scope, element) {
+				function bindSize() {
+					scope.$apply(function() {
+						YouTubeSize.dimensions.width = element[0].clientWidth;
+						YouTubeSize.dimensions.height = element[0].clientHeight;
+					});
+				};
+				$window.onresize = bindSize;
+				// Allow current digest loop to finish before setting YouTubeSize
 				$timeout(bindSize, 0);
 			}
 		};
@@ -96,14 +179,17 @@ String.prototype.toProperCase = function () {
 			$state.go(pagename);
 		};
 	};
-	function TechnologiesController($scope, $state, $filter, technologies) {
+	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage) {
 		var tc = this;
+		tc.freshPage = true;
 		tc.techData = technologies;
 		tc.relevantTech = tc.techData.technologies.slice(0);
 		tc.pages = Math.ceil(tc.techData.technologies.length / 10);
-		tc.currentPage = 0;
-		tc.searchText = '';
-		tc.categorySearch = {'Categories':'Show All'};
+		tc.$storage = $sessionStorage.$default({
+			searchText:'',
+			categorySearch: {'Categories':' Show All'},
+			currentPage: 0
+		});
 		tc.goToTech = function(tech_id) {
 			$state.go('technology',{'tech_id':tech_id});
 		};
@@ -113,13 +199,18 @@ String.prototype.toProperCase = function () {
 
 		function searchWatch(newVals, oldVals) {
 			tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
-			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === 'Show All' ? undefined : {'Categories':newVals[1]}));
+			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === ' Show All' ? undefined : {'Categories':newVals[1]}));
 			tc.pages = Math.ceil(tc.relevantTech.length / 10);
-			tc.currentPage = 0;
+			if (!tc.freshPage) {
+				tc.$storage.currentPage = 0;
+			}
+			else {
+				tc.freshPage = false;
+			}
 		};
-		$scope.$watchCollection(function(){return [tc.searchText, tc.categorySearch.Categories]}, searchWatch);
+		$scope.$watchCollection(function(){return [tc.$storage.searchText, tc.$storage.categorySearch.Categories]}, searchWatch);
 	};
-	function TechnologyController($state, $modal, technology) {
+	function TechnologyController($state, $modal, technologies, technology) {
 		var stc = this;
 		stc.selectedTech = technology;
 		stc.openOrIllShootGangsta = function (media) {
@@ -132,11 +223,32 @@ String.prototype.toProperCase = function () {
 					size: 'lg'
 			});
 		};
+		stc.nextTech = nextTech;
+		stc.previousTech = previousTech;
 		stc.contactAboutTech = function(tech_id) {
 			$state.go('contact',{'tech_id':tech_id});
 		};
 		stc.goTo = function(pagename) {
 			$state.go(pagename);
+		};
+
+		function nextTech(current_tech_id) {
+			// Default to current technology if all else fails
+			var new_tech_id = stc.selectedTech.ID;
+			if (technologies) {
+				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+				new_tech_id = technologies.technologies[(current_index+1 === technologies.technologies.length ? 0 : current_index+1)].ID;
+			}
+			$state.go('technology',{'tech_id': new_tech_id});
+		};
+		function previousTech(current_tech_id) {
+			// Default to current technology if all else fails
+			var new_tech_id = stc.selectedTech.ID;
+			if (technologies) {
+				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+				new_tech_id = technologies.technologies[(current_index === 0 ? (technologies.technologies.length-1) : current_index-1)].ID;
+			}
+			$state.go('technology',{'tech_id': new_tech_id});
 		};
 	};
 	function TechnologyPictureModalController($modalInstance) {
@@ -199,8 +311,9 @@ String.prototype.toProperCase = function () {
 			}
 		}
 	};
-	function TechnologyDetails($http, $sce, _) {
-		var techData = {
+	function TechnologyDetails($http, $sce, $sessionStorage, _) {
+		console.log($sessionStorage);
+		var techData = $sessionStorage.techData || {
 			'technologies': null,
 			'categories': null
 		};
@@ -240,9 +353,10 @@ String.prototype.toProperCase = function () {
 						return category.toProperCase().trim();
 					});
 				});
-				categories = ['Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
+				categories = [' Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
 				techData.technologies = result;
 				techData.categories = categories;
+				$sessionStorage.techData = techData;
 				return techData;
 			});
 		};
@@ -256,9 +370,11 @@ String.prototype.toProperCase = function () {
 			);
 		};
 		var checkForTechnologyLoaded = function() {
-			return (techData.technologies ? techData : getAllTechnologyData() );
+			console.log( (techData.technologies ? techData : getAllTechnologyData() ) );
+			return ( techData.technologies ? techData : getAllTechnologyData() );
 		};
 
+		checkForTechnologyLoaded();
 		return {
 			'techData': techData,
 			'getSingleTechnology': getSingleTechnology,
@@ -274,7 +390,17 @@ String.prototype.toProperCase = function () {
 		return {
 			'dimensions': dimensions
 		};
-	}
+	};
+	function YouTubeSize($interval) {
+		var dimensions = {
+			'width': null,
+			'height': null
+		};
+
+		return {
+			'dimensions': dimensions
+		};
+	};
 	function PageTitle() {
 		var title = {
 			'text': 'BYU Tech Transfer'
@@ -298,7 +424,9 @@ String.prototype.toProperCase = function () {
 	app
 	.config(Routes)
 	.run(scrollFix)
+	.directive('fitVids', fitVids)
 	.directive('bindVideoSize', bindVideoSize)
+	.directive('bindYoutubeSize', bindYoutubeSize)
 	.filter('offset', offset)
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
@@ -310,8 +438,9 @@ String.prototype.toProperCase = function () {
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
 	.factory('VideoSize',VideoSize)
+	.factory('YouTubeSize',YouTubeSize)
 	.factory('PageTitle', PageTitle)
 	.factory('_',function() {
 		return _;
 	});
-})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate','fitVids']));
+})(angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate','ngStorage']));

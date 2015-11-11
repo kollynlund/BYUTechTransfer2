@@ -874,7 +874,8 @@ input[type="submit"], .ip-contact {
 #technology .ip-title {
   display: block;
   line-height: 1.2em;
-  margin-bottom: 1em; }
+  margin-bottom: 1.25em;
+  margin-top: 10px; }
 #technology .ip-title ~ span {
   word-break: keep-all;
   wrap: nowrap; }
@@ -912,6 +913,22 @@ input[type="submit"], .ip-contact {
   padding: 14px; }
   #technology .ip-contact a {
     text-decoration: none; }
+#technology .pagination {
+  display: block;
+  margin-top: 0px;
+  padding-left: 15px;
+  padding-right: 15px; }
+  #technology .pagination p {
+    text-align: center;
+    padding-top: 2em; }
+  #technology .pagination .fa {
+    font-size: 2em;
+    color: #222;
+    background-color: #f0eeed;
+    padding: .5em .75em;
+    border-radius: 3px; }
+    #technology .pagination .fa:hover {
+      cursor: pointer; }
 
 .modal-dialog {
   width: 80% !important;
@@ -926,7 +943,10 @@ input[type="submit"], .ip-contact {
     width: 800px !important; } }
 
 .fluid-width-video-wrapper {
-  padding-top: 58.4615% !important; }
+  padding-top: 58.4615% !important;
+  margin-bottom: 1em; }
+  .fluid-width-video-wrapper:hover {
+    cursor: pointer; }
 
 .cover {
   padding: 100% !important; }
