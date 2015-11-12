@@ -874,8 +874,9 @@ input[type="submit"], .ip-contact {
 #technology .ip-title {
   display: block;
   line-height: 1.2em;
-  margin-bottom: 1.25em;
-  margin-top: 10px; }
+  margin-bottom: 1.65em;
+  margin-top: 10px;
+  font-size: 1.65em; }
 #technology .ip-title ~ span {
   word-break: keep-all;
   wrap: nowrap; }
@@ -1183,7 +1184,7 @@ body {
       display: none; } }
 #home video {
   margin-bottom: -12px; }
-  @media (max-width: 671px) {
+  @media (max-width: 600px) {
     #home video {
       display: none; } }
 

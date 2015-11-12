@@ -242,7 +242,7 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     }
     video {
         margin-bottom: -12px;
-        @media(max-width: 671px) {
+        @media(max-width: 600px) {
             display: none;
         }
 
