@@ -206,6 +206,7 @@ String.prototype.toProperCase = function () {
 	function TechnologyController($state, $modal, technologies, technology) {
 		var stc = this;
 		stc.selectedTech = technology;
+		stc.techPos;
 		stc.openOrIllShootGangsta = function (media) {
 			var modalInstance = $modal.open({
 					animation: true,
@@ -225,12 +226,20 @@ String.prototype.toProperCase = function () {
 			$state.go(pagename);
 		};
 
+
+		stc.techPos = 
+			technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === 0
+			? 'first'
+			: (	technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === technologies.technologies.length-1
+				? 'last'
+				: 'middle'
+			  );
 		function nextTech(current_tech_id) {
 			// Default to current technology if all else fails
 			var new_tech_id = stc.selectedTech.ID;
 			if (technologies) {
 				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
-				new_tech_id = technologies.technologies[(current_index+1 === technologies.technologies.length ? 0 : current_index+1)].ID;
+				new_tech_id = technologies.technologies[(current_index+1 === technologies.technologies.length ? current_index : current_index+1)].ID;
 			}
 			$state.go('technology',{'tech_id': new_tech_id});
 		};
@@ -239,7 +248,7 @@ String.prototype.toProperCase = function () {
 			var new_tech_id = stc.selectedTech.ID;
 			if (technologies) {
 				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
-				new_tech_id = technologies.technologies[(current_index === 0 ? (technologies.technologies.length-1) : current_index-1)].ID;
+				new_tech_id = technologies.technologies[(current_index === 0 ? current_index : current_index-1)].ID;
 			}
 			$state.go('technology',{'tech_id': new_tech_id});
 		};
@@ -305,7 +314,6 @@ String.prototype.toProperCase = function () {
 		}
 	};
 	function TechnologyDetails($http, $sce, $sessionStorage, _) {
-		console.log($sessionStorage);
 		var techData = $sessionStorage.techData || {
 			'technologies': null,
 			'categories': null
@@ -367,7 +375,6 @@ String.prototype.toProperCase = function () {
 			);
 		};
 		var checkForTechnologyLoaded = function() {
-			console.log( (techData.technologies ? techData : getAllTechnologyData() ) );
 			return ( techData.technologies ? techData : getAllTechnologyData() );
 		};
 

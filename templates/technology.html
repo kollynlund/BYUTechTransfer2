@@ -4,13 +4,13 @@
 			<div class="row">
 
 			<div class="pagination">
-				<div class="col-xs-2" style="padding-left: 0px;" ng-click="stc.previousTech(stc.selectedTech.ID)">
+				<div class="col-xs-2" style="padding-left: 0px;" ng-click="stc.previousTech(stc.selectedTech.ID)" ng-if="stc.techPos !== 'first'">
 					<i class="fa fa-chevron-left pull-left"></i>
 				</div>
 				<div class="col-xs-8">
 					<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
 				</div>
-				<div class="col-xs-2" style="padding-right: 0px;" ng-click="stc.nextTech(stc.selectedTech.ID)">
+				<div class="col-xs-2" style="padding-right: 0px;" ng-click="stc.nextTech(stc.selectedTech.ID)" ng-if="stc.techPos !== 'last'">
 					<i class="fa fa-chevron-right pull-right"></i>
 				</div>	
 			</div>	
