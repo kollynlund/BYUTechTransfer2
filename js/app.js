@@ -5,7 +5,7 @@ String.prototype.toProperCase = function () {
 
 (function(app) {
 	// ROUTING
-	function Routes($stateProvider, $urlRouterProvider) {
+	function Config($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
@@ -56,6 +56,16 @@ String.prototype.toProperCase = function () {
 				templateUrl: 'templates/resources.html',
 				controller: 'GenericController as rc'
 			});
+
+		$sceDelegateProvider.resourceUrlWhitelist([
+			'self',
+			'http*://www.youtube.com**',
+			'http*://youtube.com**',
+			'youtube.com**',
+			'http*://www.vimeo.com**',
+			'http*://vimeo.com**',
+			'vimeo.com**',
+		]);
 	};
 
 	// CUSTOM DIRECTIVES AND FILTERS
@@ -136,23 +146,6 @@ String.prototype.toProperCase = function () {
 				};
 				$window.onresize = bindSize;
 				// Allow current digest loop to finish before setting VideoSize
-				$timeout(bindSize, 0);
-			}
-		};
-	};
-	function bindYoutubeSize($window, $timeout, YouTubeSize) {
-		return {
-			restrict: 'A',
-			replace: false,
-			link: function(scope, element) {
-				function bindSize() {
-					scope.$apply(function() {
-						YouTubeSize.dimensions.width = element[0].clientWidth;
-						YouTubeSize.dimensions.height = element[0].clientHeight;
-					});
-				};
-				$window.onresize = bindSize;
-				// Allow current digest loop to finish before setting YouTubeSize
 				$timeout(bindSize, 0);
 			}
 		};
@@ -327,10 +320,14 @@ String.prototype.toProperCase = function () {
 				'Contact Phone': tech_object.gsx$contactphone.$t,
 				'ID': tech_object.gsx$id.$t,
 				'Media': [
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media1'].$t), 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media2'].$t), 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media3'].$t), 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media4'].$t), 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
+					// {'link':$sce.trustAsResourceUrl(tech_object['gsx$media1'].$t), 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
+					// {'link':$sce.trustAsResourceUrl(tech_object['gsx$media2'].$t), 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
+					// {'link':$sce.trustAsResourceUrl(tech_object['gsx$media3'].$t), 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
+					// {'link':$sce.trustAsResourceUrl(tech_object['gsx$media4'].$t), 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
+					{'link':tech_object['gsx$media1'].$t, 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
+					{'link':tech_object['gsx$media2'].$t, 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
+					{'link':tech_object['gsx$media3'].$t, 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
+					{'link':tech_object['gsx$media4'].$t, 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
 				],
 				'Links': tech_object.gsx$links.$t.split(',').filter(function(item){return item != ''}),
 				'Long Description': tech_object.gsx$longdescription.$t.split('\n\n'),
@@ -391,16 +388,6 @@ String.prototype.toProperCase = function () {
 			'dimensions': dimensions
 		};
 	};
-	function YouTubeSize($interval) {
-		var dimensions = {
-			'width': null,
-			'height': null
-		};
-
-		return {
-			'dimensions': dimensions
-		};
-	};
 	function PageTitle() {
 		var title = {
 			'text': 'BYU Tech Transfer'
@@ -422,11 +409,10 @@ String.prototype.toProperCase = function () {
 
 	// APP BOOTSTRAPPING
 	app
-	.config(Routes)
+	.config(Config)
 	.run(scrollFix)
 	.directive('fitVids', fitVids)
 	.directive('bindVideoSize', bindVideoSize)
-	.directive('bindYoutubeSize', bindYoutubeSize)
 	.filter('offset', offset)
 	.controller('HomeController', HomeController)
 	.controller('TechnologiesController', TechnologiesController)
@@ -438,7 +424,6 @@ String.prototype.toProperCase = function () {
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
 	.factory('VideoSize',VideoSize)
-	.factory('YouTubeSize',YouTubeSize)
 	.factory('PageTitle', PageTitle)
 	.factory('_',function() {
 		return _;
