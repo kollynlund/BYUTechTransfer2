@@ -1,17 +1,17 @@
 <div id="header" ng-controller="GenericController as hc">
 	<a href="" ng-click="hc.goTo('home')"><h1 class="branding-title"></h1></a>
 	<ul class="nav">
-		<li><a href="" ng-click="hc.goTo('technologies')">Technologies</a></li>
+		<li><a href="" ng-click="hc.goToAndReset('technologies')">Technologies</a></li>
 		<li><a href="" ng-click="hc.goTo('resources')">Resources</a></li>
 		<li><a href="" ng-click="hc.goTo('contact')">Contact</a></li>
 		<li><a href="" ng-click="hc.goTo('about')">About</a></li>
 	</ul>
 	<i id="menu-btn" class="fa fa-bars"></i>
 	<ul class="nav-mobile">
-		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('technologies')">Technologies</a></li>
-		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('resources')">Resources</a></li>
-		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('contact')">Contact</a></li>
-		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('about')">About</a></li>
+		<li ng-click="hc.goToAndReset('technologies')" class="hidden mobile-nav-item"><a href="">Technologies</a></li>
+		<li ng-click="hc.goTo('resources')" class="hidden mobile-nav-item"><a href="">Resources</a></li>
+		<li ng-click="hc.goTo('contact')" class="hidden mobile-nav-item"><a href="">Contact</a></li>
+		<li ng-click="hc.goTo('about')" class="hidden mobile-nav-item"><a href="">About</a></li>
 	</ul>	
 </div>
 <script src="js/menu.js"></script>
