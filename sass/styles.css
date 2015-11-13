@@ -864,6 +864,10 @@ input[type="submit"], .ip-contact {
     margin-right: auto;
     display: flex;
     justify-content: center; }
+    #technologies .pagination .pgs .pg {
+      font-size: 1.125em; }
+      #technologies .pagination .pgs .pg:hover {
+        cursor: pointer !important; }
 #technologies .back {
   text-align: center;
   padding-top: 10px;

@@ -111,10 +111,16 @@
 			margin-right: auto;
 			display: flex;
 			justify-content: center;
+			.pg {
+				font-size: 1.125em;
+				&:hover {
+					cursor: pointer !important;
+				}
+			}
 		}
 	}
 
-	
+
 	.back {
 		text-align: center;
 		padding-top: 10px;
