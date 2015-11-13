@@ -165,19 +165,20 @@ String.prototype.toProperCase = function () {
 			$state.go(pagename);
 		};
 	}
-	function HomeController($state, VideoSize) {
+	function HomeController($state, VideoSize, TechnologyDetails) {
 		var hmc = this;
 		hmc.dimensions = VideoSize.dimensions;
 		hmc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
 	};
-	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage) {
+	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage, _) {
 		var tc = this;
 		tc.freshPage = true;
 		tc.techData = technologies;
 		tc.relevantTech = tc.techData.technologies.slice(0);
 		tc.pages = Math.ceil(tc.techData.technologies.length / 10);
+		tc.possiblePages = _.range(tc.pages);
 		tc.$storage = $sessionStorage.$default({
 			searchText:'',
 			categorySearch: {'Categories':' Show All'},
@@ -194,6 +195,7 @@ String.prototype.toProperCase = function () {
 			tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
 			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === ' Show All' ? undefined : {'Categories':newVals[1]}));
 			tc.pages = Math.ceil(tc.relevantTech.length / 10);
+			tc.possiblePages = _.range(tc.pages);
 			if (!tc.freshPage) {
 				tc.$storage.currentPage = 0;
 			}

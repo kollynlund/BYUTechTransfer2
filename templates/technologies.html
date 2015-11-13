@@ -35,16 +35,9 @@
 			<div class="col-xs-6" ng-class="{'col-xs-offset-3':(tc.$storage.currentPage===0)}">
 				<!-- <p class="pages"><i>Page: {{tc.$storage.currentPage+1}} of {{tc.pages}}</i></p> -->
 				<div class="pgs">
-					<p>1</p>
-					<p>2</p>
-					<p>3</p>
-					<p>4</p>
-					<p>5</p>
-					<p>6</p>
-					<p>7</p>
-					<p>8</p>
-					<p>9</p>
-					<p>10</p>
+					<p ng-if="tc.$storage.currentPage > 2 && tc.pages > 5">...</p>
+					<p ng-repeat="pageIndex in tc.possiblePages | offset: ( tc.pages > 5 ? ( tc.$storage.currentPage > 1 ? ( (tc.$storage.currentPage + 3) < tc.pages ? tc.$storage.currentPage - 2 : tc.pages - 5) : 0 ) : 0 ) | limitTo: 5" ng-click="tc.$storage.currentPage = pageIndex" ng-class="{'highlighted':(tc.$storage.currentPage === pageIndex)}">{{pageIndex+1}}</p>
+					<p ng-if="tc.pages-3 > tc.$storage.currentPage && tc.pages > 5">...</p>
 				</div>
 
 			</div>
@@ -53,6 +46,6 @@
 			</div>	
 		</div>
 		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===0)}" class="back" ng-click="tc.$storage.currentPage = 0">To First Page</p>
-		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage!==0)}" class="end" ng-click="tc.$storage.currentPage = 0">To Last Page</p>
+		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===tc.pages-1)}" class="end" ng-click="tc.$storage.currentPage = tc.pages - 1">To Last Page</p>
 	</div>
 </div>
