@@ -854,38 +854,47 @@ input[type="submit"], .ip-contact {
     font-size: 2em;
     color: #222;
     background-color: #f0eeed;
-    padding: .75em 1em;
+    padding: .5em .75em;
     border-radius: 3px; }
     #technologies .pagination .fa:hover {
       cursor: pointer; }
   #technologies .pagination .pgs {
-    margin-top: 2em;
+    margin-top: .9em;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     justify-content: center; }
     #technologies .pagination .pgs .pg {
-      font-size: 1.125em; }
+      font-size: 1.125em;
+      padding: 7px 0px;
+      font-style: italic; }
       #technologies .pagination .pgs .pg:hover {
-        cursor: pointer !important; }
+        cursor: pointer !important;
+        font-weight: bold; }
+  #technologies .pagination .highlighted {
+    font-weight: bold;
+    background-color: #eee;
+    border-radius: 4px; }
 #technologies .back {
   text-align: center;
   padding-top: 10px;
-  width: 167px;
+  width: 140px;
   border-radius: 3px;
   float: left;
   background-color: #f0eeed;
-  padding: 5px 10px; }
+  padding: 5px 10px;
+  margin-top: -5px; }
   #technologies .back:hover {
     cursor: pointer; }
 #technologies .end {
   text-align: center;
   padding-top: 10px;
-  width: 167px;
+  width: 140px;
   border-radius: 3px;
   float: right;
   background-color: #f0eeed;
-  padding: 5px 10px; }
+  padding: 5px 10px;
+  margin-top: -5px; }
   #technologies .end:hover {
     cursor: pointer; }
 
