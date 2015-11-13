@@ -158,32 +158,46 @@ String.prototype.toProperCase = function () {
 	};
 
 	// CONTROLLERS
-	function GenericController($state) {
+	function GenericController($state, $timeout, ResetSearch, TechnologyDetails) {
 		var gc = this;
 		gc.currentYear = new Date().getFullYear();
 		gc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
+		gc.goToAndReset = function(pagename) {
+			if ($state.current.name != 'technologies') {
+				ResetSearch.resetSearch = true;
+			}
+
+			$state.go(pagename);
+		}
 	}
-	function HomeController($state, VideoSize, TechnologyDetails) {
+	function HomeController($state, VideoSize) {
 		var hmc = this;
 		hmc.dimensions = VideoSize.dimensions;
 		hmc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
 	};
-	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage, _) {
+	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage, ResetSearch, _) {
 		var tc = this;
 		tc.freshPage = true;
 		tc.techData = technologies;
-		tc.relevantTech = tc.techData.technologies.slice(0);
 		tc.pages = Math.ceil(tc.techData.technologies.length / 10);
 		tc.possiblePages = _.range(tc.pages);
 		tc.$storage = $sessionStorage.$default({
 			searchText:'',
 			categorySearch: {'Categories':' Show All'},
-			currentPage: 0
+			currentPage: 0,
+			relevantTech: tc.techData.technologies.slice(0)
 		});
+		if (ResetSearch.resetSearch) {
+			ResetSearch.resetSearch = false;
+			tc.$storage.searchText ='';
+			tc.$storage.categorySearch = {'Categories':' Show All'};
+			tc.$storage.currentPage = 0;
+			tc.$storage.relevantTech = tc.techData.technologies.slice(0);
+		}
 		tc.goToTech = function(tech_id) {
 			$state.go('technology',{'tech_id':tech_id});
 		};
@@ -192,9 +206,9 @@ String.prototype.toProperCase = function () {
 		};
 
 		function searchWatch(newVals, oldVals) {
-			tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
-			tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === ' Show All' ? undefined : {'Categories':newVals[1]}));
-			tc.pages = Math.ceil(tc.relevantTech.length / 10);
+			tc.$storage.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
+			tc.$storage.relevantTech = $filter('filter')(tc.$storage.relevantTech, (newVals[1] === ' Show All' ? undefined : {'Categories':newVals[1]}));
+			tc.pages = Math.ceil(tc.$storage.relevantTech.length / 10);
 			tc.possiblePages = _.range(tc.pages);
 			if (!tc.freshPage) {
 				tc.$storage.currentPage = 0;
@@ -205,8 +219,9 @@ String.prototype.toProperCase = function () {
 		};
 		$scope.$watchCollection(function(){return [tc.$storage.searchText, tc.$storage.categorySearch.Categories]}, searchWatch);
 	};
-	function TechnologyController($state, $modal, technologies, technology) {
+	function TechnologyController($state, $modal, $sessionStorage, technologies, technology) {
 		var stc = this;
+		stc.technologies = $sessionStorage.relevantTech || technologies.technologies;
 		stc.selectedTech = technology;
 		stc.techPos;
 		stc.openOrIllShootGangsta = function (media) {
@@ -230,27 +245,27 @@ String.prototype.toProperCase = function () {
 
 
 		stc.techPos = 
-			technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === 0
+			stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === 0
 			? 'first'
-			: (	technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === technologies.technologies.length-1
+			: (	stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === stc.technologies.length-1
 				? 'last'
 				: 'middle'
 			  );
 		function nextTech(current_tech_id) {
 			// Default to current technology if all else fails
 			var new_tech_id = stc.selectedTech.ID;
-			if (technologies) {
-				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
-				new_tech_id = technologies.technologies[(current_index+1 === technologies.technologies.length ? current_index : current_index+1)].ID;
+			if (stc.technologies) {
+				var current_index = stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+				new_tech_id = stc.technologies[(current_index+1 === stc.technologies.length ? current_index : current_index+1)].ID;
 			}
 			$state.go('technology',{'tech_id': new_tech_id});
 		};
 		function previousTech(current_tech_id) {
 			// Default to current technology if all else fails
 			var new_tech_id = stc.selectedTech.ID;
-			if (technologies) {
-				var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
-				new_tech_id = technologies.technologies[(current_index === 0 ? current_index : current_index-1)].ID;
+			if (stc.technologies) {
+				var current_index = stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+				new_tech_id = stc.technologies[(current_index === 0 ? current_index : current_index-1)].ID;
 			}
 			$state.go('technology',{'tech_id': new_tech_id});
 		};
@@ -387,6 +402,13 @@ String.prototype.toProperCase = function () {
 			'checkForTechnologyLoaded': checkForTechnologyLoaded
 		};
 	};
+	function ResetSearch($sessionStorage) {
+		var resetSearch = false;
+
+		return {
+			resetSearch: resetSearch
+		};
+	};
 	function VideoSize($interval) {
 		var dimensions = {
 			'width': null,
@@ -432,6 +454,7 @@ String.prototype.toProperCase = function () {
 	.controller('GenericController', GenericController)
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
+	.factory('ResetSearch', ResetSearch)
 	.factory('VideoSize',VideoSize)
 	.factory('PageTitle', PageTitle)
 	.factory('_',function() {
