@@ -1006,7 +1006,10 @@ input[type="submit"], .ip-contact {
   .ip-title-mobile {
     font-size: 1.6em !important;
     margin-bottom: 20px !important;
-    line-height: 26px !important; } }
+    line-height: 26px !important;
+    width: 90%;
+    display: block;
+    margin: auto; } }
 
 .search-container {
   margin-bottom: 10px; }
