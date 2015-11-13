@@ -848,7 +848,8 @@ input[type="submit"], .ip-contact {
   margin-top: 3em; }
   #technologies .pagination p {
     text-align: center;
-    padding-top: 2em; }
+    display: inline-block;
+    margin: auto; }
   #technologies .pagination .fa {
     font-size: 2em;
     color: #222;
@@ -857,6 +858,12 @@ input[type="submit"], .ip-contact {
     border-radius: 3px; }
     #technologies .pagination .fa:hover {
       cursor: pointer; }
+  #technologies .pagination .pgs {
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center; }
 #technologies .back {
   text-align: center;
   padding-top: 10px;
@@ -866,6 +873,16 @@ input[type="submit"], .ip-contact {
   background-color: #f0eeed;
   padding: 5px 10px; }
   #technologies .back:hover {
+    cursor: pointer; }
+#technologies .end {
+  text-align: center;
+  padding-top: 10px;
+  width: 167px;
+  border-radius: 3px;
+  float: right;
+  background-color: #f0eeed;
+  padding: 5px 10px; }
+  #technologies .end:hover {
     cursor: pointer; }
 
 .page-button-disabled {
