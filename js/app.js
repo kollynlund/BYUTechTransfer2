@@ -199,9 +199,11 @@ String.prototype.toProperCase = function () {
 			tc.$storage.relevantTech = tc.techData.technologies.slice(0);
 		}
 
-		tc.scrollToTop = function() {
-			$location.hash('top');
-			$anchorScroll();
+		tc.scrollToTop = function(pageIndex) {
+			if (tc.$storage.currentPage !== pageIndex) {
+				$location.hash('top');
+				$anchorScroll();	
+			}
 		};
 		tc.goToTech = function(tech_id) {
 			$state.go('technology',{'tech_id':tech_id});
