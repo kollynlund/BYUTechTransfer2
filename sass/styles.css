@@ -856,6 +856,12 @@ input[type="submit"], .ip-contact {
     background-color: #f0eeed;
     padding: .5em .75em;
     border-radius: 3px; }
+    @media (max-width: 550px) {
+      #technologies .pagination .fa {
+        padding: .35em;
+        padding-left: .45em;
+        padding-right: .45em;
+        font-size: 1.5em; } }
     #technologies .pagination .fa:hover {
       cursor: pointer; }
   #technologies .pagination .pgs {
@@ -864,6 +870,9 @@ input[type="submit"], .ip-contact {
     margin-right: auto;
     display: flex;
     justify-content: center; }
+    @media (max-width: 550px) {
+      #technologies .pagination .pgs {
+        margin-top: 0em; } }
     #technologies .pagination .pgs .pg {
       font-size: 1.125em;
       padding: 7px 0px;
@@ -906,7 +915,12 @@ input[type="submit"], .ip-contact {
   line-height: 1.2em;
   margin-bottom: 1.65em;
   margin-top: 10px;
-  font-size: 1.65em; }
+  font-size: 1.65em;
+  padding-left: 5px;
+  padding-right: 5px; }
+  @media (max-width: 767px) {
+    #technology .ip-title {
+      display: none; } }
 #technology .ip-title ~ span {
   word-break: keep-all;
   wrap: nowrap; }
@@ -949,6 +963,9 @@ input[type="submit"], .ip-contact {
   margin-top: 0px;
   padding-left: 15px;
   padding-right: 15px; }
+  @media (max-width: 767px) {
+    #technology .pagination {
+      display: inline-block; } }
   #technology .pagination p {
     text-align: center;
     padding-top: 2em; }
@@ -981,6 +998,15 @@ input[type="submit"], .ip-contact {
 
 .cover {
   padding: 100% !important; }
+
+@media (min-width: 767px) {
+  .ip-title-mobile {
+    display: none; } }
+@media (max-width: 767px) {
+  .ip-title-mobile {
+    font-size: 1.6em !important;
+    margin-bottom: 20px !important;
+    line-height: 26px !important; } }
 
 .search-container {
   margin-bottom: 10px; }
@@ -1156,6 +1182,9 @@ body {
     margin: auto;
     display: block;
     padding: 15px; }
+    @media (max-width: 450px) {
+      #home .jumbotron-sm button {
+        font-size: .75em; } }
   @media (min-width: 600px) {
     #home .jumbotron-sm {
       display: none; } }

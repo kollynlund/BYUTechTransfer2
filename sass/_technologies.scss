@@ -101,6 +101,12 @@
 			background-color: #f0eeed;
 			padding: .5em .75em;
 			border-radius: 3px;
+			@media (max-width: 550px) {
+				padding: .35em;
+				padding-left: .45em;
+				padding-right: .45em;
+				font-size: 1.5em;
+			}
 			&:hover {
 				cursor: pointer;
 			}
@@ -111,6 +117,9 @@
 			margin-right: auto;
 			display: flex;
 			justify-content: center;
+			@media (max-width: 550px) {
+				margin-top: 0em;
+			}
 			.pg {
 				font-size: 1.125em;
 				padding: 7px 0px;
