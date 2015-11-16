@@ -36,7 +36,7 @@
 				<!-- <p class="pages"><i>Page: {{tc.$storage.currentPage+1}} of {{tc.pages}}</i></p> -->
 				<div class="pgs">
 					<!-- <p ng-if="tc.$storage.currentPage > 2 && tc.pages > 5">...</p> -->
-					<p class="pg" ng-repeat="pageIndex in tc.possiblePages | offset: ( tc.pages > 5 ? ( tc.$storage.currentPage > 1 ? ( (tc.$storage.currentPage + 3) < tc.pages ? tc.$storage.currentPage - 2 : tc.pages - 5) : 0 ) : 0 ) | limitTo: 5" ng-click="tc.scrollToTop(pageIndex); tc.$storage.currentPage = pageIndex;" ng-class="{'highlighted':(tc.$storage.currentPage === pageIndex)}">{{pageIndex+1}}</p>
+					<p class="pg" ng-repeat="pageIndex in tc.possiblePages | offset: ( tc.pages > 7 ? ( tc.$storage.currentPage > 2 ? ( (tc.$storage.currentPage + 4) < tc.pages ? tc.$storage.currentPage - 3 : tc.pages - 7) : 0 ) : 0 ) | limitTo: 7" ng-click="tc.scrollToTop(pageIndex); tc.$storage.currentPage = pageIndex;" ng-class="{'highlighted':(tc.$storage.currentPage === pageIndex)}">{{pageIndex+1}}</p>
 					<!-- <p ng-if="tc.pages-3 > tc.$storage.currentPage && tc.pages > 5">...</p> -->
 				</div>
 
@@ -46,8 +46,8 @@
 			</div>	
 		</div>
 
-		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===0 || tc.pages < 6)}" class="back" ng-click="tc.$storage.currentPage = 0; tc.scrollToTop()">To First Page</p>
+		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===0 || tc.pages < 8)}" class="back" ng-click="tc.$storage.currentPage = 0; tc.scrollToTop()">To First Page</p>
 
-		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===tc.pages-1 || tc.pages < 6)}" class="end" ng-click="tc.$storage.currentPage = tc.pages - 1; tc.scrollToTop()">To Last Page</p>
+		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===tc.pages-1 || tc.pages < 8)}" class="end" ng-click="tc.$storage.currentPage = tc.pages - 1; tc.scrollToTop()">To Last Page</p>
 	</div>
 </div>
