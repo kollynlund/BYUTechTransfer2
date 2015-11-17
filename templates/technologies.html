@@ -45,9 +45,10 @@
 				<i class="fa fa-chevron-right pull-right"></i>
 			</div>	
 		</div>
+		<div class="pagination-row-2">
+			<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===0 || tc.pages < 8)}" class="back" ng-click="tc.$storage.currentPage = 0; tc.scrollToTop()">To First Page</p>
 
-		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===0 || tc.pages < 8)}" class="back" ng-click="tc.$storage.currentPage = 0; tc.scrollToTop()">To First Page</p>
-
-		<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===tc.pages-1 || tc.pages < 8)}" class="end" ng-click="tc.$storage.currentPage = tc.pages - 1; tc.scrollToTop()">To Last Page</p>
+			<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===tc.pages-1 || tc.pages < 8)}" class="end" ng-click="tc.$storage.currentPage = tc.pages - 1; tc.scrollToTop()">To Last Page</p>
+		</div>
 	</div>
 </div>

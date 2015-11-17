@@ -773,6 +773,17 @@ input[type="submit"], .ip-contact {
   font-size: 1em;
   font-style: italic;
   margin-bottom: 2.25em; }
+#technologies .pagination, #technologies .pagination-row-2 {
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (max-width: 830px) {
+    #technologies .pagination, #technologies .pagination-row-2 {
+      width: 85%; } }
+  @media (max-width: 630px) {
+    #technologies .pagination, #technologies .pagination-row-2 {
+      width: 100%; } }
 #technologies .search-box {
   width: 60%;
   margin-bottom: 15px;
@@ -856,7 +867,7 @@ input[type="submit"], .ip-contact {
     font-size: 2em;
     color: #222;
     background-color: #f0eeed;
-    padding: .5em .75em;
+    padding: .5em .6em;
     border-radius: 3px; }
     @media (max-width: 550px) {
       #technologies .pagination .fa {
@@ -889,23 +900,25 @@ input[type="submit"], .ip-contact {
 #technologies .back {
   text-align: center;
   padding-top: 10px;
-  width: 140px;
+  width: 130px;
   border-radius: 3px;
   float: left;
   background-color: #f0eeed;
   padding: 5px 10px;
-  margin-top: -5px; }
+  margin-top: -5px;
+  font-size: .9em; }
   #technologies .back:hover {
     cursor: pointer; }
 #technologies .end {
   text-align: center;
   padding-top: 10px;
-  width: 140px;
+  width: 130px;
   border-radius: 3px;
   float: right;
   background-color: #f0eeed;
   padding: 5px 10px;
-  margin-top: -5px; }
+  margin-top: -5px;
+  font-size: .9em; }
   #technologies .end:hover {
     cursor: pointer; }
 

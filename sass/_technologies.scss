@@ -5,6 +5,18 @@
 			font-style: italic;
 			margin-bottom: 2.25em;
 		}
+		.pagination, .pagination-row-2 {
+			width: 75%;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			@media (max-width: 830px) {
+				width: 85%;
+			}
+			@media (max-width: 630px) {
+				width: 100%;
+			}
+		}
     .search-box {
         width: 60%;
         margin-bottom: 15px;
@@ -102,7 +114,7 @@
 			font-size: 2em;
 			color: #222;
 			background-color: #f0eeed;
-			padding: .5em .75em;
+			padding: .5em .6em;
 			border-radius: 3px;
 			@media (max-width: 550px) {
 				padding: .35em;
@@ -144,12 +156,13 @@
 	.back {
 		text-align: center;
 		padding-top: 10px;
-		width: 140px;
+		width: 130px;
 		border-radius: 3px;
 		float: left;
 		background-color: #f0eeed;
 		padding: 5px 10px;
 		margin-top: -5px;
+		font-size: .9em;
 		&:hover {
 		cursor: pointer;
 		}		
@@ -159,12 +172,13 @@
 	.end {
 		text-align: center;
 		padding-top: 10px;
-		width: 140px;
+		width: 130px;
 		border-radius: 3px;
 		float: right;
 		background-color: #f0eeed;
 		padding: 5px 10px;
 		margin-top: -5px;
+		font-size: .9em;
 		&:hover {
 		cursor: pointer;
 		}
