@@ -63,24 +63,11 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
 
     }   
 }
-.section.page .shirt-details h1 {
-    text-align: left;
-}
+
 .section.page p {width: 100%; margin-left: auto; margin-right: auto; }
 
 
-.section.page .shirt-details h1 .price {
-    color: #9d9f4e; 
-    padding-right: 10px; 
-    font-size: 34px;
-}
-
-.section.shirts {
-    padding-bottom: 42px; 
-    background: #fff;
-}
-
-.section.shirts h2 {
+.section h2 {
     font-size: 24px; 
     color: #c0bfbe;
     text-align: center;
@@ -102,12 +89,12 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
 
     }
 }
-.section.shirts ul.products {
+.section ul.products {
     margin: 0 0 -17px 0;
     padding: 0; 
     width: 100%;
 }
-.section.shirts ul.products li {
+.section ul.products li {
     display: inline-block;
     list-style: none;
     border: 1px solid #e3e1e0;
@@ -288,7 +275,7 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
 
 }
 
-.section.shirts ul.products li a {
+.section ul.products li a {
     background: white;
     display: block;
     padding: 1px 0 10px;
@@ -297,37 +284,21 @@ body {font-family: Arial, 'Oswald', sans-serif; background:#f0eeed; color: #6767
     opacity: .9;
 
 }
-.section.shirts ul.products li a:hover {
+.section ul.products li a:hover {
     opacity: 1;
     color: #666;
 }
-.section.shirts ul.products li img {
+.section ul.products li img {
     width: 190px;
     height: 190px;
 }
 
-.section.shirts ul.products li p {
+.section ul.products li p {
     margin-left: 0;
     margin-right: 0;
     width: auto;
 }
 
-.shirt-picture {
-    width: 80%;
-    margin-left: auto;
-    margin-top: 1.7em;
-    text-align: center;
-    border: 1px solid #d9d9d9;
-    padding: 14px;
-    background: #f0eeed;    
-}
-
-.shirt-picture span {
-    background: white;
-    display: block;
-    width: 100%;
-    padding: 36px 0 61px;
-}
 
 .ip-page span {
     background: white;

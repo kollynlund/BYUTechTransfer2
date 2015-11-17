@@ -15,7 +15,7 @@
 					</div>
 			</form>
 		</div>
-		<ul class="products">
+		<ul class="products technologies-list">
 			<div class="technology-box" ng-repeat="technology in tc.$storage.relevantTech | offset: tc.$storage.currentPage*10 | limitTo:10">
 				<a class="patent-info" href="" ng-click="tc.goToTech(technology.ID)">
 					<div class='patent-list'>

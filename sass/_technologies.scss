@@ -36,6 +36,9 @@
             margin-bottom: 1em;
         }
     }
+    .technologies-list {
+    	padding-left: 0px;
+    }
     .patent-container {
     background-color: #fff;
     span {
@@ -121,7 +124,7 @@
 				margin-top: 0em;
 			}
 			.pg {
-				font-size: 1.125em;
+				font-size: 1em;
 				padding: 7px 0px;
 				font-style: italic;
 				&:hover {
