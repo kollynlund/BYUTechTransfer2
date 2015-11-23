@@ -1,3 +1,5 @@
+@media screen {
+
 @import 'reset';
 @import 'header';
 @import 'footer';
@@ -503,4 +505,21 @@ border-radius: 2px;
 text-align: center;
 padding: 14px;
 background: #f0eeed; 
+}
+
+
+}
+
+
+
+
+@media print {
+    #header, .ip-contact, #footer, .breadcrumb, .ip-title-mobile, .media, .pagination, .fa-chevron-right {
+        display: none;
+    }
+    .ip-title {
+        font-size: 20px;
+    }
+
+
 }
