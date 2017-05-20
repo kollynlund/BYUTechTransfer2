@@ -324,46 +324,50 @@ String.prototype.toProperCase = function () {
 		}
 	};
 	function TechnologyDetails($http, $sce, $sessionStorage, _) {
-		console.log($sessionStorage);
 		var techData = $sessionStorage.techData || {
 			'technologies': null,
 			'categories': null
 		};
 
-		var parseTechnologyFromGoogleSheets = function(tech_object) {
+		function getMediaType(link) {
+			if (!link) return undefined;
+			return link.indexOf('youtube.com') > -1 ? 
+			'video' : 
+				link.indexOf('vimeo.com') > -1 ? 
+				'video' : link ? 
+					'photo' : undefined;
+		}
+		var parseTechnology = function(tech_object) {
 			return {
-				'About the Market': tech_object.gsx$aboutthemarket.$t,
-				'Categories': tech_object.gsx$categories.$t.split(','),
-				'Contact Email': tech_object.gsx$contactemail.$t,
-				'Contact Name': tech_object.gsx$contactname.$t,
-				'Contact Phone': tech_object.gsx$contactphone.$t,
-				'ID': tech_object.gsx$id.$t,
+				'About the Market': tech_object['About the Market'],
+				'Categories': tech_object.Categories,
+				'Contact Email': tech_object['Contact Email'],
+				'Contact Name': tech_object['Contact Name'],
+				'Contact Phone': tech_object['Contact Phone'],
+				'ID': tech_object.ID,
 				'Media': [
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media1'].$t), 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media2'].$t), 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media3'].$t), 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
-					{'link':$sce.trustAsResourceUrl(tech_object['gsx$media4'].$t), 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
+					{'link': $sce.trustAsResourceUrl(tech_object['Media 1']), 'type': getMediaType(tech_object['Media 1'])},
+					{'link': $sce.trustAsResourceUrl(tech_object['Media 2']), 'type': getMediaType(tech_object['Media 2'])},
+					{'link': $sce.trustAsResourceUrl(tech_object['Media 3']), 'type': getMediaType(tech_object['Media 3'])},
+					{'link': $sce.trustAsResourceUrl(tech_object['Media 4']), 'type': getMediaType(tech_object['Media 4'])}
 				],
-				'Links': tech_object.gsx$links.$t.split(',').filter(function(item){return item != ''}),
-				'Long Description': tech_object.gsx$longdescription.$t.split('\n\n'),
-				'Name': tech_object.gsx$name.$t,
-				'PI': tech_object.gsx$pi.$t,
-				'Short Description': tech_object.gsx$shortdescription.$t,
-				'Tags': tech_object.gsx$tags.$t.split(',')
+				'Links': tech_object.Links ? tech_object.Links.split(',').filter(function(item){return item !== '';}) : [],
+				'Long Description': tech_object['Long Description'] ? tech_object['Long Description'].split('\n\n') : '',
+				'Name': tech_object.Name,
+				'PI': tech_object.PI,
+				'Short Description': tech_object['Short Description'],
+				'Tags': tech_object.Tags ? tech_object.Tags.split(',') : []
 			};
 		};
 		var getAllTechnologyData = function() {
-			return $http.get('https://spreadsheets.google.com/feeds/list/17Tf9_PvDC-fx3-vTHkmopjAndc94ZTXWFp-q0jxJjrM/1/public/values?alt=json-in-script&callback=jsonpCallback').then(function(data){
-				var pre = data.data.replace('// API callback\njsonpCallback(','');
-				var object = JSON.parse(pre.slice(0,pre.length - 2));
-				var result = [];
-				object.feed.entry.map(function(item){
-					result.push(parseTechnologyFromGoogleSheets(item));
-				});
+			return $http.get('http://tech-transfer.byu.edu/api/getTechs.php')
+			.then(function(result){return result.data;})
+			.then(function(data){return data.map(parseTechnology);})
+			.then(function(result) {
 				var categories = result.map(function(technology) {
-					return technology.Categories.map(function(category) {
+					return technology.Categories ? technology.Categories.split(',').map(function(category) {
 						return category.toProperCase().trim();
-					});
+					}) : [];
 				});
 				categories = [' Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
 				techData.technologies = result;
@@ -382,7 +386,6 @@ String.prototype.toProperCase = function () {
 			);
 		};
 		var checkForTechnologyLoaded = function() {
-			console.log( (techData.technologies ? techData : getAllTechnologyData() ) );
 			return ( techData.technologies ? techData : getAllTechnologyData() );
 		};
 
