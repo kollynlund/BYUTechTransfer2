@@ -1,0 +1,27 @@
+#login {
+	form {
+		background: #eee;
+    padding: 20px;
+    border-radius: 4px;
+    width: 80%;
+    margin: auto;
+    @media (max-width: 622px) {
+      width: 100%;
+    }
+	}
+	.form-group {
+		width: 50%;
+		margin: auto;
+		@media (max-width: 622px) {
+      width: 80%;
+    }
+	}
+	button[type="submit"] {
+		margin: 1em auto;
+    display: block;
+    width: 50%;
+		@media (max-width: 622px) {
+      width: 80%;
+    }    
+	}
+}

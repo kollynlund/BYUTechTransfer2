@@ -21,6 +21,18 @@ String.prototype.toProperCase = function () {
 				controller: 'GenericController as ac'
 			})
 
+			.state('login', {
+				url: '/login',
+				templateUrl: 'templates/login.html',
+				controller: 'GenericController as ac'
+			})
+
+			.state('newtechnology', {
+				url: '/newtechnology',
+				templateUrl: 'templates/newtechnology.html',
+				controller: 'GenericController as ac'
+			})			
+
 			.state('contact', {
 				url: '/contact/{tech_id}',
 				templateUrl: 'templates/contact.html',

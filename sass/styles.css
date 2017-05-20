@@ -974,6 +974,29 @@ label {
   margin-left: auto;
   margin-right: auto; }
 
+#login form {
+  background: #eee;
+  padding: 20px;
+  border-radius: 4px;
+  width: 80%;
+  margin: auto; }
+  @media (max-width: 622px) {
+    #login form {
+      width: 100%; } }
+#login .form-group {
+  width: 50%;
+  margin: auto; }
+  @media (max-width: 622px) {
+    #login .form-group {
+      width: 80%; } }
+#login button[type="submit"] {
+  margin: 1em auto;
+  display: block;
+  width: 50%; }
+  @media (max-width: 622px) {
+    #login button[type="submit"] {
+      width: 80%; } }
+
 html {
   overflow-y: scroll;
   overflow-x: hidden; }
