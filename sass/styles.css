@@ -951,24 +951,29 @@ input[type="submit"], .ip-contact {
 .cover {
   padding: 100% !important; }
 
-.search-container {
+#new-technology i.add {
+  background: #5CB85C;
+  padding: 7px 10px;
+  border-radius: 4px;
+  font-size: 20px;
+  color: #fff; }
+#new-technology .placeholder {
+  color: red; }
+
+#contact .search-container {
   margin-bottom: 10px; }
-
-.contact-text {
+#contact .contact-text {
   margin-bottom: 3em; }
-
-.contact-form {
+#contact .contact-form {
   max-width: 550px;
   display: block;
   margin: auto; }
-  .contact-form input[type="submit"] {
+  #contact .contact-form input[type="submit"] {
     margin-bottom: 2em; }
-
-label {
+#contact label {
   margin-left: 2px;
   margin-top: 5px; }
-
-.contact-text {
+#contact .contact-text {
   width: 50%;
   text-align: center;
   margin-left: auto;

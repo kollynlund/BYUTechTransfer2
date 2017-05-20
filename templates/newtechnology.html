@@ -1,4 +1,4 @@
-<div id="technology" class="section page">
+<div id="new-technology" class="section page">
 	<div class="wrapper">
 		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{::stc.selectedTech.ID}}</div>
 			<div class="row">
@@ -16,76 +16,194 @@
 						<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
 				</div> -->
 
-				<div class="col-sm-8">
+				<div class="col-sm-12">
 
 
 					<form class="form-horizontal">
+
 					  <div class="form-group">
-					    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-					    <div class="col-sm-10">
-					      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+					    <label for="inputEmail3" class="col-sm-2 control-label">ID</label>
+					    <div class="col-sm-9">
+					      <input type="email" class="form-control" id="inputEmail3" placeholder="ID">
 					    </div>
 					  </div>
+
 					  <div class="form-group">
-					    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-					    <div class="col-sm-10">
-					      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Name</label>
+					    <div class="col-sm-9">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="Name">
 					    </div>
 					  </div>
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">PI</label>
+					    <div class="col-sm-9">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="PI">
+					    </div>
+					  </div>
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Contact Name</label>
+					    <div class="col-sm-9">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="Contact Name ">
+					    </div>
+					  </div>
+
+
+
+<!-- 					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Contact Name</label>
+					    <div class="col-sm-9">
+    					  <select class="form-control">
+    					  	<option>Contact Name</option>
+								  <option>Spencer Rogers</option>
+								  <option>Mike Alder</option>
+								  <option>Dave Brown</option>
+								</select>
+					    </div>
+					  </div>		 -->				
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Contact Email</label>
+					    <div class="col-sm-9">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="Contact Email">
+					    </div>
+					  </div>		
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Contact Phone</label>
+					    <div class="col-sm-9">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="Contact Phone">
+					    </div>
+					  </div>	
+
+				    <div class="form-group">
+					    <label for="exampleInputFile" class="col-sm-2 control-label">Upload Photos</label>
+					    <div class="col-sm-9">
+						    <input type="file" id="exampleInputFile">
+						    <p class="help-block">Please add .jpg photos only</p>
+						  </div>
+					  </div>	
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Upload Videos</label>
+					    <div class="col-sm-8">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="Paste Youtube Video URL here">
+					    </div>
+					    <div>
+					    	<a href="#" ng-click=""><i class="fa fa-plus add" aria-hidden="true"></i></a>
+					    </div>
+					  </div>	
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Tags</label>
+					    <div class="col-sm-9">
+					      <textarea class="form-control" rows="2"></textarea>
+					      <p class="help-block">Please seperate each tag with a comma</p>
+					    </div>
+					  </div>				
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Categories</label>
+					    <div class="col-sm-9">
+					      <label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox1" value="engineering"> engineering
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox2" value="option2"> mechanical devices & processes
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox3" value="option3"> software
+								</label>
+					      <label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox1" value="option1"> chemistry
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox2" value="option2"> diagnostics & drug delivery
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox3" value="option3"> electronics & instrumentation
+								</label>	
+					      <label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox1" value="option1"> energy/environment/resources
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox2" value="option2"> engineered structures & materials
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox3" value="option3"> life sciences
+								</label>
+					      <label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox1" value="option1"> microfluidics
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox2" value="option2"> pharmaceuticals/nutraceuticals
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox3" value="option3"> physics
+								</label>																
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox3" value="option3"> biotech/medical
+								</label>
+					      <label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox1" value="option1"> data storage
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox2" value="option2"> education
+								</label>
+								<label class="checkbox-inline">
+								  <input type="checkbox" id="inlineCheckbox3" value="option3"> food/agriculture
+								</label>										
+					    </div>
+					  </div>			
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Add Links</label>
+					    <div class="col-sm-8">
+					      <input type="password" class="form-control" id="inputPassword3" placeholder="Paste link URL here">
+					    </div>
+					    <div>
+					    	<i class="fa fa-plus add" aria-hidden="true"></i>
+					    </div>
+					  </div>					
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Short Description</label>
+					    <div class="col-sm-9">
+					      <textarea class="form-control" rows="2"></textarea>
+					    </div>
+					  </div>			
+
+					  <div class="form-group">
+					    <label for="inputPassword3" class="col-sm-2 control-label">Long Description</label>
+					    <div class="col-sm-9">
+					      <textarea class="form-control" rows="5"></textarea>
+					    </div>
+					  </div>								  					  	  				  		  
+
+
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					      <div class="checkbox">
-					        <label>
-					          <input type="checkbox"> Remember me
-					        </label>
-					      </div>
+					      <button type="submit" class="btn btn-danger">Delete</button>
+					      <button type="submit" class="btn btn-default">Cancel</button>
+					      <button type="submit" class="btn btn-success">Save</button>
+
 					    </div>
 					  </div>
-					  <div class="form-group">
-					    <div class="col-sm-offset-2 col-sm-10">
-					      <button type="submit" class="btn btn-default">Sign in</button>
-					    </div>
-					  </div>
+
 					</form>
 
 
 
-
-
-
-
-					<span class="ip-id"><b>ID:</b> <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username"></span>
-					<p class="ip-description"><b>Principal Investigator:</b> {{::stc.selectedTech["PI"]}}</p>
-					<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
-					<p class="ip-description" ng-repeat="paragraph in ::stc.selectedTech['Long Description']">{{paragraph}}</p>
-					<p ng-if='stc.selectedTech["About the Market"]'><b>About the Market:</b></p>
-					<p class="ip-description">{{::stc.selectedTech["About the Market"]}}</p>
-					<p class="ip-description">For more information, contact <a href='mailto:{{::stc.selectedTech["Contact Email"]}}?Subject=BYU Disclosure #{{::stc.selectedTech.ID}}' target='_top'>{{::stc.selectedTech["Contact Name"]}}</a> {{::stc.selectedTech["Contact Phone"] ? '('+stc.selectedTech["Contact Phone"]+')' : ''}}</p>
-					<div class="links-container" ng-if="::stc.selectedTech.Links.length > 0">
-						<p class="links-txt">Links and Resources</p>
-						<li ng-repeat="link in ::stc.selectedTech.Links">
-							<a target="_blank" class="ip-link" href="{{link}}">{{link}}</a>
-						</li>
-					</div>
+ 
+					
 				</div>
 
-
-				<div class="col-sm-4 media">
-					<div ng-repeat="media in ::stc.selectedTech.Media" ng-click="stc.openOrIllShootGangsta(media)">
-						<div ng-if="media.type === 'video'" fit-vids block-click="true">
-							<iframe class="vid" ng-src="{{media.link}}" frameborder="0"></iframe>
-						</div>
-
-						<div  ng-if="media.type === 'photo'">
-							<img ng-click="open()" class="img" ng-src="{{media.link}}">
-						</div>
-					</div>
-				</div>
 
 			</div>
 
 
-			<a href="" ng-click="stc.contactAboutTech(stc.selectedTech.ID)"><center><button class="ip-contact">Inquire about this technology</button></center></a>
+
 			<span class="note-designer"></span>
 
 		</div>

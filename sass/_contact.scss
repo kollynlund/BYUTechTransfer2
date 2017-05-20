@@ -1,28 +1,32 @@
-.search-container {
-    margin-bottom: 10px;
-}
+#contact {
 
-.contact-text {
-	margin-bottom: 3em;
-}
-
-.contact-form {
-	max-width: 550px;
-	display: block;
-	margin: auto;
-	input[type="submit"] {
-		margin-bottom: 2em;
+	.search-container {
+	    margin-bottom: 10px;
 	}
-}
 
-label {
-	margin-left: 2px;
-  margin-top: 5px;
-}
+	.contact-text {
+		margin-bottom: 3em;
+	}
 
-.contact-text {
-	width: 50%; 
-	text-align: center; 
-	margin-left: auto; 
-	margin-right: auto;  
+	.contact-form {
+		max-width: 550px;
+		display: block;
+		margin: auto;
+		input[type="submit"] {
+			margin-bottom: 2em;
+		}
+	}
+
+	label {
+		margin-left: 2px;
+	  margin-top: 5px;
+	}
+
+	.contact-text {
+		width: 50%; 
+		text-align: center; 
+		margin-left: auto; 
+		margin-right: auto;  
+	}
+
 }
