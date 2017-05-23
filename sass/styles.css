@@ -951,6 +951,15 @@ input[type="submit"], .ip-contact {
 .cover {
   padding: 100% !important; }
 
+#new-technology .form-container {
+  background: #f0eeed;
+  padding: 10px;
+  border: 1px solid #e3e1e0;
+  border-radius: 2px; }
+#new-technology form {
+  background-color: #f0eeed;
+  padding: 10px;
+  padding-top: 20px; }
 #new-technology i.add {
   background: #5CB85C;
   padding: 7px 10px;
