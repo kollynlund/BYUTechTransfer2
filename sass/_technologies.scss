@@ -22,22 +22,60 @@
     }
 		span.edit {
 			color: red;
+			font-size: 14px !important;
 			&:hover {
 				cursor: pointer;
 				color: darken(red, 7%);
 			}
+			&::after {
+				content: "]";
+			}
+			&::before {
+				content: "[";
+			}			
+			@media (max-width: 500px) {
+				color: white;
+		    display: block;
+		    padding: 7px;
+		    background: #D9534F;
+		    color: white;
+		    border-radius: 4px;
+		    text-align: center;
+		    margin-top: 5px;
+		    margin-bottom: -8px;
+		    font-size: 15px !important;
+		    margin-right: 5px;
+		    &:hover {
+					cursor: pointer;
+					color: darken(white, 7%);
+			  }
+				&::after {
+					content: none;
+				}
+				&::before {
+					content: none;
+				}				  
+			}
 		}
 		span.add {
-color: white;
-    text-align: right;
-    position: absolute;
-    right: 0px;
-    background: #5CB85C;
-    padding: 4px;
-    border-radius: 4px;
+	    color: white;
+	    text-align: right;
+	    position: absolute;
+	    right: 0px;
+	    bottom: -7px;
+	    background: #5CB85C;
+	    padding: 6px 14px;
+	    border-radius: 4px;
+	    font-size: 16px;
 			&:hover {
 				cursor: pointer;
 				background-color: darken(#5CB85C, 6%);
+			}
+			@media (max-width: 500px) {
+				display: block;
+		    text-align: center;
+		    margin-top: 5px;
+		    position: relative;
 			}
 		}		
 

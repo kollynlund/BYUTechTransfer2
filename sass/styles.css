@@ -788,21 +788,54 @@ input[type="submit"], .ip-contact {
       width: 100%;
       display: block; } }
 #technologies span.edit {
-  color: red; }
+  color: red;
+  font-size: 14px !important; }
   #technologies span.edit:hover {
     cursor: pointer;
     color: #db0000; }
+  #technologies span.edit::after {
+    content: "]"; }
+  #technologies span.edit::before {
+    content: "["; }
+  @media (max-width: 500px) {
+    #technologies span.edit {
+      color: white;
+      display: block;
+      padding: 7px;
+      background: #D9534F;
+      color: white;
+      border-radius: 4px;
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: -8px;
+      font-size: 15px !important;
+      margin-right: 5px; }
+      #technologies span.edit:hover {
+        cursor: pointer;
+        color: #ededed; }
+      #technologies span.edit::after {
+        content: none; }
+      #technologies span.edit::before {
+        content: none; } }
 #technologies span.add {
   color: white;
   text-align: right;
   position: absolute;
   right: 0px;
+  bottom: -7px;
   background: #5CB85C;
-  padding: 4px;
-  border-radius: 4px; }
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 16px; }
   #technologies span.add:hover {
     cursor: pointer;
     background-color: #4aab4a; }
+  @media (max-width: 500px) {
+    #technologies span.add {
+      display: block;
+      text-align: center;
+      margin-top: 5px;
+      position: relative; } }
 #technologies .select-style {
   width: 39.5%;
   padding: 2.7px;
@@ -894,9 +927,32 @@ input[type="submit"], .ip-contact {
   margin-top: 10px; }
 #technology span.edit {
   color: red; }
+  #technology span.edit::after {
+    content: "]"; }
+  #technology span.edit::before {
+    content: "["; }
   #technology span.edit:hover {
     cursor: pointer;
     color: #db0000; }
+  @media (max-width: 500px) {
+    #technology span.edit {
+      color: white;
+      display: block;
+      padding: 7px;
+      background: #D9534F;
+      color: white;
+      border-radius: 4px;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 15px !important;
+      margin-right: 5px; }
+      #technology span.edit:hover {
+        cursor: pointer;
+        color: #ededed; }
+      #technology span.edit::after {
+        content: none; }
+      #technology span.edit::before {
+        content: none; } }
 #technology .ip-title ~ span {
   word-break: keep-all;
   wrap: nowrap; }
