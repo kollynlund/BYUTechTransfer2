@@ -1,10 +1,10 @@
 <div id="new-technology" class="section page">
 	<div class="wrapper">
-		<div class="breadcrumb"><a href="" ng-click="stc.goTo('home')">Home</a> &gt; <a href="" ng-click="stc.goTo('technologies')">Technologies</a> &gt; {{::stc.selectedTech.ID}}</div>
+		<div class="breadcrumb"><a href="" ng-click="etc.goTo('home')">Home</a> &gt; <a href="" ng-click="etc.goTo('technologies')">Technologies</a> &gt; {{::etc.technology.ID || 'New Technology'}}</div>
 			<div class="row">		
 
 				<div class="col-xs-12">
-					<h1 class="ip-title">Add New Technology</h1>
+					<h1 class="ip-title">{{etc.new ? 'Add New' : 'Edit'}} Technology</h1>
 				</div>
 
 
@@ -17,28 +17,28 @@
 						  <div class="form-group">
 						    <label for="inputEmail3" class="col-sm-2 control-label">ID</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputEmail3" placeholder="ID">
+						      <input type="text" class="form-control" id="inputEmail3" placeholder="ID" ng-model="etc.technology.ID">
 						    </div>
 						  </div>
 
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Name</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="Name">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Name" ng-model="etc.technology.Name">
 						    </div>
 						  </div>
 
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">PI</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="PI">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="PI" ng-model="etc.technology.PI">
 						    </div>
 						  </div>
 
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Contact Name</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="Contact Name ">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Contact Name" ng-model="etc.technology['Contact Name']">
 						    </div>
 						  </div>
 
@@ -57,14 +57,14 @@
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Contact Email</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="Contact Email">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Contact Email" ng-model="etc.technology['Contact Email']">
 						    </div>
 						  </div>		
 
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Contact Phone</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="Contact Phone">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Contact Phone" ng-model="etc.technology['Contact Phone']">
 						    </div>
 						  </div>	
 
@@ -79,7 +79,7 @@
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Upload Videos</label>
 						    <div class="col-sm-8">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="Paste Youtube Video URL here">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Paste Youtube Video URL here" ng-model="etc.technology.Video">
 						    </div>
 						    <div>
 						    	<a href="#" ng-click=""><i class="fa fa-plus add" aria-hidden="true"></i></a>
@@ -89,8 +89,8 @@
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Tags</label>
 						    <div class="col-sm-9">
-						      <textarea class="form-control" rows="2"></textarea>
-						      <p class="help-block">Please seperate each tag with a comma</p>
+						      <textarea class="form-control" rows="2" ng-model="etc.technology.Tags"></textarea>
+						      <p class="help-block">Please separate each tag with a comma</p>
 						    </div>
 						  </div>				
 
@@ -98,52 +98,52 @@
 						    <label for="inputPassword3" class="col-sm-2 control-label">Categories</label>
 						    <div class="col-sm-9">
 						      <label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox1" value="engineering"> engineering
+									  <input type="checkbox" id="inlineCheckbox1" value="engineering" ng-model="etc.technology.selectedCategories['engineering']"> engineering
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox2" value="option2"> mechanical devices & processes
+									  <input type="checkbox" id="inlineCheckbox2" value="mechanical devices & processes" ng-model="etc.technology.selectedCategories['mechanical devices & processes']"> mechanical devices & processes
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox3" value="option3"> software
+									  <input type="checkbox" id="inlineCheckbox3" value="software" ng-model="etc.technology.selectedCategories['software']"> software
 									</label>
 						      <label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox1" value="option1"> chemistry
+									  <input type="checkbox" id="inlineCheckbox1" value="chemistry" ng-model="etc.technology.selectedCategories['chemistry']"> chemistry
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox2" value="option2"> diagnostics & drug delivery
+									  <input type="checkbox" id="inlineCheckbox2" value="diagnostics & drug delivery" ng-model="etc.technology.selectedCategories['diagnostics & drug delivery']"> diagnostics & drug delivery
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox3" value="option3"> electronics & instrumentation
+									  <input type="checkbox" id="inlineCheckbox3" value="electronics & instrumentation" ng-model="etc.technology.selectedCategories['electronics & instrumentation']"> electronics & instrumentation
 									</label>	
 						      <label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox1" value="option1"> energy/environment/resources
+									  <input type="checkbox" id="inlineCheckbox1" value="energy/environment/resources" ng-model="etc.technology.selectedCategories['energy/environment/resources']"> energy/environment/resources
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox2" value="option2"> engineered structures & materials
+									  <input type="checkbox" id="inlineCheckbox2" value="engineered structures & materials" ng-model="etc.technology.selectedCategories['engineered structures & materials']"> engineered structures & materials
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox3" value="option3"> life sciences
+									  <input type="checkbox" id="inlineCheckbox3" value="life sciences" ng-model="etc.technology.selectedCategories['life sciences']"> life sciences
 									</label>
 						      <label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox1" value="option1"> microfluidics
+									  <input type="checkbox" id="inlineCheckbox1" value="microfluidics" ng-model="etc.technology.selectedCategories['microfluidics']"> microfluidics
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox2" value="option2"> pharmaceuticals/nutraceuticals
+									  <input type="checkbox" id="inlineCheckbox2" value="pharmaceuticals/nutraceuticals" ng-model="etc.technology.selectedCategories['pharmaceuticals/nutraceuticals']"> pharmaceuticals/nutraceuticals
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox3" value="option3"> physics
+									  <input type="checkbox" id="inlineCheckbox3" value="physics" ng-model="etc.technology.selectedCategories['physics']"> physics
 									</label>																
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox3" value="option3"> biotech/medical
+									  <input type="checkbox" id="inlineCheckbox3" value="biotech/medical" ng-model="etc.technology.selectedCategories['biotech/medical']"> biotech/medical
 									</label>
 						      <label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox1" value="option1"> data storage
+									  <input type="checkbox" id="inlineCheckbox1" value="data storage" ng-model="etc.technology.selectedCategories['data storage']"> data storage
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox2" value="option2"> education
+									  <input type="checkbox" id="inlineCheckbox2" value="education" ng-model="etc.technology.selectedCategories['education']"> education
 									</label>
 									<label class="checkbox-inline">
-									  <input type="checkbox" id="inlineCheckbox3" value="option3"> food/agriculture
+									  <input type="checkbox" id="inlineCheckbox3" value="food/agriculture" ng-model="etc.technology.selectedCategories['food/agriculture']"> food/agriculture
 									</label>										
 						    </div>
 						  </div>			
@@ -151,7 +151,7 @@
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Add Links</label>
 						    <div class="col-sm-8">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="Paste link URL here">
+						      <input type="text" class="form-control" id="inputPassword3" placeholder="Paste link URL here" ng-model="etc.technology.Link">
 						    </div>
 						    <div>
 						    	<a href="#" ng-click=""><i class="fa fa-plus add" aria-hidden="true"></i></a>
@@ -161,14 +161,14 @@
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Short Description</label>
 						    <div class="col-sm-9">
-						      <textarea class="form-control" rows="2"></textarea>
+						      <textarea class="form-control" rows="2" ng-model="etc.technology['Short Description']"></textarea>
 						    </div>
 						  </div>			
 
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Long Description</label>
 						    <div class="col-sm-9">
-						      <textarea class="form-control" rows="5"></textarea>
+						      <textarea class="form-control" rows="5" ng-model="etc.technology['Long Description']"></textarea>
 						    </div>
 						  </div>								  					  	  				  		  
 

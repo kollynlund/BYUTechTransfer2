@@ -30,8 +30,20 @@ String.prototype.toProperCase = function () {
 			.state('newtechnology', {
 				url: '/newtechnology',
 				templateUrl: 'templates/newtechnology.html',
-				controller: 'GenericController as ac'
-			})			
+				controller: 'EditTechnologyController as etc',
+				params: {
+					new: false
+				}
+			})
+
+			.state('edittechnology', {
+				url: '/edit',
+				templateUrl: 'templates/newtechnology.html',
+				controller: 'EditTechnologyController as etc',
+				params: {
+					'technology': {}
+				}
+			})
 
 			.state('contact', {
 				url: '/contact/{tech_id}',
@@ -210,6 +222,14 @@ String.prototype.toProperCase = function () {
 		tc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
+		tc.editTechnology = function($event, technology) {
+			$event.stopPropagation();
+			$state.go('edittechnology', {'technology': technology});
+		};
+		tc.newTechnology = function($event) {
+			$event.stopPropagation();
+			$state.go('newtechnology', {'new': true});
+		};
 
 		function searchWatch(newVals, oldVals) {
 			tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
@@ -246,6 +266,9 @@ String.prototype.toProperCase = function () {
 		};
 		stc.goTo = function(pagename) {
 			$state.go(pagename);
+		};
+		stc.editTechnology = function(technology) {
+			$state.go('edittechnology', {'technology': technology});
 		};
 
 		function nextTech(current_tech_id) {
@@ -318,7 +341,24 @@ String.prototype.toProperCase = function () {
 			.then(function(isAuthed) {
 				if (isAuthed) $state.go('home');
 			});
-		}
+		};
+	}
+	function EditTechnologyController(Auth, $state, $stateParams) {
+		var etc = this;
+
+		etc.new = $stateParams.new;
+		etc.technology = $stateParams.technology || {};
+		etc.technology.selectedCategories = {};
+		etc.technology && etc.technology.Categories ? etc.technology.Categories.split(',')
+		.map(function(category){return category.trim();})
+		.forEach(function(category){
+			etc.technology.selectedCategories[category] = true;
+		}) : null;
+		console.log(angular.copy(etc.technology));
+
+		etc.goTo = function(pagename) {
+			$state.go(pagename);
+		};
 	}
 
 	// SERVICES
@@ -484,6 +524,7 @@ String.prototype.toProperCase = function () {
 	.controller('TitleController', TitleController)
 	.controller('GenericController', GenericController)
 	.controller('LoginController', LoginController)
+	.controller('EditTechnologyController', EditTechnologyController)
 	.factory('Auth', Auth)
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
