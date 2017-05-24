@@ -7,9 +7,37 @@
 	}
 	span.edit {
 		color: red;
+		&::after {
+			content: "]";
+		}
+		&::before {
+			content: "[";
+		}
 		&:hover {
 			cursor: pointer;
 			color: darken(red, 7%);
+		}
+		@media (max-width: 500px) {
+			color: white;
+	    display: block;
+	    padding: 7px;
+	    background: #D9534F;
+	    color: white;
+	    border-radius: 4px;
+	    text-align: center;
+	    margin-top: 5px;
+	    font-size: 15px !important;
+	    margin-right: 5px;
+	    &:hover {
+				cursor: pointer;
+				color: darken(white, 7%);
+		  }
+			&::after {
+				content: none;
+			}
+			&::before {
+				content: none;
+			}		  
 		}
 	}
 	.ip-title ~ span {
