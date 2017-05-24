@@ -24,7 +24,7 @@ String.prototype.toProperCase = function () {
 			.state('login', {
 				url: '/login',
 				templateUrl: 'templates/login.html',
-				controller: 'GenericController as ac'
+				controller: 'LoginController as lc'
 			})
 
 			.state('newtechnology', {
@@ -68,7 +68,7 @@ String.prototype.toProperCase = function () {
 				templateUrl: 'templates/resources.html',
 				controller: 'GenericController as rc'
 			});
-	};
+	}
 
 	// CUSTOM DIRECTIVES AND FILTERS
 	function fitVids() {
@@ -134,7 +134,7 @@ String.prototype.toProperCase = function () {
 
 			}
 		};
-	};
+	}
 	function bindVideoSize($window, $timeout, VideoSize) {
 		return {
 			restrict: 'A',
@@ -151,7 +151,7 @@ String.prototype.toProperCase = function () {
 				$timeout(bindSize, 0);
 			}
 		};
-	};
+	}
 	function bindYoutubeSize($window, $timeout, YouTubeSize) {
 		return {
 			restrict: 'A',
@@ -168,13 +168,13 @@ String.prototype.toProperCase = function () {
 				$timeout(bindSize, 0);
 			}
 		};
-	};
+	}
 	function offset() {
 		return function(input, start) {
 			start = parseInt(start, 10);
 			return input.slice(start);
 		};
-	};
+	}
 
 	// CONTROLLERS
 	function GenericController($state) {
@@ -190,9 +190,11 @@ String.prototype.toProperCase = function () {
 		hmc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
-	};
-	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage) {
+	}
+	function TechnologiesController($scope, $state, $filter, technologies, $sessionStorage, Auth) {
 		var tc = this;
+
+		Auth.Auth().then(function(isAuthed){$scope.$applyAsync(function(){tc.isAuthed = isAuthed;});});
 		tc.freshPage = true;
 		tc.techData = technologies;
 		tc.relevantTech = tc.techData.technologies.slice(0);
@@ -221,9 +223,11 @@ String.prototype.toProperCase = function () {
 			}
 		};
 		$scope.$watchCollection(function(){return [tc.$storage.searchText, tc.$storage.categorySearch.Categories]}, searchWatch);
-	};
-	function TechnologyController($state, $modal, technologies, technology) {
+	}
+	function TechnologyController($scope, $state, $modal, Auth, technologies, technology) {
 		var stc = this;
+
+		Auth.Auth().then(function(isAuthed){$scope.$applyAsync(function(){stc.isAuthed = isAuthed;})});
 		stc.selectedTech = technology;
 		stc.openOrIllShootGangsta = function (media) {
 			var modalInstance = $modal.open({
@@ -262,12 +266,12 @@ String.prototype.toProperCase = function () {
 			}
 			$state.go('technology',{'tech_id': new_tech_id});
 		};
-	};
+	}
 	function TechnologyPictureModalController($modalInstance) {
 		this.close = function () {
 			$modalInstance.close();
 		};
-	};
+	}
 	function ContactController($scope, $state, $stateParams, Emailer) {
 		var cc = this;
 		cc.formValid = false;
@@ -302,13 +306,42 @@ String.prototype.toProperCase = function () {
 		cc.goTo = function(pagename) {
 			$state.go(pagename);
 		};
-	};
+	}
 	function TitleController(PageTitle) {
 		var tc = this;
 		tc.title = PageTitle.getTitle();
-	};
+	}
+	function LoginController(Auth, $state) {
+		var lc = this;
+		lc.auth = function() {
+			Auth.Auth(lc.username, lc.password)
+			.then(function(isAuthed) {
+				if (isAuthed) $state.go('home');
+			});
+		}
+	}
 
 	// SERVICES
+	function Auth($http, $q) {
+		return {
+			Auth: function(username, password) {
+				if (new Date(localStorage.byuttosession) > (new Date(new Date().valueOf() - (1000*60*60*4)))) return $q(function(resolve) {resolve(true);});
+				return $http({
+					method: 'POST',
+					url: 'api/auth.php',
+					data: {
+						username: username,
+						password: password
+					}
+				})
+				.then(function(response){
+					if (response.data.success) localStorage.byuttosession = new Date().toISOString();
+					return response.data.success;
+				})
+				.catch(function(err){return false;});
+			}
+		};
+	}
 	function Emailer($http) {
 		return {
 			SendContactEmail: function(the_data) {
@@ -346,10 +379,10 @@ String.prototype.toProperCase = function () {
 				'Contact Phone': tech_object['Contact Phone'],
 				'ID': tech_object.ID,
 				'Media': [
-					{'link': $sce.trustAsResourceUrl(tech_object['Media 1']), 'type': getMediaType(tech_object['Media 1'])},
-					{'link': $sce.trustAsResourceUrl(tech_object['Media 2']), 'type': getMediaType(tech_object['Media 2'])},
-					{'link': $sce.trustAsResourceUrl(tech_object['Media 3']), 'type': getMediaType(tech_object['Media 3'])},
-					{'link': $sce.trustAsResourceUrl(tech_object['Media 4']), 'type': getMediaType(tech_object['Media 4'])}
+					{'link': tech_object['Media 1'], 'type': getMediaType(tech_object['Media 1'])},
+					{'link': tech_object['Media 2'], 'type': getMediaType(tech_object['Media 2'])},
+					{'link': tech_object['Media 3'], 'type': getMediaType(tech_object['Media 3'])},
+					{'link': tech_object['Media 4'], 'type': getMediaType(tech_object['Media 4'])}
 				],
 				'Links': tech_object.Links ? tech_object.Links.split(',').filter(function(item){return item !== '';}) : [],
 				'Long Description': tech_object['Long Description'] ? tech_object['Long Description'].split('\n\n') : '',
@@ -432,7 +465,7 @@ String.prototype.toProperCase = function () {
 		$rootScope.$on('$stateChangeSuccess', function() {
 			$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
 		});
-	};
+	}
 	
 
 	// APP BOOTSTRAPPING
@@ -450,6 +483,8 @@ String.prototype.toProperCase = function () {
 	.controller('ContactController', ContactController)
 	.controller('TitleController', TitleController)
 	.controller('GenericController', GenericController)
+	.controller('LoginController', LoginController)
+	.factory('Auth', Auth)
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
 	.factory('VideoSize',VideoSize)
