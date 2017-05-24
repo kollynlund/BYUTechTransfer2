@@ -787,6 +787,22 @@ input[type="submit"], .ip-contact {
     #technologies .search-box {
       width: 100%;
       display: block; } }
+#technologies span.edit {
+  color: red; }
+  #technologies span.edit:hover {
+    cursor: pointer;
+    color: #db0000; }
+#technologies span.add {
+  color: white;
+  text-align: right;
+  position: absolute;
+  right: 0px;
+  background: #5CB85C;
+  padding: 4px;
+  border-radius: 4px; }
+  #technologies span.add:hover {
+    cursor: pointer;
+    background-color: #4aab4a; }
 #technologies .select-style {
   width: 39.5%;
   padding: 2.7px;
@@ -876,6 +892,11 @@ input[type="submit"], .ip-contact {
   line-height: 1.2em;
   margin-bottom: 1.25em;
   margin-top: 10px; }
+#technology span.edit {
+  color: red; }
+  #technology span.edit:hover {
+    cursor: pointer;
+    color: #db0000; }
 #technology .ip-title ~ span {
   word-break: keep-all;
   wrap: nowrap; }
