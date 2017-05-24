@@ -5,6 +5,13 @@
     margin-bottom: 1.25em;
     margin-top: 10px;
 	}
+	span.edit {
+		color: red;
+		&:hover {
+			cursor: pointer;
+			color: darken(red, 7%);
+		}
+	}
 	.ip-title ~ span {
 	    word-break: keep-all; 
 	    wrap: nowrap; 

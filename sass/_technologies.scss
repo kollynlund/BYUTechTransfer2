@@ -20,6 +20,30 @@
             display: block;
         }
     }
+		span.edit {
+			color: red;
+			&:hover {
+				cursor: pointer;
+				color: darken(red, 7%);
+			}
+		}
+		span.add {
+color: white;
+    text-align: right;
+    position: absolute;
+    right: 0px;
+    background: #5CB85C;
+    padding: 4px;
+    border-radius: 4px;
+			&:hover {
+				cursor: pointer;
+				background-color: darken(#5CB85C, 6%);
+			}
+		}		
+
+
+
+
     .select-style {
       width: 39.5%;    
       padding: 2.7px;
