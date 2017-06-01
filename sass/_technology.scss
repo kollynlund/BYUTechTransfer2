@@ -73,7 +73,7 @@
 	}
 
 	.ip-link {
-	    display: block;
+	    display: inline-block;
 	}
 
 
@@ -180,6 +180,7 @@
     font-size: 13px;
     color: #fff;
     display: inline-block;
+    margin-top: 5px;
     &:hover {
     	cursor: pointer;
     }
@@ -190,9 +191,12 @@
     border-radius: 4px;
     font-size: 13px;
     color: #fff;
-    margin-top: 5px;
+    margin-top: 2px;
     margin-right: 3px;
     display: inline-block;
+    // position: absolute;
+    // top: 1px;
+    // right: 1px;
     &:hover {
     	cursor: pointer;
     }

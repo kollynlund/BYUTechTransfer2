@@ -973,7 +973,7 @@ input[type="submit"], .ip-contact {
   #technology .media iframe:hover {
     cursor: pointer; }
 #technology .ip-link {
-  display: block; }
+  display: inline-block; }
 #technology .ip-contact {
   width: 100% !important;
   margin-top: 2em;
@@ -1049,7 +1049,8 @@ input[type="submit"], .ip-contact {
   border-radius: 4px;
   font-size: 13px;
   color: #fff;
-  display: inline-block; }
+  display: inline-block;
+  margin-top: 5px; }
   #new-technology span.add:hover {
     cursor: pointer; }
 #new-technology span.delete {
@@ -1058,7 +1059,7 @@ input[type="submit"], .ip-contact {
   border-radius: 4px;
   font-size: 13px;
   color: #fff;
-  margin-top: 5px;
+  margin-top: 2px;
   margin-right: 3px;
   display: inline-block; }
   #new-technology span.delete:hover {
