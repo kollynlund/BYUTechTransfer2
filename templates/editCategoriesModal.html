@@ -11,21 +11,21 @@
         <div class="col-sm-9">
           <input type="text" class="form-control" id="inputContactName" placeholder="biotech/medical" ng-model="etc.technology['Contact Name']">
         </div>
-        <span class="delete btn btn-danger">Delete</span>
+        <span class="delete btn btn-danger" ng-click="etc.openconfirmDeleteModal()">Delete</span>
       </div>
 
       <div class="form-group">
         <div class="col-sm-9">
           <input type="text" class="form-control" id="inputContactName" placeholder="chemistry" ng-model="etc.technology['Contact Name']">
         </div>
-        <span class="delete btn btn-danger">Delete</span>
+        <span class="delete btn btn-danger" ng-click="etc.openconfirmDeleteModal()">Delete</span>
       </div>
 
       <div class="form-group">
         <div class="col-sm-9">
           <input type="text" class="form-control" id="inputContactName" placeholder="data storage" ng-model="etc.technology['Contact Name']">
         </div>
-        <span class="delete btn btn-danger">Delete</span>
+        <span class="delete btn btn-danger" ng-click="etc.openconfirmDeleteModal()">Delete</span>
       </div>
 
       <button type="submit" class="btn btn-success">Add Category</button>
@@ -42,7 +42,6 @@
 
         <button type="submit" class="btn btn-default">Cancel</button>
         <button type="submit" class="btn btn-success">Save Changes</button>
-        <button type="submit" class="btn btn-success">Add Category</button>
 
       </div>
     </div>

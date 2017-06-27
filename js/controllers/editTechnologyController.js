@@ -46,6 +46,15 @@ function EditTechnologyController(Auth, $state, $stateParams, $modal) {
 		});
 	};
 
+	etc.openConfirmDeleteModal = function() {
+		$modal.open({
+				animation: true,
+				templateUrl: 'templates/confirmDeleteModal.html',
+				controller: 'ConfirmDeleteModalController as cdmc',
+				size: 'lg'
+		});
+	};
+
 	etc.openEditContactsModal = function() {
 		$modal.open({
 				animation: true,
