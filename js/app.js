@@ -353,7 +353,7 @@ String.prototype.toProperCase = function () {
 			});
 		};
 	}
-	function EditTechnologyController(Auth, $state, $stateParams) {
+	function EditTechnologyController(Auth, $state, $stateParams, $modal) {
 		var etc = this;
 
 		etc.categories = ['engineering', 'mechanical devices & processes', 'software', 'chemistry', 'diagnostics & drug delivery', 'electronics & instrumentation', 'energy/environment/resources', 'engineered structures & materials', 'life sciences', 'microfluidics', 'pharmaceuticals/nutraceuticals', 'physics', 'biotech/medical', 'data storage', 'education', 'food/agriculture'];
@@ -370,6 +370,34 @@ String.prototype.toProperCase = function () {
 
 		etc.goTo = function(pagename) {
 			$state.go(pagename);
+		};
+
+		etc.openEditCategoriesModal = function() {
+			$modal.open({
+					animation: true,
+					templateUrl: 'templates/editCategoriesModal.html',
+					controller: 'EditCategoriesModalController as ecmc',
+					size: 'lg'
+			});
+		};
+
+		etc.openEditContactsModal = function() {
+			$modal.open({
+					animation: true,
+					templateUrl: 'templates/editContactsModal.html',
+					controller: 'EditContactsModalController as ecmc',
+					size: 'lg'
+			});
+		};
+	}
+	function EditContactsModalController($modalInstance) {
+		this.close = function () {
+			$modalInstance.close();
+		};
+	}
+	function EditCategoriesModalController($modalInstance) {
+		this.close = function () {
+			$modalInstance.close();
 		};
 	}
 
@@ -559,6 +587,8 @@ String.prototype.toProperCase = function () {
 	.controller('GenericController', GenericController)
 	.controller('LoginController', LoginController)
 	.controller('EditTechnologyController', EditTechnologyController)
+	.controller('EditContactsModalController', EditContactsModalController)
+	.controller('EditCategoriesModalController', EditCategoriesModalController)
 	.factory('Auth', Auth)
 	.factory('Emailer', Emailer)
 	.factory('TechnologyDetails', TechnologyDetails)
