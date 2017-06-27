@@ -35,31 +35,6 @@
 						    </div>
 						  </div>
 
-
-
-						  <!-- <div class="form-group">
-						    <label for="inputContactName" class="col-sm-2 control-label">Contact Name</label>
-						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputContactName" placeholder="Contact Name" ng-model="etc.technology['Contact Name']">
-						    </div>
-						  </div> -->
-
-
-
-						  <!-- <div class="form-group">
-						    <label for="inputEmail" class="col-sm-2 control-label">Contact Email</label>
-						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputEmail" placeholder="Contact Email" ng-model="etc.technology['Contact Email']">
-						    </div>
-						  </div>
-
-						  <div class="form-group">
-						    <label for="inputPhone" class="col-sm-2 control-label">Contact Phone</label>
-						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputPhone" placeholder="Contact Phone" ng-model="etc.technology['Contact Phone']">
-						    </div>
-						  </div> -->
-
 							<div class="form-group">
 						    <label for="inputTag" class="col-sm-2 control-label">Tags</label>
 						    <div class="col-sm-9">
@@ -71,53 +46,8 @@
 							<div class="form-group">
 								<label for="inputCategories" class="col-sm-2 control-label">Categories</label>
 								<div class="col-sm-9">
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox1" value="engineering" ng-model="etc.technology.selectedCategories['engineering']"> engineering
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox2" value="mechanical devices & processes" ng-model="etc.technology.selectedCategories['mechanical devices & processes']"> mechanical devices & processes
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox3" value="software" ng-model="etc.technology.selectedCategories['software']"> software
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox1" value="chemistry" ng-model="etc.technology.selectedCategories['chemistry']"> chemistry
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox2" value="diagnostics & drug delivery" ng-model="etc.technology.selectedCategories['diagnostics & drug delivery']"> diagnostics & drug delivery
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox3" value="electronics & instrumentation" ng-model="etc.technology.selectedCategories['electronics & instrumentation']"> electronics & instrumentation
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox1" value="energy/environment/resources" ng-model="etc.technology.selectedCategories['energy/environment/resources']"> energy/environment/resources
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox2" value="engineered structures & materials" ng-model="etc.technology.selectedCategories['engineered structures & materials']"> engineered structures & materials
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox3" value="life sciences" ng-model="etc.technology.selectedCategories['life sciences']"> life sciences
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox1" value="microfluidics" ng-model="etc.technology.selectedCategories['microfluidics']"> microfluidics
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox2" value="pharmaceuticals/nutraceuticals" ng-model="etc.technology.selectedCategories['pharmaceuticals/nutraceuticals']"> pharmaceuticals/nutraceuticals
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox3" value="physics" ng-model="etc.technology.selectedCategories['physics']"> physics
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox3" value="biotech/medical" ng-model="etc.technology.selectedCategories['biotech/medical']"> biotech/medical
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox1" value="data storage" ng-model="etc.technology.selectedCategories['data storage']"> data storage
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox2" value="education" ng-model="etc.technology.selectedCategories['education']"> education
-									</label>
-									<label class="checkbox-inline">
-										<input type="checkbox" id="inlineCheckbox3" value="food/agriculture" ng-model="etc.technology.selectedCategories['food/agriculture']"> food/agriculture
+									<label class="checkbox-inline" ng-repeat="category in etc.categories | orderBy:'' track by $index">
+										<input type="checkbox" id="{{'inlineCheckbox' + ($index+1)}}" value="engineering" ng-model="etc.technology.selectedCategories[category]"> {{category}}
 									</label>
 								</div>
 							</div>

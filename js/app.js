@@ -6,7 +6,7 @@ String.prototype.toProperCase = function () {
 (function(app) {
 	// ROUTING
 	function Routes($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/login');
 
 		$stateProvider
 			.state('home', {
@@ -355,6 +355,8 @@ String.prototype.toProperCase = function () {
 	}
 	function EditTechnologyController(Auth, $state, $stateParams) {
 		var etc = this;
+
+		etc.categories = ['engineering', 'mechanical devices & processes', 'software', 'chemistry', 'diagnostics & drug delivery', 'electronics & instrumentation', 'energy/environment/resources', 'engineered structures & materials', 'life sciences', 'microfluidics', 'pharmaceuticals/nutraceuticals', 'physics', 'biotech/medical', 'data storage', 'education', 'food/agriculture'];
 
 		etc.new = $stateParams.new;
 		etc.technology = $stateParams.technology || {};
