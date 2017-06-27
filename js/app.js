@@ -82,6 +82,16 @@ String.prototype.toProperCase = function () {
 			});
 	}
 
+	function Config($sceDelegateProvider) {
+		$sceDelegateProvider.resourceUrlWhitelist([
+	    'self',
+	    'https://www.youtube.com/**',
+	    'http://www.youtube.com/**',
+	    'https://www.vimeo.com/**',
+	    'http://www.vimeo.com/**'
+	  ]);
+	}
+
 	// CUSTOM DIRECTIVES AND FILTERS
 	function fitVids() {
 		'use strict';
@@ -411,7 +421,27 @@ String.prototype.toProperCase = function () {
 					'photo' : undefined;
 		}
 		var parseTechnology = function(tech_object) {
-			return {
+			if (tech_object.ID === '2016-045') console.log('bograngles', {
+				'About the Market': tech_object['About the Market'],
+				'Categories': tech_object.Categories,
+				'Contact Email': tech_object['Contact Email'],
+				'Contact Name': tech_object['Contact Name'],
+				'Contact Phone': tech_object['Contact Phone'],
+				'ID': tech_object.ID,
+				'Media': [
+					{'link': tech_object['Media 1'], 'type': getMediaType(tech_object['Media 1'])},
+					{'link': tech_object['Media 2'], 'type': getMediaType(tech_object['Media 2'])},
+					{'link': tech_object['Media 3'], 'type': getMediaType(tech_object['Media 3'])},
+					{'link': tech_object['Media 4'], 'type': getMediaType(tech_object['Media 4'])}
+				],
+				'Links': tech_object.Links ? tech_object.Links.split(',').filter(function(item){return item !== '';}) : [],
+				'Long Description': tech_object['Long Description'] ? tech_object['Long Description'].split('\n\n') : '',
+				'Name': tech_object.Name,
+				'PI': tech_object.PI,
+				'Short Description': tech_object['Short Description'],
+				'Tags': tech_object.Tags ? tech_object.Tags.split(',') : []
+			});
+ 			return {
 				'About the Market': tech_object['About the Market'],
 				'Categories': tech_object.Categories,
 				'Contact Email': tech_object['Contact Email'],
@@ -459,7 +489,8 @@ String.prototype.toProperCase = function () {
 			);
 		};
 		var checkForTechnologyLoaded = function() {
-			return ( techData.technologies ? techData : getAllTechnologyData() );
+			// return ( techData.technologies ? techData : getAllTechnologyData() );
+			return getAllTechnologyData();
 		};
 
 		checkForTechnologyLoaded();
@@ -511,6 +542,7 @@ String.prototype.toProperCase = function () {
 	// APP BOOTSTRAPPING
 	app
 	.config(Routes)
+	.config(Config)
 	.run(scrollFix)
 	.directive('fitVids', fitVids)
 	.directive('bindVideoSize', bindVideoSize)
