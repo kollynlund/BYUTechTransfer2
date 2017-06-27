@@ -1059,13 +1059,25 @@ input[type="submit"], .ip-contact {
   border-radius: 4px;
   font-size: 13px;
   color: #fff;
-  margin-top: 2px;
   margin-right: 3px;
   display: inline-block; }
   #new-technology span.delete:hover {
     cursor: pointer; }
+#new-technology span.edit {
+  background: #999;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #fff;
+  margin-right: 3px;
+  display: inline-block; }
+  #new-technology span.edit:hover {
+    cursor: pointer; }
 #new-technology .placeholder {
   color: red; }
+
+#new-technology #categories-checkbox:first-of-type {
+  margin-left: 10px; }
 
 #contact .search-container {
   margin-bottom: 10px; }

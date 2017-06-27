@@ -37,13 +37,13 @@
 			}
 			&::before {
 				content: none;
-			}		  
+			}
 		}
 	}
 	.ip-title ~ span {
-	    word-break: keep-all; 
-	    wrap: nowrap; 
-	   
+	    word-break: keep-all;
+	    wrap: nowrap;
+
 	}
 
 	.ip-description {
@@ -51,7 +51,7 @@
 	}
 
 	.ip-id {
-	    wrap: nowrap; 
+	    wrap: nowrap;
 	}
 	.media {
 		margin: 1em 0;
@@ -85,10 +85,10 @@
 	    background: #555;
 	    color: #FFF;
 	    -webkit-border-radius: 2px;
-	    border-radius: 2px;    
+	    border-radius: 2px;
 	    text-transform: uppercase;
 	    -webkit-border-radius: 2px;
-	    border-radius: 2px;    
+	    border-radius: 2px;
 	    font-size: 14px;
 	    padding: 14px;
 	    a {
@@ -114,7 +114,7 @@
 				cursor: pointer;
 			}
 		}
-	}	
+	}
 }
 
 
@@ -191,7 +191,21 @@
     border-radius: 4px;
     font-size: 13px;
     color: #fff;
-    margin-top: 2px;
+    margin-right: 3px;
+    display: inline-block;
+    // position: absolute;
+    // top: 1px;
+    // right: 1px;
+    &:hover {
+    	cursor: pointer;
+    }
+  }
+	span.edit {
+  	background: #999;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #fff;
     margin-right: 3px;
     display: inline-block;
     // position: absolute;
@@ -208,3 +222,8 @@
 
 
 
+#new-technology {
+	#categories-checkbox:first-of-type {
+		margin-left: 10px;
+	}
+}

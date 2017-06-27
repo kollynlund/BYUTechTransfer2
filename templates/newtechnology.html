@@ -10,7 +10,6 @@
 
 				<div class="col-sm-12">
 
-
 					<div class="form-container">
 						<form class="form-horizontal">
 
@@ -46,9 +45,10 @@
 							<div class="form-group">
 								<label for="inputCategories" class="col-sm-2 control-label">Categories</label>
 								<div class="col-sm-9">
-									<label class="checkbox-inline" ng-repeat="category in etc.categories | orderBy:'' track by $index">
+									<label id="categories-checkbox" class="checkbox-inline" ng-repeat="category in etc.categories | orderBy:'' track by $index">
 										<input type="checkbox" id="{{'inlineCheckbox' + ($index+1)}}" value="engineering" ng-model="etc.technology.selectedCategories[category]"> {{category}}
 									</label>
+									<span class="edit">Edit Categories</span>
 								</div>
 							</div>
 
@@ -74,8 +74,8 @@
 						  </div>
 
 						  <div class="form-group">
-						    <label for="inputPassword3" class="col-sm-2 control-label">Contact Name</label>
-						    <div class="col-sm-9">
+						    <label for="inputPassword3" class="col-sm-2 control-label">Contact</label>
+						    <div class="col-sm-7">
 	    					  <select class="form-control">
 	    					  	<option>Contact Name</option>
 									  <option>Spencer Rogers</option>
@@ -83,8 +83,10 @@
 									  <option>Dave Brown</option>
 									</select>
 						    </div>
+								<div>
+									<span class="edit">Edit Contacts</span>
+								</div>
 						  </div>
-
 
 							<!-- <div class="form-group">
 						    <label for="inputVideo" class="col-sm-2 control-label">Upload Videos</label>
@@ -97,7 +99,6 @@
 						    	<span class="delete">Delete Video</span>
 						    </div>
 						  </div> -->
-
 
 							<div class="form-group">
 								<label for="inputLink" class="col-sm-2 control-label">Upload Videos</label>
@@ -121,8 +122,6 @@
 						  </div>
 
 
-
-
 						  <div class="form-group">
 						    <label for="inputLink" class="col-sm-2 control-label">Links & Resources</label>
 						    <div class="col-sm-9">
@@ -130,7 +129,6 @@
 						      <p class="help-block">Separate each link with a comma</p>
 						    </div>
 						  </div>
-
 
 
 						  <div class="form-group">
@@ -150,8 +148,6 @@
 
 
 			</div>
-
-
 
 			<span class="note-designer"></span>
 
