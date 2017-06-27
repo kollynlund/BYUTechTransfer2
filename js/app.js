@@ -25,14 +25,5 @@ var mainModule = angular.module('techtransfer',['ui.router','ui.bootstrap','ngAn
 	.config(DefaultRoute)
 	.config(WhitelistVideoSources)
 	.run(scrollFix)
-	// .filter('offset', offset)
-	// .factory('Auth', Auth)
-	// .factory('Emailer', Emailer)
-	// .factory('TechnologyDetails', TechnologyDetails)
-	// .factory('VideoSize',VideoSize)
-	// .factory('YouTubeSize',YouTubeSize)
-	// .factory('PageTitle', PageTitle)
-	.factory('_',function() {
-		return _;
-	});
+	.constant('_', _);
 })(mainModule);
