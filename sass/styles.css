@@ -1079,6 +1079,17 @@ input[type="submit"], .ip-contact {
 #new-technology #categories-checkbox:first-of-type {
   margin-left: 10px; }
 
+#edit-modal {
+  min-height: 300px; }
+  #edit-modal .form-container {
+    margin: 15px; }
+  #edit-modal .contact-container {
+    background: #F0EEED;
+    border-radius: 3px;
+    padding: 10px;
+    border: 1px solid #e3e1e0;
+    margin-bottom: 20px; }
+
 #contact .search-container {
   margin-bottom: 10px; }
 #contact .contact-text {
