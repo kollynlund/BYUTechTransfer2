@@ -31,34 +31,9 @@
 						  <div class="form-group">
 						    <label for="inputName" class="col-sm-2 control-label">Title</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="etc.technology.Name">
+						      <input type="text" class="form-control" id="inputTitle" placeholder="Title" ng-model="etc.technology.Name">
 						    </div>
 						  </div>
-
-
-
-						  <!-- <div class="form-group">
-						    <label for="inputContactName" class="col-sm-2 control-label">Contact Name</label>
-						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputContactName" placeholder="Contact Name" ng-model="etc.technology['Contact Name']">
-						    </div>
-						  </div> -->
-
-
-
-						  <!-- <div class="form-group">
-						    <label for="inputEmail" class="col-sm-2 control-label">Contact Email</label>
-						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputEmail" placeholder="Contact Email" ng-model="etc.technology['Contact Email']">
-						    </div>
-						  </div>
-
-						  <div class="form-group">
-						    <label for="inputPhone" class="col-sm-2 control-label">Contact Phone</label>
-						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="inputPhone" placeholder="Contact Phone" ng-model="etc.technology['Contact Phone']">
-						    </div>
-						  </div> -->
 
 							<div class="form-group">
 						    <label for="inputTag" class="col-sm-2 control-label">Tags</label>
@@ -137,9 +112,9 @@
 						  </div>
 
 							<div class="form-group">
-						    <label for="inputDescription" class="col-sm-2 control-label">About Market</label>
+						    <label for="inputAboutMarket" class="col-sm-2 control-label">About Market</label>
 						    <div class="col-sm-9">
-						      <textarea class="form-control" rows="2" ng-model="etc.technology['Short Description']"></textarea>
+						      <textarea class="form-control" rows="2" ng-model="etc.technology['About Market']"></textarea>
 						    </div>
 						  </div>
 
@@ -156,7 +131,7 @@
 						  </div>
 
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 						    <label for="inputVideo" class="col-sm-2 control-label">Upload Videos</label>
 
 						    <div class="col-sm-7">
@@ -166,7 +141,16 @@
 						    <div>
 						    	<span class="delete">Delete Video</span>
 						    </div>
-						  </div>
+						  </div> -->
+
+
+							<div class="form-group">
+								<label for="inputLink" class="col-sm-2 control-label">Upload Videos</label>
+								<div class="col-sm-9">
+									<textarea rows="2" type="text" class="form-control" id="inputPassword3" placeholder="Paste Youtube Video URL here" ng-model="etc.technology.Video"></textarea>
+									<p class="help-block">Separate each link with a comma</p>
+								</div>
+							</div>
 
 					    <div class="form-group">
 						    <label for="inputPhoto" class="col-sm-2 control-label">Upload Photos</label>
@@ -185,13 +169,10 @@
 
 
 						  <div class="form-group">
-						    <label for="inputLink" class="col-sm-2 control-label">Add Links & Resources</label>
-						    <div class="col-sm-7">
-						      <input type="text" class="form-control" id="inputPassword3" placeholder="Paste link URL here" ng-model="etc.technology.Link">
-						      <span class="add">Add Another Link</span>
-						    </div>
-						    <div>
-						    	<span class="delete">Delete Link</span>
+						    <label for="inputLink" class="col-sm-2 control-label">Links & Resources</label>
+						    <div class="col-sm-9">
+						      <textarea rows="2" type="text" class="form-control" id="inputPassword3" placeholder="Links and resources" ng-model="etc.technology.Link"></textarea>
+						      <p class="help-block">Separate each link with a comma</p>
 						    </div>
 						  </div>
 
