@@ -69,18 +69,14 @@
 							<div class="form-group">
 						    <label for="inputAboutMarket" class="col-sm-2 control-label">About Market</label>
 						    <div class="col-sm-9">
-						      <textarea class="form-control" rows="2" ng-model="etc.technology['About Market']"></textarea>
+						      <textarea class="form-control" rows="2" ng-model="etc.technology['About the Market']"></textarea>
 						    </div>
 						  </div>
 
 						  <div class="form-group">
 						    <label for="inputPassword3" class="col-sm-2 control-label">Contact</label>
 						    <div class="col-sm-7">
-	    					  <select class="form-control">
-	    					  	<option>Contact Name</option>
-									  <option>Spencer Rogers</option>
-									  <option>Mike Alder</option>
-									  <option>Dave Brown</option>
+	    					  <select class="form-control" ng-model="etc.technology.contact" ng-options="contact as contact.name for contact in etc.contacts">
 									</select>
 						    </div>
 								<div>
@@ -125,7 +121,7 @@
 						  <div class="form-group">
 						    <label for="inputLink" class="col-sm-2 control-label">Links & Resources</label>
 						    <div class="col-sm-9">
-						      <textarea rows="2" type="text" class="form-control" id="inputPassword3" placeholder="Links and resources" ng-model="etc.technology.Link"></textarea>
+						      <textarea rows="2" type="text" class="form-control" id="inputPassword3" placeholder="Links and resources" ng-model="etc.technology.Links"></textarea>
 						      <p class="help-block">Separate each link with a comma</p>
 						    </div>
 						  </div>
@@ -135,7 +131,7 @@
 						    <div class="col-sm-offset-2 col-sm-10">
 						      <button type="submit" class="btn btn-danger">Delete</button>
 						      <button type="submit" class="btn btn-default">Cancel</button>
-						      <button type="submit" class="btn btn-success">Save</button>
+						      <button type="submit" class="btn btn-success" ng-click="etc.saveTechnology()">Save</button>
 
 						    </div>
 						  </div>

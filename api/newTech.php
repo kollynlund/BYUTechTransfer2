@@ -1,6 +1,7 @@
 <?php
 // cors
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
 
 // request method and body
 $method = $_SERVER['REQUEST_METHOD'];
@@ -42,6 +43,8 @@ if ($method == 'POST') {
 
   // close mysql connection
   mysqli_close($link);
+
+  echo '{"success": true}';
 }
 else {
   echo '{"error": "malformed request"}';

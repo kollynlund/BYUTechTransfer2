@@ -5,88 +5,37 @@
   <h1>Edit Contacts</h1>
   <form class="form-horizontal">
 
-    <div class="contact-container clearfix">
+    <div class="contact-container clearfix" ng-repeat="contact in ecmc.contacts track by $index">
       <div class="form-group">
         <label for="inputContactName" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="Spencer Rogers" ng-model="etc.technology['Contact Name']">
+          <input type="text" class="form-control" id="inputContactName" placeholder="Contact name" ng-model="ecmc.contacts[$index].name">
         </div>
       </div>
 
       <div class="form-group">
         <label for="inputContactName" class="col-sm-2 control-label">Email</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="spencer@byu.edu" ng-model="etc.technology['Contact Email']">
+          <input type="text" class="form-control" id="inputContactName" placeholder="contact.email@somewhere.com" ng-model="ecmc.contacts[$index].email">
         </div>
       </div>
 
       <div class="form-group">
         <label for="inputContactName" class="col-sm-2 control-label">Phone</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="1-801-901-3433" ng-model="etc.technology['Contact Phone']">
+          <input type="text" class="form-control" id="inputContactName" placeholder="555-555-5555" ng-model="ecmc.contacts[$index].phone">
         </div>
       </div>
 
-      <button type="submit" class="btn btn-danger pull-right">Delete</button>
+      <button type="submit" class="btn btn-danger pull-right" ng-click="ecmc.deleteContactEntry($index)">Delete</button>
     </div>
-
-    <div class="contact-container clearfix">
-      <div class="form-group">
-        <label for="inputContactName" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="Mike Alder" ng-model="etc.technology['Contact Name']">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="inputContactName" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="mike@byu.edu" ng-model="etc.technology['Contact Email']">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="inputContactName" class="col-sm-2 control-label">Phone</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="1-801-901-3022" ng-model="etc.technology['Contact Phone']">
-        </div>
-      </div>
-      <button type="submit" class="btn btn-danger pull-right">Delete</button>
-    </div>
-
-    <div class="contact-container clearfix">
-      <div class="form-group">
-        <label for="inputContactName" class="col-sm-2 control-label">Name</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="Mike Alder" ng-model="etc.technology['Contact Name']">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="inputContactName" class="col-sm-2 control-label">Email</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="mike@byu.edu" ng-model="etc.technology['Contact Email']">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="inputContactName" class="col-sm-2 control-label">Phone</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="1-801-901-3022" ng-model="etc.technology['Contact Phone']">
-        </div>
-      </div>
-      <button type="submit" class="btn btn-danger pull-right">Delete</button>
-    </div>
-
-
-
 
     <div class="form-group">
       <div class="col-sm-12">
 
-        <button type="submit" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-success">Save Changes</button>
-        <button type="submit" class="btn btn-success">Add Contact</button>
+        <button type="submit" class="btn btn-default" ng-click="ecmc.close()">Cancel</button>
+        <button type="submit" class="btn btn-success" ng-click="ecmc.save()">Save Changes</button>
+        <button type="submit" class="btn btn-success" ng-click="ecmc.addContactEntry()">Add Contact</button>
 
       </div>
     </div>
