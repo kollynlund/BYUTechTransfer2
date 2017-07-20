@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uploads test</title>
+</head>
+<body>
+	FILE FILE FILE:<input id="test" type="file" multiple>
+
+	<button onclick="upload()">LALALALALA</button>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+	function upload() {
+		var myFormData = new FormData();
+		var filesInput = document.getElementById('test');
+		console.log('test.files', test.files);
+
+		Array.prototype.forEach.call(filesInput.files, function(file){ myFormData.append(file.name, file); });
+
+		$.ajax({
+		  url: 'imageUpload.php',
+		  type: 'POST',
+		  processData: false, // important
+		  contentType: false, // important
+		  dataType : 'json',
+		  data: myFormData
+		});
+	}		
+</script>	
+</html>

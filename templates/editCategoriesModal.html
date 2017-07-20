@@ -1,53 +1,24 @@
 <div id="edit-modal">
-
-
-<div class="form-container">
-  <h1>Edit Categories</h1>
-  <form class="form-horizontal">
-
-    <div class="contact-container clearfix">
-
-      <div class="form-group">
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="biotech/medical" ng-model="etc.technology['Contact Name']">
+  <div class="form-container">
+    <h1>Edit Categories</h1>
+    <form class="form-horizontal">
+      <div class="contact-container clearfix">
+        <div class="form-group" ng-repeat="category in ecmc.categories track by $index">
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputContactName" placeholder="Enter category name" ng-model="ecmc.categories[$index]">
+          </div>
+          <span class="delete btn btn-danger" ng-click="ecmc.deleteCategoryEntry($index)">Delete</span>
         </div>
-        <span class="delete btn btn-danger" ng-click="etc.openconfirmDeleteModal()">Delete</span>
-      </div>
 
-      <div class="form-group">
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="chemistry" ng-model="etc.technology['Contact Name']">
-        </div>
-        <span class="delete btn btn-danger" ng-click="etc.openconfirmDeleteModal()">Delete</span>
+        <button type="submit" class="btn btn-success" ng-click="ecmc.addCategoryEntry()">Add Category</button>
       </div>
 
       <div class="form-group">
-        <div class="col-sm-9">
-          <input type="text" class="form-control" id="inputContactName" placeholder="data storage" ng-model="etc.technology['Contact Name']">
+        <div class="col-sm-12">
+          <button type="submit" class="btn btn-default" ng-click="ecmc.close()">Cancel</button>
+          <button type="submit" class="btn btn-success" ng-click="ecmc.save()">Save Changes</button>
         </div>
-        <span class="delete btn btn-danger" ng-click="etc.openconfirmDeleteModal()">Delete</span>
       </div>
-
-      <button type="submit" class="btn btn-success">Add Category</button>
-
-    </div>
-
-
-
-
-
-
-    <div class="form-group">
-      <div class="col-sm-12">
-
-        <button type="submit" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-success">Save Changes</button>
-
-      </div>
-    </div>
-
-
-  </form>
-</div>
-
+    </form>
+  </div>
 </div>

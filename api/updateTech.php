@@ -1,6 +1,7 @@
 <?php
 // cors
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
 
 // request method and body
 $method = $_SERVER['REQUEST_METHOD'];
@@ -29,7 +30,7 @@ if ($method == 'POST') {
   $sql .= '`Short Description` = "'. str_replace('"', '\"', $input["Short Description"]) .'",';
   $sql .= '`Long Description` = "'. str_replace('"', '\"', $input["Long Description"]) .'",';
   $sql .= '`About the Market` = "'. str_replace('"', '\"', $input["About the Market"]) .'"';
-  $sql .= " WHERE `ID` = ". $input["Old ID"] .";";
+  $sql .= " WHERE `ID` = '". $input["Old ID"] ."';";
 
   // // excecute SQL statement
   $result = mysqli_query($link,$sql);
@@ -37,7 +38,8 @@ if ($method == 'POST') {
   // // die if SQL statement failed
   if (!$result) {
     http_response_code(404);
-    die(mysqli_error());
+    echo mysqli_error($link);
+    die(mysqli_error($link));
   }
 
   // close mysql connection

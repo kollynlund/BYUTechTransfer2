@@ -28,12 +28,14 @@ function TechnologiesController($scope, $state, $filter, technologies, $sessionS
 		currentPage: 0
 	});
 	tc.goToTech = function(tech_id) {
+		console.log('pinkerton');
 		$state.go('technology',{'tech_id':tech_id});
 	};
 	tc.goTo = function(pagename) {
 		$state.go(pagename);
 	};
 	tc.editTechnology = function($event, technology) {
+		console.log('lockjaw');
 		$event.stopPropagation();
 		$state.go('editTechnology', {'technology': technology});
 	};

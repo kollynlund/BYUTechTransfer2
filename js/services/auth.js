@@ -6,7 +6,7 @@ function Auth($http, $q) {
 			if (new Date(localStorage.byuttosession) > (new Date(new Date().valueOf() - (1000*60*60*4)))) return $q(function(resolve) {resolve(true);});
 			return $http({
 				method: 'POST',
-				url: 'api/auth.php',
+				url: 'http://tech-transfer.byu.edu/' + 'api/auth.php',
 				data: {
 					username: username,
 					password: password

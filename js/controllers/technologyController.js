@@ -20,7 +20,7 @@ function setupRoute($stateProvider) {
 function TechnologyController($scope, $state, $modal, Auth, technologies, technology) {
 	var stc = this;
 
-	Auth.Auth().then(function(isAuthed){$scope.$applyAsync(function(){stc.isAuthed = isAuthed;})});
+	Auth.Auth().then(function(isAuthed){$scope.$applyAsync(function(){stc.isAuthed = isAuthed;});});
 	stc.selectedTech = technology;
 	stc.openOrIllShootGangsta = function (media) {
 		var modalInstance = $modal.open({
