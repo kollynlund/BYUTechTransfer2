@@ -1032,7 +1032,10 @@ input[type="submit"], .ip-contact {
   background: #f0eeed;
   padding: 10px;
   border: 1px solid #e3e1e0;
-  border-radius: 2px; }
+  border-radius: 2px;
+  margin-bottom: 1em; }
+#new-technology .alert u:hover {
+  cursor: pointer; }
 #new-technology .file-upload {
   background: white;
   padding: 10px;
