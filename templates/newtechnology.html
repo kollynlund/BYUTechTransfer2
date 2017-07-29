@@ -53,7 +53,7 @@
 									<label id="categories-checkbox" class="checkbox-inline" ng-repeat="category in etc.categories | orderBy:'' track by $index">
 										<input type="checkbox" id="{{'inlineCheckbox' + ($index+1)}}" value="engineering" ng-model="etc.technology.selectedCategories[category]"> {{category}}
 									</label>
-									<span class="edit" ng-click="etc.openEditCategoriesModal()">Edit Categories</span>
+									<span class="edit-categories" ng-click="etc.openEditCategoriesModal()">Edit</span>
 								</div>
 							</div>
 
@@ -84,8 +84,8 @@
 	    					  <select class="form-control" ng-model="etc.technology.contact" ng-options="contact as contact.name for contact in etc.contacts">
 									</select>
 						    </div>
-								<div>
-									<span class="edit" ng-click="etc.openEditContactsModal()">Edit Contacts</span>
+								<div class="col-sm-2">
+									<span class="edit-contact" ng-click="etc.openEditContactsModal()">Edit</span>
 								</div>
 						  </div>
 

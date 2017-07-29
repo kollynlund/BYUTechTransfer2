@@ -1048,17 +1048,18 @@ input[type="submit"], .ip-contact {
   padding-top: 20px; }
 #new-technology span.add {
   background: #5CB85C;
-  padding: 6px 8px;
+  padding: 8px 14px;
   border-radius: 4px;
   font-size: 13px;
   color: #fff;
   display: inline-block;
   margin-top: 5px; }
   #new-technology span.add:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    background: #449d44; }
 #new-technology span.delete {
   background: #C9302C;
-  padding: 6px 8px;
+  padding: 8px 14px;
   border-radius: 4px;
   font-size: 13px;
   color: #fff;
@@ -1068,21 +1069,35 @@ input[type="submit"], .ip-contact {
   top: 6px;
   right: 3px; }
   #new-technology span.delete:hover {
-    cursor: pointer; }
+    cursor: pointer;
+    background: #b42b27; }
 #new-technology .preview {
   width: 150px;
   margin-top: 7px; }
-#new-technology span.edit {
+#new-technology span.edit-contact, #new-technology span.edit-categories {
   background: #aaa;
   border: 1px solid #888;
   padding: 5px 8px;
   border-radius: 4px;
-  font-size: 13px;
+  font-size: 14px;
   color: #fff;
   margin-right: 3px;
-  display: inline-block; }
-  #new-technology span.edit:hover {
-    cursor: pointer; }
+  display: inline-block;
+  margin-top: 1px;
+  width: 115px;
+  text-align: center;
+  letter-spacing: .5px; }
+  @media (max-width: 767px) {
+    #new-technology span.edit-contact, #new-technology span.edit-categories {
+      margin-top: 8px;
+      width: 100%;
+      padding-top: 5px;
+      padding-bottom: 5px; } }
+  #new-technology span.edit-contact:hover, #new-technology span.edit-categories:hover {
+    cursor: pointer;
+    background: #999; }
+#new-technology span.edit-contact {
+  width: 100%; }
 #new-technology .placeholder {
   color: red; }
 
