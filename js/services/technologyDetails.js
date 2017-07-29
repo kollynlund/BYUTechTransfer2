@@ -33,7 +33,8 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 			'Name': tech_object.Name,
 			'PI': tech_object.PI,
 			'Short Description': tech_object['Short Description'],
-			'Tags': tech_object.Tags ? tech_object.Tags.split(' ') : []
+			'Tags': tech_object.Tags ? tech_object.Tags.split(' ') : [],
+			'Photos': tech_object.photos.split(',')
 		};
 	};
 	var getAllTechnologyData = function() {
@@ -50,6 +51,7 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 			techData.technologies = result;
 			techData.categories = categories;
 			$sessionStorage.techData = techData;
+			console.log('tekdutuh', techData);
 			return techData;
 		});
 	};
