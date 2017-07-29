@@ -12,10 +12,14 @@ function setupRoute($stateProvider) {
 function LoginController(Auth, $state) {
 	var lc = this;
 	lc.auth = function() {
+		lc.loginFailed = false;
+
 		Auth.Auth(lc.username, lc.password)
 		.then(function(isAuthed) {
-			if (isAuthed) $state.go('home');
-		});
+			if (isAuthed) return $state.go('home');
+			lc.loginFailed = true;
+		})
+		.catch(function(error){lc.loginFailed = true;});
 	};
 }
 

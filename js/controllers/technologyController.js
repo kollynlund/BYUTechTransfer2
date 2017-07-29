@@ -48,7 +48,7 @@ function TechnologyController($scope, $state, $modal, Auth, technologies, techno
 		// Default to current technology if all else fails
 		var new_tech_id = stc.selectedTech.ID;
 		if (technologies) {
-			var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+			var current_index = technologies.technologies.map(function(item){return item.ID;}).indexOf(stc.selectedTech.ID);
 			new_tech_id = technologies.technologies[(current_index+1 === technologies.technologies.length ? 0 : current_index+1)].ID;
 		}
 		$state.go('technology',{'tech_id': new_tech_id});
@@ -57,7 +57,7 @@ function TechnologyController($scope, $state, $modal, Auth, technologies, techno
 		// Default to current technology if all else fails
 		var new_tech_id = stc.selectedTech.ID;
 		if (technologies) {
-			var current_index = technologies.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+			var current_index = technologies.technologies.map(function(item){return item.ID;}).indexOf(stc.selectedTech.ID);
 			new_tech_id = technologies.technologies[(current_index === 0 ? (technologies.technologies.length-1) : current_index-1)].ID;
 		}
 		$state.go('technology',{'tech_id': new_tech_id});

@@ -3,9 +3,9 @@
 		<div class="breadcrumb"><a href="" ng-click="etc.goTo('home')">Home</a> &gt; <a href="" ng-click="etc.goTo('technologies')">Technologies</a> &gt; {{::etc.technology.ID || 'New Technology'}}</div>
 			<div class="row">
 
-				<div class="alert alert-success alert-dismissible" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<strong>Technology Saved.</strong> <span>Make edits or <u ng-click="tc.newTechnology($event)">add another.</u></span>
+				<div ng-if="etc.technologySaved" class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" ng-click="etc.technologySaved = false">&times;</span></button>
+					<strong>Technology Saved.</strong> <span>Make edits or <a ng-click="etc.newTechnology()">add another.</a></span>
 				</div>
 
 				<div class="col-xs-12">
@@ -122,7 +122,6 @@
 						    </div>
 						  </div>
 
-
 						  <div class="form-group">
 						    <label for="inputLink" class="col-sm-2 control-label">Links & Resources</label>
 						    <div class="col-sm-9">
@@ -131,31 +130,21 @@
 						    </div>
 						  </div>
 
-
 						  <div class="form-group">
 						    <div class="col-sm-offset-2 col-sm-10">
-						      <button ng-click="etc.openConfirmDeleteModal()" type="submit" class="btn btn-danger">Delete</button>
-						      <button type="submit" class="btn btn-default">Cancel</button>
+						      <button ng-if="!etc.new" ng-click="etc.openConfirmDeleteModal()" type="submit" class="btn btn-danger">Delete</button>
+						      <button type="submit" class="btn btn-default" ui-sref="technologies">Cancel</button>
 						      <button type="submit" class="btn btn-success" ng-click="etc.saveTechnology()">Save</button>
-
 						    </div>
 						  </div>
-
-
 						</form>
-
-
 				</div>
 
-				<div class="alert alert-danger" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div ng-if="etc.technologyFailedToSave" class="alert alert-danger" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" ng-click="etc.technologyFailedToSave = false">&times;</span></button>
 					<strong>Warning!</strong> Technology Did Not Save. Try Again.
 				</div>
-
-
 			</div>
-
-
 			</div>
 
 			<span class="note-designer"></span>

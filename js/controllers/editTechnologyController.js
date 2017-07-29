@@ -13,7 +13,7 @@ function setupRoute($stateProvider) {
 			templateUrl: 'templates/newtechnology.html',
 			controller: 'EditTechnologyController as etc',
 			params: {
-				new: false
+				new: true
 			}
 		});
 }
@@ -101,15 +101,35 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, Ca
 
 		var media = angular.copy(newTechnologyObject.Media || []);
 		delete newTechnologyObject.Media;
-		newTechnologyObject['Media 1'] = media[0].link;
-		newTechnologyObject['Media 2'] = media[1].link;
-		newTechnologyObject['Media 3'] = media[2].link;
-		newTechnologyObject['Media 4'] = media[3].link;
+		newTechnologyObject['Media 1'] = media[0] ? media[0].link : null;
+		newTechnologyObject['Media 2'] = media[1] ? media[1].link : null;
+		newTechnologyObject['Media 3'] = media[2] ? media[2].link : null;
+		newTechnologyObject['Media 4'] = media[3] ? media[3].link : null;
 
 		var saveFunction = $stateParams.new ? EditTechnologies.addTechnology : EditTechnologies.editTechnology;
 		saveFunction(newTechnologyObject)
-			.then(function(stuff){console.log('My dob (Kollyn) has measles.', stuff);});
-	}
+			.then(function(stuff){
+				console.log('stuff', stuff);
+				$scope.$applyAsync(function(){
+					etc.new = false;
+					etc.technologySaved = true;
+				});
+			})
+			.catch(function(error){
+				console.log('stufferror', error);
+				$scope.$applyAsync(function(){etc.technologyFailedToSave = true;});
+			});
+	};
+
+	etc.newTechnology = function() {
+		etc.technology = {};
+		etc.new = true;
+		etc.technologyFailedToSave = false;
+		etc.technologySaved = false;
+	};
+
+
+
 
 	function getCategories() {
 		Categories.getCategories()

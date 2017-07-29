@@ -1,7 +1,8 @@
 (function(app){
 
-function EditTechnologies($http, $sce, $sessionStorage, _) {
+function EditTechnologies($http, $sce, $sessionStorage, _, $q) {
 	var addTechnology = function(techObject) {
+		// return $q.reject(false);
 		return $http.post('http://tech-transfer.byu.edu/api/newTech.php', techObject)
 		.then(function(result){return result.data;})
 		.then(function(result) {
