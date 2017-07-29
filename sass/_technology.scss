@@ -199,13 +199,17 @@
     color: #fff;
     margin-right: 3px;
     display: inline-block;
-    // position: absolute;
-    // top: 1px;
-    // right: 1px;
+		position: absolute;
+    top: 6px;
+    right: 3px;
     &:hover {
     	cursor: pointer;
     }
   }
+	.preview {
+		width: 150px;
+		margin-top: 7px;
+	}
 	span.edit {
 		background: #aaa;
 		border: 1px solid #888;

@@ -1063,9 +1063,15 @@ input[type="submit"], .ip-contact {
   font-size: 13px;
   color: #fff;
   margin-right: 3px;
-  display: inline-block; }
+  display: inline-block;
+  position: absolute;
+  top: 6px;
+  right: 3px; }
   #new-technology span.delete:hover {
     cursor: pointer; }
+#new-technology .preview {
+  width: 150px;
+  margin-top: 7px; }
 #new-technology span.edit {
   background: #aaa;
   border: 1px solid #888;
