@@ -34,7 +34,8 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 			'PI': tech_object.PI,
 			'Short Description': tech_object['Short Description'],
 			'Tags': tech_object.Tags ? tech_object.Tags.split(' ') : [],
-			// 'Photos': tech_object.photos.split(',').filter(function(x){return x;})
+			'Videos': tech_object.Videos ? tech_object.Videos.split(',').map(function(videoLink){ return { link: videoLink, type: 'video' };}) : [],
+			'Total Photos': tech_object['Total Photos'],
 		};
 	};
 	var getAllTechnologyData = function() {
