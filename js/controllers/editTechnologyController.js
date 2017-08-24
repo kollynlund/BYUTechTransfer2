@@ -128,6 +128,26 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, Ca
 		etc.technologySaved = false;
 	};
 
+	$scope.uploadImage = function(elementRef) {
+		var photosSoFar = etc.technology.Photos ? etc.technology.Photos.length + 1 : 1;
+		var fileObject = elementRef.files[0];
+		var filename = etc.technology.ID+'---'+photosSoFar+'.'+fileObject.type.replace('image/', '');
+		var form = document.getElementById('new-technology-file-upload');
+		var submitUrl = 'http://tech-transfer.byu.edu/api/imageUpload.php';
+
+		var formData = new FormData();
+		formData.append('file', fileObject, filename);
+
+		$.ajax({
+        url: submitUrl,
+        type: 'post',
+				data: formData,
+				processData: false,
+				contentType: false,
+        success: function(){alert("worked");}
+    });
+	};
+
 
 
 

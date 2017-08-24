@@ -22,19 +22,19 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 			'Contact Name': tech_object['Contact Name'],
 			'Contact Phone': tech_object['Contact Phone'],
 			'ID': tech_object.ID,
-			'Media': [
-				{'link': tech_object['Media 1'], 'type': getMediaType(tech_object['Media 1'])},
-				{'link': tech_object['Media 2'], 'type': getMediaType(tech_object['Media 2'])},
-				{'link': tech_object['Media 3'], 'type': getMediaType(tech_object['Media 3'])},
-				{'link': tech_object['Media 4'], 'type': getMediaType(tech_object['Media 4'])}
-			],
+			// 'Media': [
+			// 	{'link': tech_object['Media 1'], 'type': getMediaType(tech_object['Media 1'])},
+			// 	{'link': tech_object['Media 2'], 'type': getMediaType(tech_object['Media 2'])},
+			// 	{'link': tech_object['Media 3'], 'type': getMediaType(tech_object['Media 3'])},
+			// 	{'link': tech_object['Media 4'], 'type': getMediaType(tech_object['Media 4'])}
+			// ],
 			'Links': tech_object.Links ? tech_object.Links.split(',').filter(function(item){return item !== '';}) : [],
 			'Long Description': tech_object['Long Description'] ? tech_object['Long Description'].split('\n\n') : '',
 			'Name': tech_object.Name,
 			'PI': tech_object.PI,
 			'Short Description': tech_object['Short Description'],
 			'Tags': tech_object.Tags ? tech_object.Tags.split(' ') : [],
-			'Photos': tech_object.photos.split(',')
+			// 'Photos': tech_object.photos.split(',').filter(function(x){return x;})
 		};
 	};
 	var getAllTechnologyData = function() {
@@ -51,7 +51,6 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 			techData.technologies = result;
 			techData.categories = categories;
 			$sessionStorage.techData = techData;
-			console.log('tekdutuh', techData);
 			return techData;
 		});
 	};

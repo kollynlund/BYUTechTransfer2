@@ -16,8 +16,7 @@
 				<div class="col-sm-12">
 
 					<div class="form-container">
-						<form class="form-horizontal">
-
+						<div class="form-horizontal">
 						  <div class="form-group">
 						    <label for="inputID" class="col-sm-2 control-label">ID</label>
 						    <div class="col-sm-9">
@@ -110,16 +109,20 @@
 							</div>
 
 					    <div class="form-group">
-						    <label for="inputPhoto" class="col-sm-2 control-label">Upload Photos</label>
+								<label for="inputPhoto" class="col-sm-2 control-label">Upload Photos</label>
+										
 						    <div class="col-sm-9">
-						    	<div class="file-upload">
-								    <input type="file" id="inputPhoto">
+						    	<form class="file-upload" ng-repeat="photo in etc.technology.Photos">
 										<span class="delete">Delete Photo</span>
-										<img class="preview" src="http://techtransfer.byu.edu/img/ip/patent.jpg">
-								  </div>
+										<img class="preview" ng-src="{{'http://techtransfer.byu.edu/'+photo}}">
+									</form>
 
-								  <span class="add">Add Another Photo</span>
+									<form id="new-technology-file-upload" class="file-upload">
+										<input type="file" id="inputPhoto" ng-disabled="!etc.technology.ID" onchange="angular.element(this).scope().uploadImage(this)">
+										<div class="photo-upload-disabled-message" ng-if="!etc.technology.ID">*You must have a technology ID before you can upload photos</div>
+									</form>
 
+								  <!-- <span class="add">Add Another Photo</span> -->
 							  </div>
 							  <div>
 
@@ -141,7 +144,7 @@
 						      <button type="submit" class="btn btn-success" ng-click="etc.saveTechnology()">Save</button>
 						    </div>
 						  </div>
-						</form>
+						</div>
 				</div>
 
 				<div ng-if="etc.technologyFailedToSave" class="alert alert-danger" role="alert">
