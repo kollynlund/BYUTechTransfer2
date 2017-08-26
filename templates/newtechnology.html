@@ -112,14 +112,17 @@
 								<label for="inputPhoto" class="col-sm-2 control-label">Upload Photos</label>
 										
 						    <div class="col-sm-9">
-						    	<form class="file-upload" ng-repeat="photo in etc.technology.Photos">
-										<span class="delete">Delete Photo</span>
-										<img class="preview" ng-src="{{'http://techtransfer.byu.edu/'+photo}}">
+						    	<form class="file-upload" ng-repeat="photo in etc.pictureNumbers">
+										<span class="delete" ng-click="etc.openConfirmPhotoDeleteModal('http://tech-transfer.byu.edu/api/uploads/'+etc.technology.ID+'---'+photo)">Delete Photo</span>
+										<!-- <img class="preview" ng-src="{{'http://techtransfer.byu.edu/'+photo}}"> -->
+										<img class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{etc.technology.ID}}---{{photo}}.jpg" onerror="this.style.display = 'none'">
+										<img class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{etc.technology.ID}}---{{photo}}.png" onerror="this.style.display = 'none'">
 									</form>
 
 									<form id="new-technology-file-upload" class="file-upload">
-										<input type="file" id="inputPhoto" ng-disabled="!etc.technology.ID" onchange="angular.element(this).scope().uploadImage(this)">
-										<div class="photo-upload-disabled-message" ng-if="!etc.technology.ID">*You must have a technology ID before you can upload photos</div>
+										<input type="file" id="inputPhoto" ng-disabled="!etc.technology.ID || etc.imageUploadDisabled" onchange="angular.element(this).scope().uploadImage(this)">
+										<div class="photo-upload-disabled-message" ng-if="etc.imageUploadDisabled">*You must save the new technology before you can upload images</div>
+										<div class="photo-upload-disabled-message" ng-if="!etc.imageUploadDisabled && !etc.technology.ID">*You must have a technology ID before you can upload photos</div>
 									</form>
 
 								  <!-- <span class="add">Add Another Photo</span> -->

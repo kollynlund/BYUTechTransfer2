@@ -18,7 +18,7 @@ function setupRoute($stateProvider) {
 		});
 }
 
-function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, Categories, Contacts, EditTechnologies) {
+function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _, Categories, Contacts, EditTechnologies) {
 	var etc = this;
 
 	etc.new = $stateParams.new;
@@ -43,7 +43,11 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, Ca
 			etc.technology.Tags &&
 			etc.technology.Tags.filter(x => x).length
 		) etc.technology.Tags =  etc.technology.Tags.join(' ');
+
+		if (etc.technology['Total Photos']) etc.pictureNumbers = _.range(1, parseInt(etc.technology['Total Photos']) + 1);
 	}
+
+	if (!etc.technology || !etc.technology.ID) etc.imageUploadDisabled = true; // Don't allow image uploads until technology has been saved
 
 	getCategories();
 	getContacts();
@@ -69,6 +73,16 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, Ca
 				templateUrl: 'templates/confirmDeleteModal.html',
 				controller: 'ConfirmDeleteModalController as cdmc',
 				size: 'lg'
+		});
+	};
+
+	etc.openConfirmPhotoDeleteModal = function(photoUrl) {
+		$modal.open({
+				animation: true,
+				templateUrl: 'templates/confirmPhotoDeleteModal.html',
+				controller: 'ConfirmPhotoDeleteModalController as cpdmc',
+				resolve: { photoUrl: function(){ return photoUrl; } },
+				size: 'lg',
 		});
 	};
 
@@ -109,14 +123,13 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, Ca
 		var saveFunction = $stateParams.new ? EditTechnologies.addTechnology : EditTechnologies.editTechnology;
 		saveFunction(newTechnologyObject)
 			.then(function(stuff){
-				console.log('stuff', stuff);
 				$scope.$applyAsync(function(){
 					etc.new = false;
 					etc.technologySaved = true;
+					etc.imageUploadDisabled = false; // Allow image uploads since new technology has been saved successfully
 				});
 			})
 			.catch(function(error){
-				console.log('stufferror', error);
 				$scope.$applyAsync(function(){etc.technologyFailedToSave = true;});
 			});
 	};
