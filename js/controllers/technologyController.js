@@ -17,23 +17,27 @@ function setupRoute($stateProvider) {
 		});
 }
 
-function TechnologyController($scope, $state, $modal, Auth, technologies, technology) {
+function TechnologyController($scope, $state, $modal, _, Auth, technologies, technology) {
 	var stc = this;
 
 	Auth.Auth().then(function(isAuthed){$scope.$applyAsync(function(){stc.isAuthed = isAuthed;});});
 	stc.selectedTech = technology;
-	stc.openOrIllShootGangsta = function (media) {
+
+	stc.pictureNumbers = _.range(1, parseInt(stc.selectedTech['Total Photos']) + 1);
+
+	stc.openDetailModal = function(mediaOrTechId, photoNumber, photoType) {
 		var modalInstance = $modal.open({
 				animation: true,
-				template: media.type === 'video' ? 
-							'<div fit-vids><iframe class="vid" src="'+media.link+'" frameborder="0" allowfullscreen></iframe></div>'
-							: '<div><img class="img" src="'+media.link+'"></div>',
+				template: mediaOrTechId.type === 'video' ? 
+							'<div fit-vids><iframe class="vid" src="'+mediaOrTechId.link+'" frameborder="0" allowfullscreen></iframe></div>'
+							: '<div><img class="img" src="http://tech-transfer.byu.edu/api/uploads/'+mediaOrTechId+'---'+photoNumber+'.'+photoType+'"></div>',
 				controller: 'TechnologyPictureModalController as tpmc',
 				size: 'lg'
 		});
 	};
 	stc.nextTech = nextTech;
 	stc.previousTech = previousTech;
+
 	stc.contactAboutTech = function(tech_id) {
 		$state.go('contact',{'tech_id':tech_id});
 	};

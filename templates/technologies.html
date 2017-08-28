@@ -21,7 +21,9 @@
 					<div class='patent-list'>
 						<div class='patent-container'>
 							<h2 class='patent-name'>{{technology.Name}}</h2>
-							<span> ID: {{technology.ID}} <span class="edit" ng-if="tc.isAuthed" ng-click="tc.editTechnology($event, technology)"> EDIT </span></span>
+							<span> ID: {{technology.ID}}
+								<!-- <span class="edit" ng-if="tc.isAuthed" ng-click="tc.editTechnology($event, technology)"> EDIT </span> -->
+							</span>
 							<p class='patent-description'>{{technology["Short Description"]}}</p>
 						</div>
 					</div>
