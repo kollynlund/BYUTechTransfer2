@@ -1,0 +1,43 @@
+<div id="login" class="section page">
+	<div class="wrapper">
+		<div class="row">
+			<h1>Admin Reset Password</h1>
+			<div class="col-md-12">
+
+				<form id="login">
+				  <div class="form-group">
+				    <input type="hidden" class="form-control" id="token" placeholder="secretkey" ng-model="lc.token">
+				  </div>
+					<p>For your security, please choose a password at least 8 characters long with a combination of letters, numbers and symbols.</p>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">New Password</label>
+				    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="lc.password">
+				  </div>
+
+					<div class="form-group">
+				    <label for="exampleInputPassword1">Password Confirmation</label>
+				    <input type="password" class="form-control" id="passwordConfirmation" placeholder="Retype Password" ng-model="lc.passwordConfirmation">
+				  </div>
+
+				  <button type="submit" class="btn btn-default" ng-click="lc.reset()">Reset Password</button>
+
+					<div ng-if="lc.error" class="alert alert-danger" role="alert">
+						<strong>Warning!</strong> {{lc.error}}
+					</div>
+				</form>
+			</div>
+		</div>
+
+			<div class="col-md-12">
+				<center>
+					<small>
+						<strong><br /><br /><br />Brigham Young University Technology Transfer Office</strong><br />
+						3760 Harold B. Lee Library | Provo, UT 84602<br />
+						Phone: (801) 422-6266 | Fax: (801) 422-0463 | Email: byutto@byu.edu
+					</small>
+				</center>
+			</div>
+		</div>
+		</div>
+	</div>
+</div>

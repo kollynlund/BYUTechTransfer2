@@ -11,7 +11,12 @@ function setupRoutes($stateProvider) {
 			url: '/resources',
 			templateUrl: 'templates/resources.html',
 			controller: 'GenericController as rc'
-		});
+		})
+		// .state('reset', {
+		// 	url: '/reset',
+		// 	templateUrl: 'templates/reset.html',
+		// 	controller: 'GenericController as rc'
+		// });
 }
 
 function GenericController($state) {
@@ -20,6 +25,17 @@ function GenericController($state) {
 	gc.goTo = function(pagename) {
 		$state.go(pagename);
 	};
+
+	gc.logout = function() {
+		localStorage.removeItem('byuttosession')
+		gc.goTo("login")
+	}
+
+	gc.isLoggedIn = function() {
+		if(localStorage.byuttosession)
+			return true
+		return false
+	}
 }
 
 app

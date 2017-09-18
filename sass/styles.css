@@ -1143,6 +1143,10 @@ input[type="submit"], .ip-contact {
   @media (max-width: 622px) {
     #login form {
       width: 100%; } }
+#login .forgot-password {
+  text-align: center; }
+  #login .forgot-password a:hover {
+    cursor: pointer; }
 #login .form-group {
   width: 50%;
   margin: auto; }

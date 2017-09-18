@@ -17,6 +17,22 @@ function Auth($http, $q) {
 				return response.data.success;
 			})
 			.catch(function(err){return false;});
+		},
+		Reset: function() {
+			return $http({
+				method: 'GET',
+				url: 'http://tech-transfer.byu.edu/' + 'api/resetPassword.php'
+			})
+		},
+		ChangePassword: function(token, password) {
+			return $http({
+				method: 'POST',
+				url: 'http://tech-transfer.byu.edu/' + 'api/updatePassword.php',
+				data: {
+					token: token,
+					password, password
+				}
+			})
 		}
 	};
 }

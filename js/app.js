@@ -1,7 +1,8 @@
 var mainModule = angular.module('techtransfer',['ui.router','ui.bootstrap','ngAnimate','ngStorage']);
 
 (function(app) {
-	function DefaultRoute($urlRouterProvider) { $urlRouterProvider.otherwise('/login'); }
+	function DefaultRoute($urlRouterProvider) { $urlRouterProvider.otherwise('/'); }
+	// function DefaultRoute() { return "/home"; }
 
 	function WhitelistVideoSources($sceDelegateProvider) {
 		$sceDelegateProvider.resourceUrlWhitelist([
@@ -18,7 +19,7 @@ var mainModule = angular.module('techtransfer',['ui.router','ui.bootstrap','ngAn
 			$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
 		});
 	}
-	
+
 
 	// APP BOOTSTRAPPING
 	app

@@ -9,6 +9,12 @@
       width: 100%;
     }
 	}
+	.forgot-password {
+		text-align: center;
+		a:hover {
+			cursor: pointer;
+		}
+	}
 	.form-group {
 		width: 50%;
 		margin: auto;
@@ -22,6 +28,6 @@
     width: 50%;
 		@media (max-width: 622px) {
       width: 80%;
-    }    
+    }
 	}
 }
