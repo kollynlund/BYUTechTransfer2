@@ -2,9 +2,9 @@
 
 function setupRoute($stateProvider) {
 	$stateProvider
-    .state('contact', {
-      url: '/contact/{tech_id}',
-      templateUrl: 'templates/contact.html',
+    .state('maincontact', {
+      url: '/maincontact',
+      templateUrl: 'templates/maincontact.html',
       controller: 'ContactController as cc'
     });
 }
@@ -48,5 +48,5 @@ function ContactController($scope, $state, $stateParams, Emailer) {
 
 app
 .config(setupRoute)
-.controller('ContactController', ContactController);
+.controller('maincontactController', mainContactController);
 })(angular.module('techtransfer'));
