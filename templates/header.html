@@ -11,8 +11,9 @@
 	<ul class="nav-mobile">
 		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('technologies')">Technologies</a></li>
 		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('resources')">Resources</a></li>
-		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('contact')">Contact</a></li>
+		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('maincontact')">Contact</a></li>
 		<li class="hidden mobile-nav-item"><a href="" ng-click="hc.goTo('about')">About</a></li>
+		<li><a href="" ng-show="hc.isLoggedIn()" ng-click="hc.logout()">Logout</a></li>
 	</ul>
 </div>
 <script src="js/menu.js"></script>
