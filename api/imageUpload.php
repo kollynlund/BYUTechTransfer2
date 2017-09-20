@@ -10,8 +10,17 @@ foreach ($_FILES as $fileName => $fileObject) {
 	move_uploaded_file($_FILES[$fileName]["tmp_name"], "uploads/" . $_FILES[$fileName]["name"]);
 
 	// create SQL
-	$techID = preg_replace('/\.[^\.]+$/', '', $_FILES[$fileName]["name"]);
+	//$techID = preg_replace('/\.[^\.]+$/', '', $_FILES[$fileName]["name"]);
+	$techIDArray = [];
+	preg_match('/(.*)\-\-\-\d+\..+$/', $_FILES[$fileName]["name"], $techIDArray);
+	// echo $_FILES[$fileName]["name"];
+	// echo "\n";
+	// echo implode(",",$techIDArray);
+	// echo "\n";
+	$techID = $techIDArray[1];
+
 	$sql = "UPDATE techs SET `Total Photos` = `Total Photos` + 1 WHERE `ID` = '" . $techID . "';";
+	// echo $sql;
 
 	// excecute SQL statement
 	$result = mysqli_query($link,$sql);

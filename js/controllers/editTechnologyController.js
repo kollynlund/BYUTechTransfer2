@@ -24,6 +24,11 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 	etc.new = $stateParams.new;
 	etc.technology = $stateParams.technology || {};
 	etc.technology.selectedCategories = {};
+	etc.photoCount = parseInt(etc.technology['Total Photos']);
+
+	etc.getPhotoRange = function(count) {
+		return new Array(count);
+	}
 
 	if (etc.technology) {
 		etc.technology['Old ID'] = etc.technology.ID;
@@ -44,7 +49,10 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 			etc.technology.Tags.filter(x => x).length
 		) etc.technology.Tags =  etc.technology.Tags.join(' ');
 
-		if (etc.technology['Total Photos']) etc.pictureNumbers = _.range(1, parseInt(etc.technology['Total Photos']) + 1);
+		etc.pictureCount = function() {
+			etc.photoCount = _.range(1, parseInt(etc.technology['Total Photos']) + 1);
+		}
+		//if (etc.technology['Total Photos']) etc.pictureNumbers = _.range(1, parseInt(etc.technology['Total Photos']) + 1);
 	}
 
 	if (!etc.technology || !etc.technology.ID) etc.imageUploadDisabled = true; // Don't allow image uploads until technology has been saved
@@ -142,7 +150,7 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 	};
 
 	$scope.uploadImage = function(elementRef) {
-		var photosSoFar = etc.technology.Photos ? etc.technology.Photos.length + 1 : 1;
+		var photosSoFar = etc.technology['Total Photos'] ? parseInt(etc.technology['Total Photos']) + 1 : 1;
 		var fileObject = elementRef.files[0];
 		var filename = etc.technology.ID+'---'+photosSoFar+'.'+fileObject.type.replace('image/', '');
 		var form = document.getElementById('new-technology-file-upload');
@@ -157,7 +165,12 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 				data: formData,
 				processData: false,
 				contentType: false,
-        success: function(){alert("worked");}
+        success: function(){
+					etc.technology['Total Photos'] = parseInt(etc.technology['Total Photos']) + 1;
+					etc.photoCount = parseInt(etc.technology["Total Photos"]);
+					$scope.$apply();
+					form.reset();
+				}
     });
 	};
 

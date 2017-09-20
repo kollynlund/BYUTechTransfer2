@@ -19,11 +19,20 @@ function setupRoute($stateProvider) {
 
 function TechnologyController($scope, $state, $modal, _, Auth, technologies, technology) {
 	var stc = this;
+	stc.selectedTech = technology;
+	stc.photoCount = parseInt(stc.selectedTech['Total Photos']);
+
+	stc.getPhotoRange = function(count) {
+		return new Array(count);
+	}
 
 	Auth.Auth().then(function(isAuthed){$scope.$applyAsync(function(){stc.isAuthed = isAuthed;});});
-	stc.selectedTech = technology;
 
-	stc.pictureNumbers = _.range(1, parseInt(stc.selectedTech['Total Photos']) + 1);
+	// stc.pictureCount = function() {
+	// 	stc.photoCount = parseInt(_.range(1, parseInt(stc.selectedTech['Total Photos']) + 1));
+	// }
+
+	//stc.pictureNumbers = _.range(1, parseInt(stc.selectedTech['Total Photos']) + 1);
 
 	stc.openDetailModal = function(mediaOrTechId, photoNumber, photoType) {
 		var modalInstance = $modal.open({

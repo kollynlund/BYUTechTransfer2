@@ -51,8 +51,8 @@
 							<img ng-click="open()" class="img" src="https://buttnutz.png" onerror="this.style.display = 'none'">
 						</div>
 					</div> -->
-					<img ng-repeat="i in stc.pictureNumbers" ng-click="stc.openDetailModal(stc.selectedTech.ID, i, 'jpg')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{i}}.jpg" onerror="this.style.display = 'none'">
-					<img ng-repeat="i in stc.pictureNumbers" ng-click="stc.openDetailModal(stc.selectedTech.ID, i, 'png')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{i}}.png" onerror="this.style.display = 'none'">
+					<img ng-repeat="i in stc.getPhotoRange(stc.photoCount) track by $index" ng-click="stc.openDetailModal(stc.selectedTech.ID, $index+1, 'jpeg')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{$index+1}}.jpeg" onerror="this.style.display = 'none'">
+					<img ng-repeat="i in stc.getPhotoRange(stc.photoCount) track by $index" ng-click="stc.openDetailModal(stc.selectedTech.ID, $index+1, 'png')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{$index+1}}.png" onerror="this.style.display = 'none'">
 				</div>
 
 			</div>
