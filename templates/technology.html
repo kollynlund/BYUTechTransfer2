@@ -12,8 +12,8 @@
 				</div>
 				<div class="col-xs-2" style="padding-right: 0px;" ng-click="stc.nextTech(stc.selectedTech.ID)">
 					<i class="fa fa-chevron-right pull-right"></i>
-				</div>	
-			</div>	
+				</div>
+			</div>
 
 <!-- 				<div class="col-sm-12">
 
@@ -38,16 +38,19 @@
 
 
 				<div class="col-sm-4 media">
-					<div ng-repeat="media in ::stc.selectedTech.Videos" ng-click="stc.openDetailModal(media)">
+					<div ng-if="::stc.selectedTech.Videos" fit-vids block-click="true" ng-click="stc.openDetailModal(stc.selectedTech.Videos)">
+						<iframe class="vid" ng-src="{{stc.selectedTech.Videos}}" frameborder="0"></iframe>
+					</div>
+					<!-- <div ng-repeat="media in ::stc.selectedTech.Videos" ng-click="stc.openDetailModal(media)">
 						<div ng-if="media.type === 'video'" fit-vids block-click="true">
 							<iframe class="vid" ng-src="{{media.link}}" frameborder="0"></iframe>
 						</div>
 
-						<!-- <div  ng-if="media.type === 'photo'">
+						<div  ng-if="media.type === 'photo'">
 							<img ng-click="open()" class="img" ng-src="{{media.link}}">
 							<img ng-click="open()" class="img" src="https://buttnutz.png" onerror="this.style.display = 'none'">
-						</div> -->
-					</div>
+						</div>
+					</div> -->
 					<img ng-repeat="i in stc.pictureNumbers" ng-click="stc.openDetailModal(stc.selectedTech.ID, i, 'jpg')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{i}}.jpg" onerror="this.style.display = 'none'">
 					<img ng-repeat="i in stc.pictureNumbers" ng-click="stc.openDetailModal(stc.selectedTech.ID, i, 'png')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{i}}.png" onerror="this.style.display = 'none'">
 				</div>
@@ -63,7 +66,7 @@
 </div>
 
 
-<!-- 
+<!--
         <div class="modal-body">
         	<img ng-click="open()" class="img" ng-src="{{media.link}}">
         </div>

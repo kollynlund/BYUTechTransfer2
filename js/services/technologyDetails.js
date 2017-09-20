@@ -8,10 +8,10 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 
 	function getMediaType(link) {
 		if (!link) return undefined;
-		return link.indexOf('youtube.com') > -1 ? 
-		'video' : 
-			link.indexOf('vimeo.com') > -1 ? 
-			'video' : link ? 
+		return link.indexOf('youtube.com') > -1 ?
+		'video' :
+			link.indexOf('vimeo.com') > -1 ?
+			'video' : link ?
 				'photo' : undefined;
 	}
 	var parseTechnology = function(tech_object) {
@@ -34,7 +34,8 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 			'PI': tech_object.PI,
 			'Short Description': tech_object['Short Description'],
 			'Tags': tech_object.Tags ? tech_object.Tags.split(' ') : [],
-			'Videos': tech_object.Videos ? tech_object.Videos.split(',').map(function(videoLink){ return { link: videoLink, type: 'video' };}) : [],
+			//'Videos': tech_object.Video ? tech_object.Video.split(',').map(function(videoLink){ return { link: videoLink, type: 'video' };}) : [],
+			'Videos': tech_object.Videos ? tech_object.Videos : "",
 			'Total Photos': tech_object['Total Photos'],
 		};
 	};
@@ -57,8 +58,8 @@ function TechnologyDetails($http, $sce, $sessionStorage, _) {
 	};
 	var getSingleTechnology = function(tech_id) {
 		return (
-			techData.technologies ? 
-			techData.technologies.filter(function(item){return item.ID === tech_id})[0] : 
+			techData.technologies ?
+			techData.technologies.filter(function(item){return item.ID === tech_id})[0] :
 			getAllTechnologyData().then(function(the_techData) {
 				return the_techData.technologies.filter(function(item){return item.ID === tech_id})[0]
 			})

@@ -29,7 +29,9 @@ if ($method == 'POST') {
   $sql .= '"'. str_replace('"', '\"', $input["Links"]) .'",';
   $sql .= '"'. str_replace('"', '\"', $input["Short Description"]) .'",';
   $sql .= '"'. str_replace('"', '\"', $input["Long Description"]) .'",';
-  $sql .= '"'. str_replace('"', '\"', $input["About the Market"]) .'"';
+  $sql .= '"'. str_replace('"', '\"', $input["About the Market"]) .'",';
+  $sql .= '"'. str_replace('"', '\"', $input["Videos"]) .'",';
+  $sql .= '""';
   $sql .= ");";
 
   // // excecute SQL statement
@@ -38,6 +40,7 @@ if ($method == 'POST') {
   // // die if SQL statement failed
   if (!$result) {
     http_response_code(404);
+    echo "[" . $sql . "]";
     die(mysqli_error());
   }
 

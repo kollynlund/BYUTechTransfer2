@@ -109,9 +109,9 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 		delete newTechnologyObject.selectedCategories;
 		newTechnologyObject.Categories = Object.keys(categories).join(',');
 
-		var links = angular.copy(newTechnologyObject.Links || []);
-		delete newTechnologyObject.Links;
-		newTechnologyObject.Links = links.join(',');
+		// var links = angular.copy(newTechnologyObject.Links || []);
+		// delete newTechnologyObject.Links;
+		// newTechnologyObject.Links = links.join(',');
 
 		var media = angular.copy(newTechnologyObject.Media || []);
 		delete newTechnologyObject.Media;

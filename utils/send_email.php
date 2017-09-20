@@ -1,4 +1,4 @@
-<?php 
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try{
         include_once('phpmailer/class.phpmailer.php');
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $mail->Host = 'localhost';
         $mail->SetFrom($email, $name);
-        $address = "tanner.bindrup@gmail.com";
+        $address = "techtransfer@byu.edu";
         $mail->AddAddress($address, "Technology request");
         $mail->Subject    = "Request about technology ". $technology_id . "by" . $name;
         $mail->MsgHTML($email_body);

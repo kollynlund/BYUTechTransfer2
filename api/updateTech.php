@@ -29,7 +29,8 @@ if ($method == 'POST') {
   $sql .= '`Links` = "'. str_replace('"', '\"', $input["Links"]) .'",';
   $sql .= '`Short Description` = "'. str_replace('"', '\"', $input["Short Description"]) .'",';
   $sql .= '`Long Description` = "'. str_replace('"', '\"', $input["Long Description"]) .'",';
-  $sql .= '`About the Market` = "'. str_replace('"', '\"', $input["About the Market"]) .'"';
+  $sql .= '`About the Market` = "'. str_replace('"', '\"', $input["About the Market"]) .'",';
+  $sql .= '`Videos` = "'. str_replace('"', '\"', $input["Videos"]) .'"';
   $sql .= " WHERE `ID` = '". $input["Old ID"] ."';";
 
   // // excecute SQL statement
@@ -44,6 +45,8 @@ if ($method == 'POST') {
 
   // close mysql connection
   mysqli_close($link);
+
+  echo '{"success": true}';
 }
 else {
   echo '{"error": "malformed request"}';

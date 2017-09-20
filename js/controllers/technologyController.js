@@ -28,8 +28,11 @@ function TechnologyController($scope, $state, $modal, _, Auth, technologies, tec
 	stc.openDetailModal = function(mediaOrTechId, photoNumber, photoType) {
 		var modalInstance = $modal.open({
 				animation: true,
-				template: mediaOrTechId.type === 'video' ? 
-							'<div fit-vids><iframe class="vid" src="'+mediaOrTechId.link+'" frameborder="0" allowfullscreen></iframe></div>'
+				// template: mediaOrTechId.type === 'video' ?
+				// 			'<div fit-vids><iframe class="vid" src="'+mediaOrTechId.link+'" frameborder="0" allowfullscreen></iframe></div>'
+				// 			: '<div><img class="img" src="http://tech-transfer.byu.edu/api/uploads/'+mediaOrTechId+'---'+photoNumber+'.'+photoType+'"></div>',
+				template: (mediaOrTechId.indexOf("youtube.com") > -1 || mediaOrTechId.indexOf("vimeo.com") > -1) ?
+							'<div fit-vids><iframe class="vid" src="'+mediaOrTechId+'" frameborder="0" allowfullscreen></iframe></div>'
 							: '<div><img class="img" src="http://tech-transfer.byu.edu/api/uploads/'+mediaOrTechId+'---'+photoNumber+'.'+photoType+'"></div>',
 				controller: 'TechnologyPictureModalController as tpmc',
 				size: 'lg'

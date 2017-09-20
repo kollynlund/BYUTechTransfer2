@@ -3,11 +3,6 @@
 		<div class="breadcrumb"><a href="" ng-click="etc.goTo('home')">Home</a> &gt; <a href="" ng-click="etc.goTo('technologies')">Technologies</a> &gt; {{::etc.technology.ID || 'New Technology'}}</div>
 			<div class="row">
 
-				<div ng-if="etc.technologySaved" class="alert alert-success alert-dismissible" role="alert">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" ng-click="etc.technologySaved = false">&times;</span></button>
-					<strong>Technology Saved.</strong> <span>Make edits or <a ng-click="etc.newTechnology()">add another.</a></span>
-				</div>
-
 				<div class="col-xs-12">
 					<h1 class="ip-title">{{etc.new ? 'Add New' : 'Edit'}} Technology</h1>
 				</div>
@@ -101,16 +96,16 @@
 						  </div> -->
 
 							<div class="form-group">
-								<label for="inputLink" class="col-sm-2 control-label">Upload Videos</label>
+								<label for="inputLink" class="col-sm-2 control-label">Upload Video</label>
 								<div class="col-sm-9">
-									<textarea rows="2" type="text" class="form-control" id="inputPassword3" placeholder="Paste Youtube Video URL here" ng-model="etc.technology.Video"></textarea>
-									<p class="help-block">Separate each link with a comma</p>
+									<textarea rows="2" type="text" class="form-control" id="inputPassword3" placeholder="Paste Youtube Video URL here" ng-model="etc.technology.Videos"></textarea>
+									<!-- <p class="help-block">Separate each link with a comma</p> -->
 								</div>
 							</div>
 
 					    <div class="form-group">
 								<label for="inputPhoto" class="col-sm-2 control-label">Upload Photos</label>
-										
+
 						    <div class="col-sm-9">
 						    	<form class="file-upload" ng-repeat="photo in etc.pictureNumbers">
 										<span class="delete" ng-click="etc.openConfirmPhotoDeleteModal('http://tech-transfer.byu.edu/api/uploads/'+etc.technology.ID+'---'+photo)">Delete Photo</span>
@@ -148,6 +143,11 @@
 						    </div>
 						  </div>
 						</div>
+				</div>
+
+				<div ng-if="etc.technologySaved" class="alert alert-success alert-dismissible" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" ng-click="etc.technologySaved = false">&times;</span></button>
+					<strong>Technology Saved.</strong> <span>Make edits or <a ng-click="etc.newTechnology()">add another.</a></span>
 				</div>
 
 				<div ng-if="etc.technologyFailedToSave" class="alert alert-danger" role="alert">
