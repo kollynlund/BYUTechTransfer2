@@ -5,10 +5,10 @@
       <div class="form-group">
         <div class="col-sm-12">
           <h2>Are you sure you want to delete?</h2>
-          <img class="img" ng-src="{{cpdmc.photoUrl}}.jpg" onerror="this.style.display = 'none'">
-          <img class="img" ng-src="{{cpdmc.photoUrl}}.png" onerror="this.style.display = 'none'">
+          <img class="img" ng-src="{{cpdmc.photoUrl}}.jpeg?lastModified={{cpdmc.getRandomString()}}" onerror="this.style.display = 'none'">
+          <img class="img" ng-src="{{cpdmc.photoUrl}}.png?lastModified={{cpdmc.getRandomString()}}" onerror="this.style.display = 'none'">
           <button type="submit" class="btn btn-default" ng-click="cpdmc.close()">Cancel</button>
-          <button type="submit" class="btn btn-danger" ng-click="cpdmc.close()">Delete</button>
+          <button type="submit" class="btn btn-danger" ng-click="cpdmc.deleteImage()">Delete</button>
         </div>
       </div>
     </form>

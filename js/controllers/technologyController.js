@@ -26,6 +26,10 @@ function TechnologyController($scope, $state, $modal, _, Auth, technologies, tec
 		return new Array(count);
 	}
 
+	stc.getRandomString = function() {
+		return parseInt(Date.now()/1000);
+	}
+
 	Auth.Auth().then(function(isAuthed){$scope.$applyAsync(function(){stc.isAuthed = isAuthed;});});
 
 	// stc.pictureCount = function() {
@@ -35,6 +39,7 @@ function TechnologyController($scope, $state, $modal, _, Auth, technologies, tec
 	//stc.pictureNumbers = _.range(1, parseInt(stc.selectedTech['Total Photos']) + 1);
 
 	stc.openDetailModal = function(mediaOrTechId, photoNumber, photoType) {
+		photoType = photoType + "?lastModified=" + this.getRandomString();
 		var modalInstance = $modal.open({
 				animation: true,
 				// template: mediaOrTechId.type === 'video' ?

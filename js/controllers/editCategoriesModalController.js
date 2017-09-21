@@ -1,6 +1,6 @@
 (function(app) {
 
-function EditCategoriesModalController($modalInstance, Categories) {
+function EditCategoriesModalController($modalInstance, Categories, $scope) {
 	var ecmc = this;
 
 	Categories.getCategories()
@@ -11,8 +11,11 @@ function EditCategoriesModalController($modalInstance, Categories) {
 	ecmc.addCategoryEntry = function() { ecmc.categories.push(''); };
 
 	ecmc.save = function() {
-		Categories.updateCategories(ecmc.categories);
-		ecmc.close();
+		Categories.updateCategories(ecmc.categories)
+		.then(function() {
+			$scope.$apply();
+			ecmc.close();
+		});
 	};
 
 	ecmc.close = function () { $modalInstance.close(); };

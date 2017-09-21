@@ -76,21 +76,29 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 	};
 
 	etc.openConfirmDeleteModal = function() {
+		console.log("before Modal: " + etc.technology.ID)
 		$modal.open({
 				animation: true,
 				templateUrl: 'templates/confirmDeleteModal.html',
 				controller: 'ConfirmDeleteModalController as cdmc',
-				size: 'lg'
+				size: 'lg',
+				resolve: {techId: function() {return etc.technology.ID; } }
 		});
 	};
 
 	etc.openConfirmPhotoDeleteModal = function(photoUrl) {
 		$modal.open({
-				animation: true,
-				templateUrl: 'templates/confirmPhotoDeleteModal.html',
-				controller: 'ConfirmPhotoDeleteModalController as cpdmc',
-				resolve: { photoUrl: function(){ return photoUrl; } },
-				size: 'lg',
+			animation: true,
+			templateUrl: 'templates/confirmPhotoDeleteModal.html',
+			controller: 'ConfirmPhotoDeleteModalController as cpdmc',
+			resolve: { photoUrl: function(){ return photoUrl; } },
+			size: 'lg'
+		})
+		.result.then(function() {
+			setTimeout(function() {
+				etc.photoCount = etc.photoCount - 1;
+				$scope.$apply();
+			},2000)
 		});
 	};
 
@@ -120,6 +128,8 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 		// var links = angular.copy(newTechnologyObject.Links || []);
 		// delete newTechnologyObject.Links;
 		// newTechnologyObject.Links = links.join(',');
+		if(Array.isArray(newTechnologyObject.Links))
+			newTechnologyObject.Links = newTechnologyObject.Links.join(",");
 
 		var media = angular.copy(newTechnologyObject.Media || []);
 		delete newTechnologyObject.Media;
@@ -175,6 +185,9 @@ function EditTechnologyController(Auth, $scope, $state, $stateParams, $modal, _,
 	};
 
 
+	etc.getRandomString = function() {
+		return parseInt(Date.now()/1000);
+	}
 
 
 	function getCategories() {

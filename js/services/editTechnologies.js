@@ -18,10 +18,16 @@ function EditTechnologies($http, $sce, $sessionStorage, _, $q) {
 			console.log('my measles eat dogsnot.', result);
 		});
 	};
-	
+
+	var deleteTechnology = function(id) {
+		return $http.post('http://tech-transfer.byu.edu/api/deleteTech.php', {id:id})
+		.then(function(result) {return result.data;})
+	}
+
 	return {
 		'addTechnology': addTechnology,
 		'editTechnology': editTechnology,
+		'deleteTechnology': deleteTechnology
 	};
 }
 

@@ -51,8 +51,8 @@
 							<img ng-click="open()" class="img" src="https://buttnutz.png" onerror="this.style.display = 'none'">
 						</div>
 					</div> -->
-					<img ng-repeat="i in stc.getPhotoRange(stc.photoCount) track by $index" ng-click="stc.openDetailModal(stc.selectedTech.ID, $index+1, 'jpeg')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{$index+1}}.jpeg" onerror="this.style.display = 'none'">
-					<img ng-repeat="i in stc.getPhotoRange(stc.photoCount) track by $index" ng-click="stc.openDetailModal(stc.selectedTech.ID, $index+1, 'png')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{$index+1}}.png" onerror="this.style.display = 'none'">
+					<img ng-repeat="i in stc.getPhotoRange(stc.photoCount) track by $index" ng-click="stc.openDetailModal(stc.selectedTech.ID, $index+1, 'jpeg')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{$index+1}}.jpeg?lastModified={{stc.getRandomString()}}" onerror="this.style.display = 'none'">
+					<img ng-repeat="i in stc.getPhotoRange(stc.photoCount) track by $index" ng-click="stc.openDetailModal(stc.selectedTech.ID, $index+1, 'png')" class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{::stc.selectedTech.ID}}---{{$index+1}}.png?lastModified={{stc.getRandomString()}}" onerror="this.style.display = 'none'">
 				</div>
 
 			</div>

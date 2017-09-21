@@ -1,6 +1,7 @@
 <?php
 // cors
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
 
 
 function imageMatchesIdAndNumber($techId, $deleteNumber) {
@@ -47,11 +48,15 @@ if ($method == 'POST') {
 
 
   // connect to the mysql database
-  $link = mysqli_connect('http://tech-transfer.byu.edu', 'techtrb5_php', 'BlueHost3760#', 'techtrb5_techs');
+
+  // $link = mysqli_connect('localhost', 'techtrb5_php', 'BlueHost3760#', 'techtrb5_techs');
+  // mysqli_set_charset($link,'utf8');
+  //
+  $link = mysqli_connect('tech-transfer.byu.edu', 'techtrb5_php', 'BlueHost3760#', 'techtrb5_techs');
   mysqli_set_charset($link,'utf8');
 
   // create SQL
-  $sql = "UPDATE techs SET `Total Photos` = `Total Photos` - 1 WHERE `ID` = ". $input["ID"] .";";
+  $sql = "UPDATE techs SET `Total Photos` = `Total Photos` - 1 WHERE `ID` = '". $input["ID"] ."';";
 
   // excecute SQL statement
   $result = mysqli_query($link,$sql);
@@ -59,6 +64,7 @@ if ($method == 'POST') {
   // die if SQL statement failed
   if (!$result) {
     http_response_code(404);
+    echo $sql;
     die(mysqli_error());
   }
 

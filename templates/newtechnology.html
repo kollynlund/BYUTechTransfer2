@@ -110,8 +110,8 @@
 						    	<form class="file-upload" ng-repeat="photo in etc.getPhotoRange(etc.photoCount) track by $index">
 										<span class="delete" ng-click="etc.openConfirmPhotoDeleteModal('http://tech-transfer.byu.edu/api/uploads/'+etc.technology.ID+'---'+($index+1))">Delete Photo</span>
 										<!-- <img class="preview" ng-src="{{'http://techtransfer.byu.edu/'+photo}}"> -->
-										<img class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{etc.technology.ID}}---{{$index+1}}.jpeg" onerror="this.style.display = 'none'">
-										<img class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{etc.technology.ID}}---{{$index+1}}.png" onerror="this.style.display = 'none'">
+										<img class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{etc.technology.ID}}---{{$index+1}}.jpeg?lastModified={{etc.getRandomString()}}" >
+										<img class="img" ng-src="http://tech-transfer.byu.edu/api/uploads/{{etc.technology.ID}}---{{$index+1}}.png?lastModified={{etc.getRandomString()}}" >
 									</form>
 
 									<form id="new-technology-file-upload" class="file-upload">
