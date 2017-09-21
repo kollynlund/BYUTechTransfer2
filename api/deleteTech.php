@@ -29,7 +29,7 @@ if ($method == 'POST') {
   mysqli_set_charset($link,'utf8');
 
   // // create SQL
-  $sql = "DELETE FROM techs WHERE `ID` = \"". $input["id"] ."test\";";
+  $sql = "DELETE FROM techs WHERE `ID` = \"". $input["id"] ."\";";
 
   // // excecute SQL statement
   $result = mysqli_query($link,$sql);
